@@ -1,0 +1,94 @@
+body {
+	background: url("../images/blurredSmartHuman.jpg");
+	background-size:cover;
+	background-repeat:no-repeat;
+	background-color:#ff5a5f;
+	color:#fff;
+	font-family: 'Circular Std Book', 'Helvetica Neue UltraLight','Open Sans', sans-serif;
+	font-size:25px;
+	font-weight:100px;
+	text-align: center;
+	margin:0px;
+}
+
+h1 {
+	text-transform:uppercase;
+	color:#ff5a5f;
+	font-weight:lighter; /*couldn't figure out why 100px wasn't working*/
+}
+
+p, ul {
+	line-height:35px;
+}
+
+ul {
+	text-align: left;
+	padding-left:25%;
+	padding-right:25%;
+}
+
+#slogan {
+	font-style:italic;
+	text-transform:capitalize;
+	font-size:1.65em;
+	color:#ff5a5f;
+}
+
+.header {
+	text-align: left;
+	/*padding: 5px;*/
+	background: RGBa(255,255,255,.5);
+	width:100%;
+	position:inherit; /*why not fixed?*/
+	margin:0px auto;
+	color:#ff5a5f;
+}
+
+.header:table {
+	text-align:left;
+	padding-left:100px;
+}
+
+button {
+	color:#fff;
+	background-color:#ff5a5f;
+	border:none;
+	border-radius: 5px;
+	box-shadow: 0 2px #B22D31;
+	font-size:1em;
+	margin:10px;
+}
+
+button:hover{
+	background-color:#B22D31;
+}
+
+button:active {
+	color:#ff5a5f;
+	background-color:#fff;
+	border: 2px #ff5a5f;
+	box-shadow: 0 2px #ff5a5f;
+}
+
+.classyBox {
+	/*height: 100px;*/
+	width:650px;
+	margin:auto;
+	border: 2px solid;
+	border-color:#ff5a5f;
+	text-align:center;
+	/*padding: 10px;*/
+	/*background: RGBa(255,255,255,.5);*/
+	/*font-size: 25px;*/
+	/*margin:auto;*/
+	/*position:fixed;*/
+	margin-top:5%;
+	/*left:45%*/;
+}
+
+.headerLogo {
+	padding-left:25px;
+	text-transform:uppercase;
+	vertical-align:middle; /*why isn't this working?*/
+}
+
