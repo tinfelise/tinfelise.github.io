@@ -10,7 +10,25 @@ body {
 	text-align: center;
 	margin:0px;
 }
-
+header {
+	text-align: left;
+	/*padding: 5px;*/
+	background: RGBa(255,255,255,.5);
+	width:100%;
+	position:inherit; /*why not fixed?*/
+	margin:0px auto;
+	color:#ff5a5f;
+}
+header p {
+	float:right;
+}
+header p.headerLogo {
+	float:left;
+}
+section {
+	margin:5% auto;
+	width:650px;
+}
 h1 {
 	text-transform:uppercase;
 	color:#ff5a5f;
@@ -26,29 +44,6 @@ ul {
 	padding-left:25%;
 	padding-right:25%;
 }
-
-#slogan {
-	font-style:italic;
-	text-transform:capitalize;
-	font-size:1.65em;
-	color:#ff5a5f;
-}
-
-.header {
-	text-align: left;
-	/*padding: 5px;*/
-	background: RGBa(255,255,255,.5);
-	width:100%;
-	position:inherit; /*why not fixed?*/
-	margin:0px auto;
-	color:#ff5a5f;
-}
-
-.header:table {
-	text-align:left;
-	padding-left:100px;
-}
-
 button {
 	color:#fff;
 	background-color:#ff5a5f;
@@ -69,20 +64,22 @@ button:active {
 	border: 2px #ff5a5f;
 	box-shadow: 0 2px #ff5a5f;
 }
-
+.slogan {
+	font-style:italic;
+	text-transform:capitalize;
+	font-size:1.65em;
+	color:#ff5a5f;
+}
 .classyBox {
 	/*height: 100px;*/
-	width:650px;
 	margin:auto;
-	border: 2px solid;
-	border-color:#ff5a5f;
+	border: 2px solid #ff5a5f;
 	text-align:center;
 	/*padding: 10px;*/
 	/*background: RGBa(255,255,255,.5);*/
 	/*font-size: 25px;*/
 	/*margin:auto;*/
 	/*position:fixed;*/
-	margin-top:5%;
 	/*left:45%*/;
 }
 
@@ -92,3 +89,10 @@ button:active {
 	vertical-align:middle; /*why isn't this working?*/
 }
 
+.clearfix:after { 
+   content: "."; 
+   visibility: hidden; 
+   display: block; 
+   height: 0; 
+   clear: both;
+}
