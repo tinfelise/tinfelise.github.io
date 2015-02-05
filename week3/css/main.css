@@ -3,7 +3,7 @@ body {
 	background-size:cover;
 	background-repeat:no-repeat;
 	background-color:#ff5a5f;
-	color:#fff;
+	color:rgb(86, 90, 92);
 	font-family: 'Circular Std Book', 'Helvetica Neue UltraLight','Open Sans', sans-serif;
 	font-size:24px;
 	font-weight:100px;
@@ -11,18 +11,23 @@ body {
 }
 header {
 	text-align: left;
-	/*padding: 5px;*/
 	background: RGBa(255,255,255,.5);
 	width:100%;
 	position:inherit; /*why not fixed?*/
-	margin:0px auto;
 	color:#ff5a5f;
 }
 header p {
 	float:right;
+	margin:10px auto;
+	padding:0px 10px;
 }
 header p.headerLogo {
 	float:left;
+	position: relative;
+	/*top: 50%;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);*/
 }
 section {
 	margin:5% auto;
@@ -32,6 +37,7 @@ h1 {
 	text-transform:uppercase;
 	color:#ff5a5f;
 	font-weight:lighter; /*couldn't figure out why 100px wasn't working*/
+	font-size:2em;
 }
 
 p, ul {
@@ -51,7 +57,6 @@ button {
 	border-radius: 5px;
 	box-shadow: 0 2px #B22D31;
 	font-size:1em;
-	margin:10px;
 	text-align:center;
 }
 
@@ -73,10 +78,10 @@ button:active {
 	color:#ff5a5f;
 }
 .classyBox {
-	/*height: 100px;*/
 	margin:auto;
 	border: 2px solid #ff5a5f;
 	text-align:center;
+	/*height: 100px;*/
 	/*padding: 10px;*/
 	/*background: RGBa(255,255,255,.5);*/
 	/*font-size: 25px;*/
@@ -86,9 +91,9 @@ button:active {
 }
 
 .headerLogo {
-	padding-left:25px;
 	text-transform:uppercase;
-	vertical-align:middle; /*why isn't this working?*/
+	/*padding-left:25px;*/
+	/*vertical-align:middle;*/ /*why isn't this working?*/
 }
 
 .clearfix:after { 
