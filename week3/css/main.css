@@ -4,8 +4,9 @@ body {
 	background-repeat:no-repeat;
 	background-color:#ff5a5f;
 	color:rgb(86, 90, 92);
-	font-family: 'Circular Std Book', 'Helvetica Neue UltraLight','Open Sans', sans-serif;
-	font-size:24px;
+	/*font-family: 'Comfortaa','Open Sans', sans-serif;*/
+	font-family: 'Raleway', sans-serif;
+	font-size:34px;
 	font-weight:100px;
 	margin:0px;
 }
@@ -15,41 +16,49 @@ header {
 	width:100%;
 	position:inherit; /*why not fixed?*/
 	color:#ff5a5f;
+	font-size:.66em;
 }
 header p {
 	float:right;
 	margin:10px auto;
-	padding:0px 10px;
+	padding:0px 20px;
 }
-header p.headerLogo {
+header p.logo {
 	float:left;
 	position: relative;
 	/*top: 50%;
 	-webkit-transform: translateY(-50%);
 	-ms-transform: translateY(-50%);
 	transform: translateY(-50%);*/
+	/*padding-left:25px;*/
+	/*vertical-align:middle;*/ /*why isn't this working?*/
 }
-section {
-	margin:5% auto;
-	width:650px;
+main {
+	/*margin:5% auto;*/
+	width:960px;
 }
 h1 {
 	text-transform:uppercase;
 	color:#ff5a5f;
 	font-weight:lighter; /*couldn't figure out why 100px wasn't working*/
 	font-size:2em;
+	line-height:2em;
+	margin:0px;
 }
 
 p, ul {
-	line-height:35px;
+	line-height:1.25em;
 }
 
 ul {
 	list-style-type:none;
+	padding-left:1.5em;
 }
+
 li span {
-	font-size:16px;
+	font-size:.66em;
 }
+
 button {
 	color:#fff;
 	background-color:#ff5a5f;
@@ -70,16 +79,28 @@ button:active {
 	border: 2px #ff5a5f;
 	box-shadow: 0 2px #ff5a5f;
 }
+
+strong {
+	font-family:'Pacifico',cursive;
+	font-weight:lighter;
+}
 .slogan {
 	font-style:italic;
 	text-align:center;
 	text-transform:capitalize;
-	font-size:1.65em;
+	font-size:1.5em;
 	color:#ff5a5f;
+	margin:0px;
 }
+
+.splash {
+	margin:5% auto;
+}
+
 .classyBox {
 	margin:auto;
 	border: 2px solid #ff5a5f;
+	padding:1.5em;
 	text-align:center;
 	/*height: 100px;*/
 	/*padding: 10px;*/
@@ -90,11 +111,6 @@ button:active {
 	/*left:45%*/;
 }
 
-.headerLogo {
-	text-transform:uppercase;
-	/*padding-left:25px;*/
-	/*vertical-align:middle;*/ /*why isn't this working?*/
-}
 
 .clearfix:after { 
    content: "."; 
@@ -102,4 +118,18 @@ button:active {
    display: block; 
    height: 0; 
    clear: both;
+}
+
+.logo {
+	/*font-family:'Lobster',cursive;*/
+	font-family:'Pacifico', cursive;
+	font-weight:lighter;
+	font-size:1.5em;
+	text-transform:none;
+}
+
+.valueProps {
+	padding: 0em 1.5em;
+	margin-top: 1em;
+	font-size:1em;
 }
