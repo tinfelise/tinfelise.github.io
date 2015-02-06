@@ -71,7 +71,9 @@ a.button {
 	border-radius: 5px;
 	box-shadow: 0 2px #B22D31;
 	font-size:1em;
+	padding:.5em;
 	text-align:center;
+	text-decoration:none;
 }
 
 a.button:hover{
