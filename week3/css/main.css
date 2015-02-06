@@ -33,6 +33,11 @@ header p.logo {
 	/*padding-left:25px;*/
 	/*vertical-align:middle;*/ /*why isn't this working?*/
 }
+.verticalAlign {
+	position:relative;
+	top:50%;
+	transform:translateY(-50%);
+}
 main {
 	/*margin:5% auto;*/
 	width:960px;
