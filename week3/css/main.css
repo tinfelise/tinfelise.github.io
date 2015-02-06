@@ -64,7 +64,7 @@ li span {
 	font-size:.66em;
 }
 
-button {
+a.button {
 	color:#fff;
 	background-color:#ff5a5f;
 	border:none;
@@ -74,11 +74,11 @@ button {
 	text-align:center;
 }
 
-button:hover{
+a.button:hover{
 	background-color:#B22D31;
 }
 
-button:active {
+a.button:active {
 	color:#ff5a5f;
 	background-color:#fff;
 	border: 2px #ff5a5f;
