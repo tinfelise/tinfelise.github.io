@@ -3,10 +3,11 @@ body {
 	background-size:cover;
 	background-repeat:no-repeat;
 	background-color:#ff5a5f;
-	color:rgb(86, 90, 92);
+	/*color:rgb(86, 90, 92);*/
+	color:#fff;
 	/*font-family: 'Comfortaa','Open Sans', sans-serif;*/
 	font-family: 'Raleway', sans-serif;
-	font-size:34px;
+	font-size:30px;
 	font-weight:100px;
 	margin:0px;
 }
@@ -26,12 +27,6 @@ header p {
 header p.logo {
 	float:left;
 	position: relative;
-	/*top: 50%;
-	-webkit-transform: translateY(-50%);
-	-ms-transform: translateY(-50%);
-	transform: translateY(-50%);*/
-	/*padding-left:25px;*/
-	/*vertical-align:middle;*/ /*why isn't this working?*/
 }
 .verticalAlign {
 	position:relative;
@@ -45,7 +40,7 @@ main {
 h1 {
 	text-transform:uppercase;
 	color:#ff5a5f;
-	font-weight:lighter; /*couldn't figure out why 100px wasn't working*/
+	font-weight:lighter;
 	font-size:2em;
 	line-height:2em;
 	margin:0px;
@@ -107,15 +102,8 @@ strong {
 .classyBox {
 	margin:auto;
 	border: 2px solid #ff5a5f;
-	padding:1.5em;
+	padding:1.3em 1.5em 1.5em 1.5em;
 	text-align:center;
-	/*height: 100px;*/
-	/*padding: 10px;*/
-	/*background: RGBa(255,255,255,.5);*/
-	/*font-size: 25px;*/
-	/*margin:auto;*/
-	/*position:fixed;*/
-	/*left:45%*/;
 }
 
 
@@ -139,4 +127,9 @@ strong {
 	padding: 0em 1.5em;
 	margin-top: 1em;
 	font-size:1em;
+}
+
+.darken {
+	background-color:rgba(0,0,0,.2);
+	height:100vh;
 }
