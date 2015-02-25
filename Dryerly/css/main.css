@@ -46,7 +46,7 @@ header a.logo {
 	text-decoration:none;
 	color:#ff5a5f;
 	/*margin: .5em;*/
-	display: inline-block; /*Added to center logo in the bar, but need to play with margin/ padding, as the font size is different than the nav items.*/
+	float:left;
 	margin-top: .1em;
 }
 
