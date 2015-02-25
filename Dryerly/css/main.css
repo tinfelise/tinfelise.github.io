@@ -11,13 +11,16 @@ html {
 }
 
 body {
-	background-color:#ff5a5f;
+	background: url("../images/blurredSmartHuman.jpg");
+	background-size:cover;
+	background-repeat:no-repeat;
+	/*background-color:#ff5a5f;*/
 	/*color:rgb(86, 90, 92);*/
 	color:#fff;
 	/*font-family: 'Comfortaa','Open Sans', sans-serif;*/
 	font-family: 'Raleway', sans-serif;
 	font-size:30px;
-	font-weight:100px;
+	font-weight:200;
 	margin:0px;
 }
 header {
@@ -27,6 +30,7 @@ header {
 	position:inherit; /*why not fixed?*/
 	color:#ff5a5f;
 	font-size:.75em;
+	padding:0 .5em;
 }
 header p {
 	float:right;
@@ -37,10 +41,52 @@ header p.logo {
 	float:left;
 	position: relative;
 }
+
+header a.logo {
+	text-decoration:none;
+	color:#ff5a5f;
+	/*margin: .5em;*/
+	display: inline-block; /*Added to center logo in the bar, but need to play with margin/ padding, as the font size is different than the nav items.*/
+	margin-top: .1em;
+}
+
+nav a.button {
+	box-shadow: 0px 3px #B22D31;
+	border:none;
+	margin: .5em 0;
+}
+nav a.button:hover {
+	box-shadow: 0px 3px #B22D31;
+}
+nav a.button:active {
+	box-shadow: 0px 3px #ff5a5f;
+}
+
 .verticalAlign {
 	position:relative;
 	top:50%;
 	transform:translateY(25%);
+}
+
+nav {
+	float:right;
+}
+
+nav a {
+	float: left;
+	margin: .5em;
+	padding: .5em 0;
+	text-align: center;
+	color: #ff5a5f;
+	text-decoration: none;
+	font-weight:400;
+	/*box-shadow:0px 3px rgba(255,255,255,0);*/
+	/*width:2em;*/
+}
+
+nav a:hover {
+	box-shadow:0px 3px #ff5a5f;
+	/*font-weight:700;*/
 }
 
 main {
@@ -87,48 +133,60 @@ li span {
 	font-size:.66em;
 }
 
+strong {
+	font-family:'Pacifico',cursive;
+	font-weight:normal;
+}
+
+footer {
+	font-size:.5em;
+	text-align:center;
+	clear:both;
+	padding: 1.5em 0;
+	background-color:rgba(255,255,255,.5);
+	color:#ff5a5f;
+}
+
 .button {
 	color:#fff;
 	background-color:#ff5a5f;
-	border:none;
+	border:4px solid rgba(0,0,0,0);
+	box-shadow: 0px 4px #B22D31;
+	/*border:none;*/
 	/*border-radius: 5px;*/
-	box-shadow: 0 2px #B22D31;
-	font-size:1em;
+	/*box-shadow: 0 2px #B22D31;*/
+	/*font-size:1em;*/
 	padding:.5em;
 	text-align:center;
 	text-decoration:none;
 }
 
-a.button:hover{
+.button:hover{
 	background-color:#B22D31;
 }
 
-a.button:active {
+.button:active {
 	color:#ff5a5f;
 	background-color:#fff;
-	border: 2px #ff5a5f;
-	box-shadow: 0 2px #ff5a5f;
+	box-shadow: 0px 4px #ff5a5f;
+	/*border: 2px #ff5a5f;*/
 }
 
-strong {
-	font-family:'Pacifico',cursive;
-	font-weight:lighter;
-}
 .slogan {
-	font-style:italic;
+	/*font-style:italic;*/
+	/*text-transform:capitalize;*/
 	text-align:center;
-	text-transform:capitalize;
-	font-size:2.3em;
+	font-size:1.5em;
 	color:#ff5a5f;
 	margin:0px;
 }
 
-.splash {
+/*.splash {
 	background: url("../images/blurredSmartHuman.jpg");
 	background-size:cover;
 	background-repeat:no-repeat;
 	height:100vh;
-}
+}*/
 
 .darken {
 	background-color:rgba(0,0,0,.2);
@@ -154,22 +212,29 @@ strong {
 .logo {
 	/*font-family:'Lobster',cursive;*/
 	font-family:'Pacifico', cursive;
-	font-weight:lighter;
+	font-weight:200;
 	font-size:1.5em;
 	text-transform:none;
 }
 
+.learnMore { /*Why the FUCK isn't this being applied?!?*/
+	background-color:rgba(255,90,95,.8); /*Any way to do this with a hex code?*/
+}
+
 #valueProps {
-	padding: 0em 1.5em;
-	margin-top: 4em;
+	padding: 4em 1.5em;
 	font-size:1em;
-	height:50vh;
+	/*height:50vh;*/
+}
+
+#valueProps h2 {
+	margin-bottom:1em;
 }
 
 #valueProps h3 {
 	width: 25%;
 	float: left;
-  	padding: 1.5em .5em;
+  	padding: .5em;
   	border:2px solid rgba(255,255,255,0);
 }
 
@@ -188,23 +253,27 @@ strong {
 .learnButton {
 	text-decoration: none;
 	color: #fff;
-	border-bottom: 4px solid #fff;
+	border:4px solid rgba(0,0,0,0);
+	box-shadow: 0px 4px #fff;
 	padding: .5em;
 	background-color: rgba(255,255,255,.5);
 }
 
 .learnButton:hover {
 	background-color: rgba(255,255,255,.8);
+	color:#ff5a5f;
+	box-shadow-color:#ff5a5f;
 }
 
 .learnButton:active {
 	background-color: rgba(255,255,255,0);
 	border:4px solid #fff;
+	box-shadow:none;
 }
 
 .buy {
-	box-shadow: none;
-	border-bottom: 4px solid #B22D31;
+	/*box-shadow: none;*/
+	box-shadow: 0px 4px #B22D31;
 }
 
 .buyNow {
@@ -212,7 +281,7 @@ strong {
 	color:#fff;
 	text-decoration: none;
 	float:right;
-	margin: 1.2em 1em;
+	margin: 1em;
 	padding:.5em;
 }
 

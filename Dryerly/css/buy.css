@@ -1,0 +1,106 @@
+* {
+	/*border:1px solid #fff;*/
+}
+
+html {
+	box-sizing: border-box;
+}
+
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+body {
+	background-color:#f5f5f5;
+	background-image:none;
+	color:#ff5a5f;
+}
+
+header, footer {
+	background-color:#fff;
+}
+
+.gallery, .details {
+	width:40%;
+	margin:2.5%;
+}
+.gallery {
+	float: left;
+}
+
+.hero {
+	width:100%%;
+}
+
+.thumbnails {
+	/*width:50%;*/
+}
+
+.thumbnail {
+	float:left;
+	border-radius:50%;
+	border: 2px solid #f5f5f5;
+	width:4em; /*Why wasn't 20% working here for the second image?*/
+	overflow:hidden;
+	margin:.5em;
+	display:inline-block;
+}
+
+.thumbnail .overlay {
+	position:relative;
+	top:0px;
+	width:4em;
+	height:4em;
+	background:#ff5a5f;
+	opacity:0;
+}
+
+.thumbnail:hover .overlay{
+	opacity:.3;
+}
+
+div.thumbnail {
+	background-size: cover; /*Why is this being overridden?*/
+	height: 4em;
+}
+
+/*.thumbnail img {
+	width:100%;
+}*/
+.selected {
+	border: 2px solid #ff5a5f;
+}
+
+.details {
+	clear: both;
+	display: inline-block;
+}
+
+.details form {
+	margin:1em 0;
+}
+
+#price {
+	font-weight:600;
+}
+
+button.button {
+	font-family: 'Raleway', sans-serif; /*Why do I need this?*/
+	font-size:1em;
+	float:right;
+}
+
+#quantity {
+	padding:5px;
+	width:35px;
+	border: 1px solid #555;
+}
+
+/*input[type="radio"]:checked {
+    visibility:hidden;
+}*/
+
+
+
+
+
