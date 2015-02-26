@@ -218,14 +218,13 @@ footer {
 	text-transform:none;
 }
 
-.learnMore { /*Why the FUCK isn't this being applied?!?*/
-	background-color:rgba(255,90,95,.8); /*Any way to do this with a hex code?*/
+.learnMore {
+	background-color:rgba(255,90,95,.8);
 }
 
 #valueProps {
 	padding: 4em 1.5em;
 	font-size:1em;
-	/*height:50vh;*/
 }
 
 #valueProps h2 {
@@ -273,7 +272,6 @@ footer {
 }
 
 .buy {
-	/*box-shadow: none;*/
 	box-shadow: 0px 4px #B22D31;
 }
 
