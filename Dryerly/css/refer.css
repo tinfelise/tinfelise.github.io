@@ -1,21 +1,6 @@
-body {
-	background-color:#f5f5f5;
-	background-image:none;
-	color:#ff5a5f;
-}
+/*Tell friends referall page styles*/
 
-header, footer {
-	background-color:#fff;
-}
-
-footer {
-	position:absolute;
-	bottom:0;
-	left:0;
-	right:0;
-}
-
-h1 {
+.regular h1 {
 	line-height:1.5em;
 }
 

@@ -33,15 +33,21 @@
 .flaticon-instagram19:before {
 	content: "\e005";
 }
-.flaticon-like3:before {
+.flaticon-left222:before {
 	content: "\e006";
 }
-.flaticon-mail8:before {
+.flaticon-like3:before {
 	content: "\e007";
 }
-.flaticon-social71:before {
+.flaticon-mail8:before {
 	content: "\e008";
 }
-.flaticon-twitter1:before {
+.flaticon-share21:before {
 	content: "\e009";
+}
+.flaticon-social71:before {
+	content: "\e00a";
+}
+.flaticon-twitter1:before {
+	content: "\e00b";
 }

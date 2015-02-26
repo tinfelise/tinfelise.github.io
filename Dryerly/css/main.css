@@ -5,49 +5,71 @@
 html {
 	box-sizing: border-box;
 }
-
 *, *:before, *:after {
 	box-sizing: inherit;
 }
 
 body {
-	background: url("../images/blurredSmartHuman.jpg");
-	background-size:cover;
-	background-repeat:no-repeat;
 	/*background-color:#ff5a5f;*/
 	/*color:rgb(86, 90, 92);*/
-	color:#fff;
 	/*font-family: 'Comfortaa','Open Sans', sans-serif;*/
 	font-family: 'Raleway', sans-serif;
 	font-size:30px;
 	font-weight:200;
 	margin:0px;
 }
+body.homepage {
+	background: url("../images/blurredSmartHuman.jpg");
+	background-size:cover;
+	background-repeat:no-repeat;
+	color:#fff;
+}
+body.regular {
+	background-color:#f5f5f5;
+	background-image:none;
+	color:#ff5a5f;
+}
+
 header {
 	text-align: left;
-	background: RGBa(255,255,255,.5);
 	width:100%;
-	position:inherit; /*why not fixed?*/
+	/*position:inherit;*/
 	color:#ff5a5f;
 	font-size:.75em;
 	padding:0 .5em;
 }
-header p {
-	float:right;
-	margin:10px auto;
-	padding: .25em .5em;
+.homepage header, .homepage footer {
+	background-color: rgba(255,255,255,.5);
 }
-header p.logo {
-	float:left;
-	position: relative;
+
+.regular header, .regular footer {
+	background-color:#fff;
 }
 
 header a.logo {
 	text-decoration:none;
 	color:#ff5a5f;
-	/*margin: .5em;*/
 	float:left;
 	margin-top: .1em;
+}
+
+nav {
+	float:right;
+}
+nav a {
+	float: left;
+	margin: .5em;
+	padding: .5em 0;
+	text-align: center;
+	color: #ff5a5f;
+	text-decoration: none;
+	font-weight:400;
+	/*box-shadow:0px 3px rgba(255,255,255,0);*/
+	/*width:2em;*/
+}
+nav a:hover {
+	box-shadow:0px 3px #ff5a5f;
+	/*font-weight:700;*/
 }
 
 nav a.button {
@@ -60,33 +82,6 @@ nav a.button:hover {
 }
 nav a.button:active {
 	box-shadow: 0px 3px #ff5a5f;
-}
-
-.verticalAlign {
-	position:relative;
-	top:50%;
-	transform:translateY(25%);
-}
-
-nav {
-	float:right;
-}
-
-nav a {
-	float: left;
-	margin: .5em;
-	padding: .5em 0;
-	text-align: center;
-	color: #ff5a5f;
-	text-decoration: none;
-	font-weight:400;
-	/*box-shadow:0px 3px rgba(255,255,255,0);*/
-	/*width:2em;*/
-}
-
-nav a:hover {
-	box-shadow:0px 3px #ff5a5f;
-	/*font-weight:700;*/
 }
 
 main {
@@ -144,8 +139,13 @@ footer {
 	text-align:center;
 	clear:both;
 	padding: 1.5em 0;
-	background-color:rgba(255,255,255,.5);
 	color:#ff5a5f;
+}
+footer.shortPage {
+	position:absolute;
+	bottom:0;
+	left:0;
+	right:0;
 }
 
 .button {
@@ -171,6 +171,9 @@ footer {
 	background-color:#fff;
 	box-shadow: 0px 4px #ff5a5f;
 	/*border: 2px #ff5a5f;*/
+}
+.right {
+	float:right;
 }
 
 .slogan {
@@ -199,15 +202,6 @@ footer {
 	border: 2px solid #ff5a5f;
 	padding:1.3em 1.5em 1.5em 1.5em;
 	text-align:center;
-}
-
-
-.clearfix:after { 
-   content: "."; 
-   visibility: hidden; 
-   display: block; 
-   height: 0; 
-   clear: both;
 }
 
 .logo {
@@ -292,6 +286,159 @@ footer {
 	background-color:#fff;
 	color:#ff5a5f;
 }
+
+.link {
+	text-decoration:none;
+	color:#ff5a5f;
+}
+
+
+/*Tell friends referall page styles*/
+
+.regular h1 {
+	line-height:1.5em;
+}
+
+.sharingIcons {
+	width:100%;
+}
+.sharingIcons a {
+	text-decoration:none;
+	color:#ff5a5f;
+	font-size:4em;
+	float:left;
+	margin: 7.5%;
+}
+.sharingIcons a:hover { /*Any creative ideas of what to do here?*/
+	/*background-color:rgba(0,0,0,.1);
+	border-radius:5%;*/
+	text-shadow: .1em .1em #fff;
+}
+.sharingIcons a:active {
+	color:#fff;
+	text-shadow: -2px 0 #ff5a5f, 0 2px #ff5a5f, 2px 0 #ff5a5f, 0 -2px #ff5a5f;
+}
+
+/*Product page /buy css*/
+
+.gallery, .details {
+	width:40%;
+	margin:2.5%;
+}
+.gallery {
+	float: left;
+}
+
+.hero {
+	width:100%%;
+}
+
+.thumbnails {
+	/*width:50%;*/
+}
+
+.thumbnail {
+	float:left;
+	border-radius:50%;
+	border: 2px solid #fff;
+	width:4em;
+	overflow:hidden;
+	margin:.5em;
+	display:inline-block;
+}
+.thumbnail .overlay {
+	position:relative;
+	top:0px;
+	width:4em;
+	height:4em;
+	background:#ff5a5f;
+	opacity:0;
+}
+.thumbnail:hover .overlay{
+	opacity:.3;
+}
+div.thumbnail {
+	background-size: cover;
+	height: 4em;
+}
+
+.selected {
+	border: 2px solid #ff5a5f;
+}
+
+.details {
+	clear: both;
+	display: inline-block;
+}
+
+.details form {
+	margin:1em 0;
+}
+
+#price {
+	font-weight:600;
+}
+
+button.button {
+	font-family: 'Raleway', sans-serif; /*Why do I need this?*/
+	font-size:1em;
+	float:right;
+}
+
+#quantity {
+	padding:5px;
+	width:35px;
+	border: 1px solid #555;
+}
+
+/*input[type="radio"]:checked {
+    visibility:hidden;
+}*/
+
+/*Just kidding, it's a fake styling*/
+
+.justBack a{
+	font-size:2em;
+	line-height:1.5em;
+
+}
+.justBack a:hover {
+	/*border-bottom:4px solid #000;*/
+}
+.justBack a:active {
+	/*color:#fff;
+	text-shadow: -2px 0 #ff5a5f, 0 2px #ff5a5f, 2px 0 #ff5a5f, 0 -2px #ff5a5f;*/
+}
+
+.kidding h1 {
+	padding:0 3%;
+}
+
+/*.kidding {
+	font-size:1.5em;
+	padding:0 11%;
+}*/
+.kidding a {
+	font-size:2em;
+	float:right;
+	margin:1em 0;
+}
+
+/*Other useful styling tricks*/
+
+.verticalAlign {
+	position:relative;
+	top:50%;
+	transform:translateY(25%);
+}
+.clearfix:after { 
+   content: "."; 
+   visibility: hidden; 
+   display: block; 
+   height: 0; 
+   clear: both;
+}
+
 
 
 
