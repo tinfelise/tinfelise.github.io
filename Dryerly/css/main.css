@@ -20,6 +20,7 @@ body {
 }
 body.homepage {
 	background: url("../images/blurredSmartHuman.jpg");
+	background-attachment: fixed;
 	background-size:cover;
 	background-repeat:no-repeat;
 	color:#fff;
