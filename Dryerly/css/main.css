@@ -464,6 +464,7 @@ button.button {
 	}
 	.classybox {
 		margin:10%;
+		border: 5px solid #fff;
 	}
 	h1 {
 		font-size:2em;
