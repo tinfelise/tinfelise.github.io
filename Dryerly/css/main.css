@@ -459,9 +459,6 @@ button.button {
 
 
 @media only screen and (min-width: 1111px) and (max-width: 1220px) {
-	main {
-		width:90%;
-	}
 	.classybox {
 		margin:10%;
 		border: 5px solid #fff;
@@ -477,11 +474,9 @@ button.button {
 	}
 }
 @media only screen and (min-width:891px) and (max-width: 1110px) {
-	main {
-		width:90%;
-	}
-	header {
-		font-size:.65em;
+	.classybox {
+		margin:10%;
+		border: 5px solid #fff;
 	}
 	.classybox {
 		margin:auto;
