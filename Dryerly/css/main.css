@@ -1,6 +1,6 @@
 * {
 	/*border:1px solid #fff;*/
-	transition: 1s;
+	/*transition: 1s;*/
 }
 
 html {
@@ -103,8 +103,8 @@ h1 {
 	line-height:2em;
 }
 h2 {
-	font-size: 1.5em;
-	line-height: 1.5em;
+	font-size: 1.6em;
+	line-height: 1.6em;
 }
 
 h3 {
@@ -220,10 +220,11 @@ footer.shortPage {
 
 .learnMore {
 	background-color:rgba(255,90,95,.8);
+	padding: 0 1.5em;
 }
 
 #valueProps {
-	padding: 4em 1.5em;
+	padding: 4em 0;
 	font-size:1em;
 }
 
@@ -285,7 +286,7 @@ footer.shortPage {
 	color:#fff;
 	text-decoration: none;
 	float:right;
-	margin: 1em;
+	margin: 1em 0;
 	padding:.5em;
 }
 
@@ -457,52 +458,90 @@ button.button {
    clear: both;
 }
 
-
-@media only screen and (min-width: 1111px) and (max-width: 1220px) {
-	.classybox {
-		margin:10%;
-		border: 5px solid #fff;
-	}
-	h1 {
-		font-size:2em;
-	}
-	.slogan {
-		font-size:1.05em;
-	}
-	.cta {
-		font-size:1.5em;
-	}
-}
-@media only screen and (min-width:891px) and (max-width: 1110px) {
-	.classybox {
-		margin:10%;
-		border: 5px solid #fff;
-	}
-	.classybox {
-		margin:auto;
-	}
-	h1 {
-		font-size:2em;
-	}
-	.slogan {
-		font-size:1.05em;
-	}
-	.cta {
-		font-size:1.5em;
-	}
-	h2 {
-		font-size:1.3em;
-		line-height:1.3em;
-	}
-	h3 {
-		font-size:.65em;
+@media only screen and (min-width: 1221px) and (max-width: 1377px) {
+	body {
+		font-size: 28px;
 	}
 }
 
-
-
-
-
+@media only screen and (min-width: 1056px) and (max-width: 1220px) {
+	body {
+		font-size:22px;
+	}
+	.classyBox {
+		margin:10%;
+	}
+}
+@media only screen and (min-width:937px) and (max-width: 1055px) {
+	body {
+		font-size:22px;
+	}
+	.classyBox {
+		margin: 10% 5%;
+	}
+}
+@media only screen and (min-width:841px) and (max-width: 936px) {
+	body {
+		font-size:22px;
+	}
+	.classyBox {
+		margin: 10% auto;
+		border: none;
+		padding:none;
+	}
+}
+@media only screen and (min-width:786px) and (max-width: 840px) {
+	body {
+		font-size:22px;
+	}
+	.classyBox {
+		margin: 10% auto;
+		border: none;
+		padding:0 15%;
+	}
+}
+@media only screen and (min-width:786px) and (max-width: 840px) {
+	body {
+		font-size:22px;
+	}
+	.classyBox {
+		margin: 10% auto;
+		border: none;
+		padding:0 16%;
+	}
+	.classyBox h1 {
+		line-height:1.5em;
+		margin-bottom:1em;
+	}
+	#valueProps h3 {
+		width:50%d;
+	}
+}
+@media only screen and (min-width:0px) and (max-width: 785px) {
+	body {
+		font-size:22px;
+	}
+	.classyBox {
+		margin: 10% auto;
+		border: none;
+		padding:0 16%;
+	}
+	.classyBox h1 {
+		line-height:1.5em;
+		margin-bottom:1em;
+	}
+	#valueProps h3 {
+		width:50%d;
+	}
+	.buy {
+		position: fixed;
+  		width: 100%;
+  		bottom: 0;
+  		left: 0;
+  		box-shadow: none;
+  		opacity:.8;
+	}
+}
 
 
 
