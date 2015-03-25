@@ -4,6 +4,7 @@
 	<title>Dryerly | Stop being gross.</title>
 	<link rel="shortcut icon" href="http://faviconist.com/icons/6542cab52d5b3cacbc226c2bf7c38bff/favicon.ico" />
 	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<!-- <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'> -->
 	<!-- <link href='http://fonts.googleapis.com/css?family=Comfortaa:400,300,700' rel='stylesheet' type='text/css'> -->
 	<link href='http://fonts.googleapis.com/css?family=Raleway:700,400,200' rel='stylesheet' type='text/css'>
@@ -19,11 +20,27 @@
 					<a href="mailto:tinfelise@gmail.com?Subject=Holla%20back">Holla at us</a>
 					<a href="./buy.html" class="button">Get one</a>
 				</nav>
+				<div class="mobile-nav">
+					<div class="menu-btn" id="menu-btn">
+						<div></div>
+						<span></span>
+						<span></span>
+						<span></span>
+					</div>
+					<div class="responsive-menu">
+						<ul>
+							<li><a href='#valueProps'>Learn more</a></li>
+							<li><a href='./refer.html'>Tell friends</a></li>
+							<li><a href="mailto:tinfelise@gmail.com?Subject=Holla%20back">Holla at us</a></li>
+							<li><a href="./buy.html">Get one</a></li>
+						</ul>
+					</div>
+				</div>
 			</header>
 			<main>
 				<section class="classyBox">
 					<h1>Introducing <strong class="logo">Dryerly</strong></h1>
-					<p class="slogan">Get dry. Stay clean. Keep warm. <em>Stop being gross</em>.</p>
+					<p class="slogan">Get&nbsp;dry. Stay&nbsp;clean. Keep&nbsp;warm. <em>Stop&nbsp;being&nbsp;gross</em>.</p>
 					<div class="cta"><a href="#valueProps" class="learnButton">Learn more</a><a href="./buy.html" class="button buy">Get one</a></div>
 				</section>
 			</main>
@@ -39,5 +56,19 @@
 		<a href="./buy.html" class="cta buyNow">Now get one</a>
 	</div>
 	<footer>A wishful product by Tyler Infelise</footer>
+	<script type="text/javascript">
+		jQuery(function($){
+	     	     $( '.menu-btn' ).click(function(){
+	     	     $('.responsive-menu').toggleClass('expand')
+	     	     $('.menu-btn span').toggleClass('open')
+	     	     $('main').toggleClass('blur')
+	     	     })
+	    	
+	    	 $( '.close-btn' ).click(function(){
+	    		$('.responsive-menu').removeClass('expand')
+	    		$('.menu-btn').removeClass('btn-none')
+	    	})
+	  	})
+	 </script>
 </body>
 </html>

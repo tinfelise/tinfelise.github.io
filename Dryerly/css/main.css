@@ -30,6 +30,7 @@ body.regular {
 	background-color:#f5f5f5;
 	background-image:none;
 	color:#ff5a5f;
+	min-height:100vh;
 }
 
 header {
@@ -458,6 +459,88 @@ button.button {
    clear: both;
 }
 
+
+/*********************
+Hamburger menu styling
+*********************/
+
+
+/*nav {
+	display:none;
+}*/
+.mobile-nav {
+	display:none;
+	/*float:right;*/
+	position:absolute;
+	left:25%;
+	width:75%;
+}
+.menu-btn {
+	float:right;
+	margin-right: 1em;
+}
+.menu-btn div {
+	position: absolute;
+	left: 100%;
+	top: 64%;
+	padding-right: 8px;
+	margin-top: -0.50em;
+	line-height: 1.2;
+	font-size: 18px;
+	font-weight: 200;
+	vertical-align: middle;
+	z-index: 99;
+}
+
+.menu-btn span {
+	display: block;
+	width: 10px;
+	height: 10px;
+	border-radius:50%;
+	margin: 4px 4px;
+	background: #ff5a5f;
+	z-index: 99;
+}
+
+.responsive-menu {
+	display: none;
+	clear:both;
+	background-color: rgba(255,255,255,.5);
+}
+
+.responsive-menu li {
+	text-align:right;
+	padding-right:1em;
+}
+
+.responsive-menu a {
+	color: #ff5a5f;
+	text-decoration: none;
+	font-weight:400;
+	font-size:3em;
+	line-height: 2em;
+}
+
+.expand {
+	display: block !important; 
+}
+.open {
+	float:left;
+}
+.blur {
+	filter:blur(3px);
+	-webkit-filter:blur(3px);
+}
+
+
+
+/************
+Media Queries
+*************/
+
+
+
+
 @media only screen and (min-width: 1221px) and (max-width: 1377px) {
 	body {
 		font-size: 28px;
@@ -480,7 +563,7 @@ button.button {
 		margin: 10% 5%;
 	}
 }
-@media only screen and (min-width:841px) and (max-width: 936px) {
+@media only screen and (min-width:891px) and (max-width: 936px) {
 	body {
 		font-size:22px;
 	}
@@ -490,17 +573,7 @@ button.button {
 		padding:none;
 	}
 }
-@media only screen and (min-width:786px) and (max-width: 840px) {
-	body {
-		font-size:22px;
-	}
-	.classyBox {
-		margin: 10% auto;
-		border: none;
-		padding:0 15%;
-	}
-}
-@media only screen and (min-width:786px) and (max-width: 840px) {
+@media only screen and (min-width:790px) and (max-width: 890px) {
 	body {
 		font-size:22px;
 	}
@@ -513,35 +586,238 @@ button.button {
 		line-height:1.5em;
 		margin-bottom:1em;
 	}
+	.slogan {
+		text-align:left;
+	}
 	#valueProps h3 {
-		width:50%d;
+		width:50%;
+		min-height: 100px;
 	}
 }
-@media only screen and (min-width:0px) and (max-width: 785px) {
+@media only screen and (min-width:568px) and (max-width: 789px) {
 	body {
 		font-size:22px;
 	}
 	.classyBox {
 		margin: 10% auto;
 		border: none;
-		padding:0 16%;
+		/*padding:0 16%;*/
+		padding:0;
 	}
 	.classyBox h1 {
 		line-height:1.5em;
-		margin-bottom:1em;
+		margin:.5em;
+	}
+	.slogan {
+		text-align:left;
+		padding:0 4em;
 	}
 	#valueProps h3 {
-		width:50%d;
+		width:50%;
+		min-height: 100px;
+	}
+	.cta a {
+		margin:0;
+		float:left;
+		width:50%;
+		position:absolute;
+		bottom:0;
 	}
 	.buy {
-		position: fixed;
+		/*position: fixed;
   		width: 100%;
   		bottom: 0;
-  		left: 0;
+  		left: 0;*/
+  		/*display:block;*/
   		box-shadow: none;
   		opacity:.8;
 	}
+	.learnButton {
+		display:block;
+		box-shadow:none;
+	}
+	.buyNow {
+		float:none;
+		display:block;
+		clear:both;
+	}
 }
-
-
-
+@media only screen and (min-width:468px) and (max-width: 567px) {
+	body {
+		font-size:18px;
+	}
+	nav {
+		display:none;
+	}
+	.mobile-nav {
+		display:block;
+	}
+	.classyBox {
+		margin: 10% auto;
+		border: none;
+		/*padding:0 16%;*/
+		padding:3em 0;
+	}
+	.classyBox h1 {
+		line-height:1.5em;
+		margin:.5em;
+	}
+	.slogan {
+		text-align:left;
+		padding:0 4em;
+	}
+	#valueProps h3 {
+		width:100%;
+		min-height: 100px;
+		font-size:1em;
+	}
+	.cta a {
+		margin:0;
+		float:left;
+		width:50%;
+		position:absolute;
+		bottom:0;
+	}
+	.buy {
+		/*position: fixed;
+  		width: 100%;
+  		bottom: 0;
+  		left: 0;*/
+  		/*display:block;*/
+  		box-shadow: none;
+  		opacity:.8;
+	}
+	.learnButton {
+		display:block;
+		box-shadow:none;
+	}
+	.buyNow {
+		float:none;
+		display:block;
+		clear:both;
+	}
+	.sharingIcons {
+		position:fixed;
+		bottom:0;
+	}
+	.sharingIcons a {
+		background-color: #ff5a5f;
+		color: #fff;
+		margin:0;
+		width: 25%;
+		text-align: center;
+		border: 2px solid #fff;
+	}
+}
+@media only screen and (min-width:0px) and (max-width: 467px) {
+	body {
+		font-size:16px;
+	}
+	nav {
+		display:none;
+	}
+	.mobile-nav {
+		display:block;
+	}
+	.classyBox {
+		margin: 10% auto;
+		border: none;
+		/*padding:0 16%;*/
+		padding:3em 0;
+	}
+	.classyBox h1 {
+		line-height:1.5em;
+		margin:.5em;
+	}
+	.slogan {
+		text-align:left;
+		padding:0 4em;
+	}
+	#valueProps h3 {
+		width:100%;
+		min-height: 100px;
+		font-size:1em;
+	}
+	.cta a {
+		margin:0;
+		float:left;
+		width:50%;
+		position:absolute;
+		bottom:0;
+		font-size:.9em;
+	}
+	.buy {
+		/*position: fixed;
+  		width: 100%;
+  		bottom: 0;
+  		left: 0;*/
+  		/*display:block;*/
+  		box-shadow: none;
+  		opacity:.8;
+	}
+	.learnButton {
+		display:block;
+		box-shadow:none;
+	}
+	.buyNow {
+		float:none;
+		display:block;
+		clear:both;
+	}
+	.regular footer {
+		display:none;
+	}
+	.sharingIcons {
+		position:fixed;
+		bottom:0;
+	}
+	.sharingIcons a {
+		background-color: #ff5a5f;
+		color: #fff;
+		margin:0;
+		width: 25%;
+		text-align: center;
+		padding:.25em 0;
+		/*border: 2px solid #B22D31;*/
+	}
+	.kidding a {
+		float:none;
+		display:block;
+		margin: 2em auto 0;
+		padding: 0 2.5em;
+	}
+	.kidding a>span {
+		display: block;
+		border-radius: 50%;
+		color: #fff;
+		background-color: #ff5a5f;
+		box-shadow: 0px 3px #B22D31;
+		text-align: center;
+		position: fixed;
+		bottom: 45px;
+		left:40%; /*how else could I do this?*/
+		padding: 1em;
+	}
+	.regular main {
+		margin:0;
+	}
+	.gallery, .details {
+		float:none;
+		width:100%;
+		margin:0;
+	}
+	.details h2, p, form {
+		margin:5%;
+	}
+	.thumbnails {
+		display:none;
+	}
+	.right {
+		float: none;
+		position: fixed;
+		bottom: 0;
+		box-shadow: none;
+		border-bottom: 2px solid #B22D31;
+		width: 100%;
+	}
+}
