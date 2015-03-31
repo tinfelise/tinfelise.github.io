@@ -90,6 +90,7 @@ nav a.button:active {
 main {
 	margin:5% auto;
 	max-width:1200px;
+	min-height:90vh;
 }
 
 h1, h2, h3 {
@@ -472,12 +473,15 @@ Hamburger menu styling
 	display:none;
 	/*float:right;*/
 	position:absolute;
-	left:25%;
-	width:75%;
+	/*left:25%;*/
+	width:100%;
 }
 .menu-btn {
 	float:right;
 	margin-right: 1em;
+	position: absolute;
+	top: 5%;
+	right: 0%;
 }
 .menu-btn div {
 	position: absolute;
@@ -505,7 +509,8 @@ Hamburger menu styling
 .responsive-menu {
 	display: none;
 	clear:both;
-	background-color: rgba(255,255,255,.5);
+	/*background-color: rgba(255,255,255,.5);*/
+	background-color:#fff;
 }
 
 .responsive-menu li {
@@ -530,6 +535,9 @@ Hamburger menu styling
 .blur {
 	filter:blur(3px);
 	-webkit-filter:blur(3px);
+}
+.redHeader {
+	color: #ff5a5f;
 }
 
 
@@ -652,6 +660,17 @@ Media Queries
 	.mobile-nav {
 		display:block;
 	}
+	header a.logo {
+		font-size:2em;
+		padding:.25em;
+		margin-top:0;
+	}
+	.responsive-menu li:first-child {
+		margin-top: 15%;
+	}
+	.menu-btn {
+		transform: translateY(18%);
+	}
 	.classyBox {
 		margin: 10% auto;
 		border: none;
@@ -708,7 +727,11 @@ Media Queries
 		text-align: center;
 		border: 2px solid #fff;
 	}
+	footer {
+		font-size:.75em;
+	}
 }
+
 @media only screen and (min-width:0px) and (max-width: 467px) {
 	body {
 		font-size:16px;
@@ -718,6 +741,17 @@ Media Queries
 	}
 	.mobile-nav {
 		display:block;
+	}
+	header a.logo {
+		font-size:2em;
+		padding:.25em;
+		margin-top:0;
+	}
+	.responsive-menu li:first-child {
+		margin-top: 15%;
+	}
+	.menu-btn {
+		transform: translateY(11%);
 	}
 	.classyBox {
 		margin: 10% auto;
@@ -745,6 +779,7 @@ Media Queries
 		position:absolute;
 		bottom:0;
 		font-size:.9em;
+		padding:.5em 0;
 	}
 	.buy {
 		/*position: fixed;
@@ -759,6 +794,7 @@ Media Queries
 		display:block;
 		box-shadow:none;
 	}
+
 	.buyNow {
 		float:none;
 		display:block;
@@ -781,12 +817,17 @@ Media Queries
 		/*border: 2px solid #B22D31;*/
 	}
 	.kidding a {
-		float:none;
-		display:block;
+		float: none;
+		display: block;
 		margin: 2em auto 0;
-		padding: 0 2.5em;
+		padding: .25em;
+		position: fixed;
+		bottom: 0;
+		width: 100%;
+		color: #fff;
+		background-color: #ff5a5f;
 	}
-	.kidding a>span {
+	/*.kidding a>span {
 		display: block;
 		border-radius: 50%;
 		color: #fff;
@@ -795,11 +836,15 @@ Media Queries
 		text-align: center;
 		position: fixed;
 		bottom: 45px;
-		left:40%; /*how else could I do this?*/
+		left:40%; how else could I do this?
 		padding: 1em;
-	}
+	}*/
 	.regular main {
 		margin:0;
+	}
+	.regular h1 {
+		padding: 3em 0.5em;
+		font-size: 2.5em;
 	}
 	.gallery, .details {
 		float:none;
@@ -807,7 +852,7 @@ Media Queries
 		margin:0;
 	}
 	.details h2, p, form {
-		margin:5%;
+		margin:5% !important;
 	}
 	.thumbnails {
 		display:none;
@@ -819,5 +864,8 @@ Media Queries
 		box-shadow: none;
 		border-bottom: 2px solid #B22D31;
 		width: 100%;
+	}
+	footer {
+		font-size:.75em;
 	}
 }
