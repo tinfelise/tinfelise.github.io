@@ -814,18 +814,22 @@ Media Queries
 		width: 25%;
 		text-align: center;
 		padding:.25em 0;
+		font-size:3em;
 		/*border: 2px solid #B22D31;*/
 	}
 	.kidding a {
 		float: none;
 		display: block;
 		margin: 2em auto 0;
-		padding: .25em;
+		padding: .25em 0;
 		position: fixed;
 		bottom: 0;
 		width: 100%;
 		color: #fff;
 		background-color: #ff5a5f;
+		border-bottom: 2px solid #B22D31;
+		font-size: 1.5em;
+		text-align: center;
 	}
 	/*.kidding a>span {
 		display: block;
