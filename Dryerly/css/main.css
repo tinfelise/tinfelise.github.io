@@ -334,7 +334,7 @@ footer.shortPage {
 /*Product page /buy css*/
 
 .gallery, .details {
-	width:40%;
+	width:45%;
 	margin:2.5%;
 }
 .gallery {
@@ -354,6 +354,7 @@ footer.shortPage {
 	border-radius:50%;
 	border: 2px solid #fff;
 	width:4em;
+	height:4em;
 	overflow:hidden;
 	margin:.5em;
 	display:inline-block;
@@ -371,7 +372,7 @@ footer.shortPage {
 }
 div.thumbnail {
 	background-size: cover;
-	height: 4em;
+	/*height: 4em;*/
 }
 
 .selected {
@@ -379,12 +380,18 @@ div.thumbnail {
 }
 
 .details {
-	clear: both;
-	display: inline-block;
+	float: right;
+	/*clear: both;
+	display: inline-block;*/
 }
 
 .details form {
 	margin:1em 0;
+}
+
+form > span {
+	display: block;
+	margin: 1em 0;
 }
 
 #price {
@@ -601,6 +608,10 @@ Media Queries
 		width:50%;
 		min-height: 100px;
 	}
+	.thumbnail {
+		height:3.5em;
+		width: 3.5em;
+	}
 }
 @media only screen and (min-width:568px) and (max-width: 789px) {
 	body {
@@ -649,6 +660,13 @@ Media Queries
 		display:block;
 		clear:both;
 	}
+	.thumbnail {
+		height:2.5em;
+		width: 2.5em;
+	}
+	.details form {
+		font-size:.8em;
+	}
 }
 @media only screen and (min-width:468px) and (max-width: 567px) {
 	body {
@@ -670,6 +688,9 @@ Media Queries
 	}
 	.menu-btn {
 		transform: translateY(18%);
+	}
+	main {
+		margin: 0;
 	}
 	.classyBox {
 		margin: 10% auto;
@@ -726,6 +747,34 @@ Media Queries
 		width: 25%;
 		text-align: center;
 		border: 2px solid #fff;
+	}
+	.gallery, .details {
+		float:none;
+		width:100%;
+		margin:0;
+	}
+	.details h2, p, form {
+		margin:5% !important;
+	}
+	.thumbnails {
+		display:none;
+	}
+	form > span {
+		float:right;
+	}
+	form > span:first-child {
+		float: left;
+	}
+	.right {
+		float: none;
+		position: fixed;
+		bottom: 0;
+		box-shadow: none;
+		border-bottom: 2px solid #B22D31;
+		width: 100%;
+	}
+	.regular footer {
+		display:none;
 	}
 	footer {
 		font-size:.75em;
@@ -800,9 +849,6 @@ Media Queries
 		display:block;
 		clear:both;
 	}
-	.regular footer {
-		display:none;
-	}
 	.sharingIcons {
 		position:fixed;
 		bottom:0;
@@ -862,6 +908,12 @@ Media Queries
 	.thumbnails {
 		display:none;
 	}
+	form > span {
+		float:right;
+	}
+	form > span:first-child {
+		float: left;
+	}
 	.right {
 		float: none;
 		position: fixed;
@@ -869,6 +921,9 @@ Media Queries
 		box-shadow: none;
 		border-bottom: 2px solid #B22D31;
 		width: 100%;
+	}
+	.regular footer {
+		display:none;
 	}
 	footer {
 		font-size:.75em;
