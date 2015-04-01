@@ -514,10 +514,14 @@ Hamburger menu styling
 }
 
 .responsive-menu {
-	display: none;
+	/*display: none;*/
 	clear:both;
 	/*background-color: rgba(255,255,255,.5);*/
 	background-color:#fff;
+	position: absolute;
+	width: 100%;
+	top:-26em;
+	transition: 1s;
 }
 
 .responsive-menu li {
@@ -534,7 +538,8 @@ Hamburger menu styling
 }
 
 .expand {
-	display: block !important; 
+	/*display: block !important; */
+	top:5em;
 }
 .open {
 	float:left;
@@ -683,12 +688,12 @@ Media Queries
 		padding:.25em;
 		margin-top:0;
 	}
-	.responsive-menu li:first-child {
+	/*.responsive-menu li:first-child {
 		margin-top: 15%;
 	}
 	.menu-btn {
 		transform: translateY(18%);
-	}
+	}*/
 	main {
 		margin: 0;
 	}
@@ -796,12 +801,12 @@ Media Queries
 		padding:.25em;
 		margin-top:0;
 	}
-	.responsive-menu li:first-child {
+	/*.responsive-menu li:first-child {
 		margin-top: 15%;
 	}
 	.menu-btn {
 		transform: translateY(11%);
-	}
+	}*/
 	.classyBox {
 		margin: 10% auto;
 		border: none;
