@@ -677,6 +677,10 @@ Media Queries
 	body {
 		font-size:18px;
 	}
+	body.homepage {
+		background-attachment: scroll;
+		background-size: 100vh;
+	}
 	nav {
 		display:none;
 	}
@@ -790,6 +794,10 @@ Media Queries
 	body {
 		font-size:16px;
 	}
+	body.homepage {
+		background-attachment: scroll;
+		background-size: 100vh;
+	}
 	nav {
 		display:none;
 	}
@@ -825,6 +833,7 @@ Media Queries
 		width:100%;
 		min-height: 100px;
 		font-size:1em;
+		padding:0;
 	}
 	.cta a {
 		margin:0;
