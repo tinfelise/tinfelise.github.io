@@ -1,0 +1,14 @@
+Welcome to Beepi, {{first_name}}!
+
+Looking to sell your Beepin' awesome {{model}}, huh?
+
+To confirm your inspection, head on out to your car and locate your Vehicle Identification Number (VIN).
+
+{{url}}
+
+No clue where your VIN is? We'll walk you through it!
+
+Why do we need this? We'll use your VIN to confirm we're inspecting the right car, and to provide a vehicle history report to your future Beepi Buyer.
+
+Sent with love from Beepi, 240 3rd Street, Suite 200, Los Altos, CA 94022
+You're receiving this note because you registered your car for sale on Beepi.com.
