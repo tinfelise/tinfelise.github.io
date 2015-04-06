@@ -579,8 +579,14 @@ Media Queries
 	body {
 		font-size:22px;
 	}
+	main {
+		margin: 5%;
+	}
 	.classyBox {
 		margin: 10% 5%;
+	}
+	.kidding a {
+		margin:1em;
 	}
 }
 @media only screen and (min-width:891px) and (max-width: 936px) {
@@ -902,7 +908,16 @@ Media Queries
 		text-align: center;
 		padding:.25em 0;
 		font-size:3em;
+		transition: all 0.3s ease-in;
 		/*border: 2px solid #B22D31;*/
+	}
+	.sharingIcons a:hover {
+		text-shadow: none;
+		color:#ff5a5f;
+		-webkit-stroke-width: 5.3px;
+		-webkit-stroke-color: #FFFFFF;
+		-webkit-fill-color: #FFFFFF;
+		text-shadow: 1px 0px 40px #fff;
 	}
 	.kidding a {
 		float: none;
