@@ -816,18 +816,45 @@ Media Queries
 		transform: translateY(11%);
 	}*/
 	.classyBox {
-		margin: 10% auto;
+		margin: auto;
 		border: none;
 		/*padding:0 16%;*/
-		padding:3em 0;
+		/*padding:3em 0;*/
+		padding:1em 0;
+		text-align:left;
+		font-size:.9em;
 	}
 	.classyBox h1 {
 		line-height:1.5em;
-		margin:.5em;
+		margin: 0 10%;
+		font-size:3.3em;
+		padding-bottom: .4em;
+	}
+	.classyBox .logo {
+		font-size:2.2em;
+		line-height: 1em;
 	}
 	.slogan {
 		text-align:left;
-		padding:0 4em;
+		/*padding:0 4em;*/
+		padding:0;
+		margin: 0 10%;
+	}
+	.slogan span:first-child {
+		font-size:4.3em;
+		line-height: 1em;
+	}
+	.slogan span:nth-child(2) {
+		font-size:3.1em;
+		line-height: 1em;
+	}
+	.slogan span:nth-child(3) {
+		font-size:2.8em;
+		line-height: 1em;
+	}
+	.slogan em {
+		font-size:1.9em;
+		line-height: 1em;
 	}
 	#valueProps h3 {
 		width:100%;
@@ -916,7 +943,10 @@ Media Queries
 		width:100%;
 		margin:0;
 	}
-	.details h2, p, form {
+	.details h2, p {
+		margin:5%;
+	}
+	.details form {
 		margin:5% !important;
 	}
 	.thumbnails {
