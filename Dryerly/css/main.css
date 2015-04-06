@@ -821,24 +821,24 @@ Media Queries
 		/*padding:0 16%;*/
 		/*padding:3em 0;*/
 		padding:1em 0;
-		text-align:left;
-		font-size:.8em;
+		/*text-align:left;*/
+		font-size:.75em;
 	}
 	.classyBox h1 {
 		line-height:1.5em;
-		margin: 0 10%;
+		/*margin: 0 10%;*/
 		font-size:3.3em;
-		padding-bottom: .4em;
+		padding-bottom: .5em;
 	}
 	.classyBox .logo {
 		font-size:2.2em;
 		line-height: 1em;
 	}
 	.slogan {
-		text-align:left;
+		/*text-align:left;*/
 		/*padding:0 4em;*/
 		padding:0;
-		margin: 0 10%;
+		/*margin: 0 10%;*/
 	}
 	.slogan span:first-child {
 		font-size:4.3em;
