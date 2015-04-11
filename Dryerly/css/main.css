@@ -90,7 +90,10 @@ nav a.button:active {
 main {
 	margin:5% auto;
 	max-width:1200px;
-	min-height:90vh;
+	/*min-height:100vh;*/
+}
+main.referrals {
+	padding:0 5%;
 }
 
 h1, h2, h3 {
@@ -321,7 +324,10 @@ footer.shortPage {
 	color:#ff5a5f;
 	font-size:4em;
 	float:left;
-	margin: 7.5%;
+	/*margin: 7.5%;*/
+	margin-top: 7.5%;
+	width: 25%;
+	text-align: center;
 }
 .sharingIcons a:hover {
 	text-shadow: .1em .1em #fff;
@@ -479,7 +485,7 @@ Hamburger menu styling
 .mobile-nav {
 	display:none;
 	/*float:right;*/
-	position:absolute;
+	/*position:absolute;*/
 	/*left:25%;*/
 	width:100%;
 }
@@ -487,8 +493,9 @@ Hamburger menu styling
 	float:right;
 	margin-right: 1em;
 	position: absolute;
-	top: 5%;
-	right: 0%;
+	top: .5%;
+	right: 2%;
+	z-index: 2;
 }
 .menu-btn div {
 	position: absolute;
@@ -500,7 +507,7 @@ Hamburger menu styling
 	font-size: 18px;
 	font-weight: 200;
 	vertical-align: middle;
-	z-index: 99;
+	/*z-index: 99;*/
 }
 
 .menu-btn span {
@@ -510,7 +517,7 @@ Hamburger menu styling
 	border-radius:50%;
 	margin: 4px 4px;
 	background: #ff5a5f;
-	z-index: 99;
+	/*z-index: 99;*/
 }
 
 .responsive-menu {
@@ -520,12 +527,15 @@ Hamburger menu styling
 	background-color:#fff;
 	position: absolute;
 	width: 100%;
-	top:-26em;
+	top:-30em;
+	left:0;
 	transition: 1s;
 }
-
+.responsive-menu ul {
+	padding-top:3em;
+}
 .responsive-menu li {
-	text-align:right;
+	text-align:center;
 	padding-right:1em;
 }
 
@@ -539,7 +549,11 @@ Hamburger menu styling
 
 .expand {
 	/*display: block !important; */
-	top:5em;
+	top:0;
+}
+.open-btn {
+	top: 2.5%;
+	right: -2%;
 }
 .open {
 	float:left;
@@ -574,19 +588,25 @@ Media Queries
 	.classyBox {
 		margin:10%;
 	}
+	.regular main {
+		padding:0 5%;
+	}
 }
 @media only screen and (min-width:937px) and (max-width: 1055px) {
 	body {
 		font-size:22px;
 	}
-	main {
+	/*main {
 		margin: 5%;
-	}
+	}*/
 	.classyBox {
 		margin: 10% 5%;
 	}
 	.kidding a {
 		margin:1em;
+	}
+	.regular main {
+		padding:0 5%;
 	}
 }
 @media only screen and (min-width:891px) and (max-width: 936px) {
@@ -597,6 +617,9 @@ Media Queries
 		margin: 10% auto;
 		border: none;
 		padding:none;
+	}
+	.regular main {
+		padding:0 5%;
 	}
 }
 @media only screen and (min-width:790px) and (max-width: 890px) {
@@ -611,6 +634,9 @@ Media Queries
 	.classyBox h1 {
 		line-height:1.5em;
 		margin-bottom:1em;
+	}
+	.regular main {
+		padding:0 5%;
 	}
 	.slogan {
 		text-align:left;
@@ -642,9 +668,13 @@ Media Queries
 		text-align:left;
 		padding:0 4em;
 	}
+	.learnMore {
+		/*padding: 0 1em;*/
+	}
 	#valueProps h3 {
 		width:50%;
 		min-height: 100px;
+		padding: 2em;
 	}
 	.cta a {
 		margin:0;
@@ -678,6 +708,16 @@ Media Queries
 	.details form {
 		font-size:.8em;
 	}
+	main.kidding {
+		margin:5%;
+	}
+	.kidding h1 {
+		padding:0;
+	}
+	.referrals h1 {
+		padding:0 5%;
+	}
+
 }
 @media only screen and (min-width:468px) and (max-width: 567px) {
 	body {
@@ -750,6 +790,12 @@ Media Queries
 		float:none;
 		display:block;
 		clear:both;
+	}
+	main.referrals {
+		padding:0;
+	}
+	.referrals h1 {
+		padding:5%;
 	}
 	.sharingIcons {
 		position:fixed;
@@ -895,6 +941,9 @@ Media Queries
 		float:none;
 		display:block;
 		clear:both;
+	}
+	main.referrals {
+		padding:0;
 	}
 	.sharingIcons {
 		position:fixed;

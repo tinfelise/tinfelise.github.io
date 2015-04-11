@@ -73,10 +73,10 @@
 	<div class="learnMore clearfix">
 		<section id="valueProps">
 			<h2>Think that damp towel on your bathroom floor is getting the job done? <strong>It's&nbsp;not.</strong></h2>
-			<h3><strong>Healthy.</strong>Damp towels collect mildew. Dry ones don't.</h3>
-			<h3><strong>Better.</strong>Cleaner towels need to be washed less.</h3>
-			<h3><strong>Simple.</strong>Turns on automatically. Turns off when dry.</h3>
-			<h3><strong>Efficient.</strong>Eco-friendly design uses less electricity.</h3>
+			<h3><strong>Healthy.</strong>Damp towels collect mildew. Dry&nbsp;ones&nbsp;don't.</h3>
+			<h3><strong>Better.</strong>Cleaner towels need to&nbsp;be&nbsp;washed&nbsp;less.</h3>
+			<h3><strong>Simple.</strong>Turns on automatically. Turns&nbsp;off&nbsp;when&nbsp;dry.</h3>
+			<h3><strong>Efficient.</strong>Eco-friendly design uses&nbsp;less&nbsp;electricity.</h3>
 		</section>
 		<a href="./buy.html" class="cta buyNow">Now get one</a>
 	</div>
@@ -85,8 +85,9 @@
 		jQuery(function($){
 	     	     $( '.menu-btn' ).click(function(){
 	     	     $('.responsive-menu').toggleClass('expand')
+	     	     $('.menu-btn').toggleClass('open-btn')
 	     	     $('.menu-btn span').toggleClass('open')
-	     	     $('main').toggleClass('blur')
+	     	     // $('main').toggleClass('blur')
 	     	     })
 	    	
 	    	 $( '.close-btn' ).click(function(){
