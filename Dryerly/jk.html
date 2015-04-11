@@ -24,6 +24,7 @@
 	<meta name="theme-color" content="#ff5a5f">
 	
 	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Raleway:700,400,200'>
 	<link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Pacifico'>
 	<link rel="stylesheet" type="text/css" href="css/flaticon.css"> 
@@ -45,5 +46,20 @@
 		<a class='link' href='./refer.html'>Share to make this a reality <span class='flaticon-share21'></span></a>
 	</main>
 	<footer class='shortPage'>A wishful product by Tyler Infelise</footer>
+	<script type="text/javascript">
+		jQuery(function($){
+	     	     $( '.menu-btn' ).click(function(){
+	     	     $('.responsive-menu').toggleClass('expand')
+	     	     $('.menu-btn').toggleClass('open-btn')
+	     	     $('.menu-btn span').toggleClass('open')
+	     	     // $('main').toggleClass('blur')
+	     	     })
+	    	
+	    	 $( '.close-btn' ).click(function(){
+	    		$('.responsive-menu').removeClass('expand')
+	    		$('.menu-btn').removeClass('btn-none')
+	    	})
+	  	})
+	 </script>
 </body>
 </html>
