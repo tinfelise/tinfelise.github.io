@@ -12,18 +12,21 @@
     		width:650px;
     		text-align:center;
 		}
-		table {
-			background:'';
+		a {
+			text-decoration: none;
+			color: #ff5a5f;
 		}
 		h1 {
 			text-transform:uppercase;
-			font-size:3em;
+			font-size:2.2em;
 			line-height:2em;
 			font-weight:400;
 			margin:0 auto;
 		}
 		img {
 			width:100%;
+		}
+		.headerImg {
 		}
 		.slogan {
 			padding:0;
@@ -50,31 +53,39 @@
 		.cta {
 			font-size:2em;
 			text-align:center;
-			margin:1em 0;
+			margin:1em auto;
 			border:4px solid #ff5a5f;
 			/*color:#fff;*/
 			text-decoration: none;
 			/*float:right;*/
-			padding:.5em;
+			padding:.5em 0;
+			width: 95%;
+		}
+		.unsubscribe {
+		  font-size: .4em;
+		  padding: 8px;
+		  line-height:1.5em;
 		}
 	</style>
 </head>
 <body>
-	<table>
-		<tr>
-			<td></td>
-		</tr>
-	</table>
-	<img alt='product' src='http://tinfelise.github.io/Dryerly/images/DryerlyLaunchEmailHeader.jpg'>
-	<h1>Introducing</h1>
-	<img alt='logo' src='http://tinfelise.github.io/Dryerly/images/dryerlyLogo.png'>
-	<p class="slogan">
-		<span>Get&nbsp;dry.</span> 
-		<span>Stay&nbsp;clean.</span> 
-		<span>Keep&nbsp;warm.</span> 
-		<em>Stop&nbsp;being&nbsp;gross.</em>
-	</p>
+	<a href='http://tinfelise.github.io/Dryerly/' target='_blank'>
+		<img class='headerImg' alt='header' src='http://tinfelise.github.io/Dryerly/images/DryerlyLaunchEmailHeader.jpg'>
+		<h1>Introducing</h1>
+		<img alt='logo' src='http://tinfelise.github.io/Dryerly/images/dryerlyLogo.png'>
+		<p class="slogan">
+			<span>Get&nbsp;dry.</span> 
+			<span>Stay&nbsp;clean.</span> 
+			<span>Keep&nbsp;warm.</span> 
+			<em>Stop&nbsp;being&nbsp;gross.</em>
+		</p>
 	<div class="cta">Get one</div>
+	</a>
+	<div class="unsubscribe">
+        Sent via carrier pigeon from<br/>
+        <strong>Dryerly, A Wishful Product By Tyler Infelise</strong><br>
+        You're receiving this note because you either teach or took a General Assembly class,<br>or you may or may not know Tyler.
+    </div>
 	
 </body>
 </html>
