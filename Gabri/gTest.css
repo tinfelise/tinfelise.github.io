@@ -458,6 +458,15 @@ a.instagramGradient:hover {
    clear: both;
 }
 
+/*@viewport {
+    zoom: 1.0;
+    width: extend-to-zoom;
+}
+@-ms-viewport {
+    width: extend-to-zoom;
+    zoom: 1.0;
+}*/
+
 @media only screen and (max-width: 600px) {
 	body {
 		/*background-color: #fff;*/
