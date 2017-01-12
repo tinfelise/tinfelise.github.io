@@ -332,7 +332,7 @@ main {
 	background-color:#fff;
 	/*border-radius:1em;*/
 	display:none;
-	margin:1em auto;
+	margin:1em auto 2em;
 }
 .display {
 	display:block!important;
@@ -341,7 +341,7 @@ main {
 	font-size: 1em;
 	display: block;
 	width: 100%;
-	margin: 0 auto;
+	margin: 0 auto .5em;
 }
 .gStat, 
 .winner, 
@@ -434,6 +434,20 @@ main {
     padding: .25em;
     text-transform: uppercase;
 }
+footer {
+	position:fixed;
+	bottom:0;
+	width: 100%;
+    padding: .5em 0;
+    background-color:#fff;
+    border-top: 1px solid #9CA299;
+}
+footer span {
+	font-size:.5em;
+	text-align:center;
+	display:block;
+	width:100%;
+}
 .blur {
 	filter:blur(2px);
 }
@@ -443,7 +457,15 @@ main {
 	background: -webkit-linear-gradient(right, #1e80dc, #c61590);
 	background: linear-gradient(270deg, #1e80dc, #c61590);
 	background-size: 300% 300%;
+}
+.gradientBackground {
 	color:#fff;
+}
+.gradientFont {
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	/*background-clip: text;*/
+	/*text-fill-color: transparent;*/
 }
 input.instagramGradient:hover,
 a.instagramGradient:hover {
@@ -496,7 +518,7 @@ a.instagramGradient:hover {
 		border:none;
 	}
 	.makeRoom {
-		margin-top:0;
+		margin-top:0 !important;
 	}
 	.formSection {
 		border-bottom: 1px solid #9CA299;

@@ -135,8 +135,8 @@ function calculate_and_display_answer () {
   if (versions == 2) {
 
     document.getElementById("answer").innerHTML =
-      // "<h2>Gabri says...</h2>" +
-      "<h2>And the winner is...</h2>" +
+      "<h2>Gabri says...</h2>" +
+      // "<h2>And the winner is...</h2>" +
       "<div class='clearfix'><div class='gStat'><strong>" + round_to_precision(g_test_all, 4) + "</strong> <span>G Stat</span></div>" + 
       "<div class='winner'><div class='circle'>" + max[0] + "<span>wins</span></div></div>" + 
       "<div class='confidence'>" +certainty_all + "%<span>confidence</span></div></div>" + disclaimer + 
