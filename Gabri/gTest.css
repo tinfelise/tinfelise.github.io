@@ -64,16 +64,26 @@ header {
 	padding: .5em .5em .25em;
 	border-radius:1em 1em 0 0;
 	background-color:#fff;
+	display:flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+	align-items: baseline;
+}
+header * {
+	/*flex: 0 1 50%;*/
+	flex: 1;
 }
 header span {
 	font-weight:600;
+	margin:auto;
 }
 header a {
-	float:right;
+	/*float:right;*/
+	/*display: block;*/
 	font-size:.5em;
-	display: block;
-    padding-top: 1em;
+    /*padding-top: 1em;*/
 	cursor:help;
+	text-align:right;
 }
 #explaination {}
 form {
@@ -463,10 +473,9 @@ footer span {
 }
 .gradientFont {
 	color:transparent;
+	/*background-clip: text;*/
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
-	/*background-clip: text;*/
-	/*text-fill-color: transparent;*/
 }
 input.instagramGradient:hover,
 a.instagramGradient:hover {
