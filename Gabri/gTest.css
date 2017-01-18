@@ -177,6 +177,9 @@ main {
 	border:none;
 	-webkit-appearance: none;
 	border-right:1px solid #9CA299;
+	border-radius:0;
+	padding:0 0 0 .5em;
+	margin:0;
 }
 .input label {
 	height: 75%;
