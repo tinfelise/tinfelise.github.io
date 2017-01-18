@@ -180,6 +180,7 @@ main {
 	border-radius:0;
 	padding:0 0 0 .5em;
 	margin:0;
+	color: #555;
 }
 .input label {
 	height: 75%;
@@ -419,6 +420,8 @@ main {
     padding: 1em;
     border: 1px solid #9CA299;
     width: 100%;
+    max-height: 100vh;
+	overflow: scroll;
 }
 .visible {
 	top:0vh;
