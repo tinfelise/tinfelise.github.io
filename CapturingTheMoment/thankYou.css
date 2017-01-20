@@ -46,6 +46,7 @@ h1 img {
 	position:absolute;
 	bottom:2em;
 	right:50%;
+	text-transform: uppercase;
 }
 li {
 	height:100%;
