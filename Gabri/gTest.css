@@ -25,11 +25,11 @@ body {
 }
 a {
 	text-decoration:none;
-	cursor:pointer;
 }
 a:hover {
 	color:black;
 }
+a,
 input[type='radio'],
 input[type='radio'] + label,
 input[type='checkbox'],
@@ -38,6 +38,21 @@ input[type='checkbox'] + label {
 }
 input:focus, select:focus, textarea:focus, button:focus {
     outline: none;
+}
+input[type='checkbox'] {
+	display:none;
+}
+input[type='checkbox'] + label:before {
+	content: '\f096';
+	display: inline-block;
+	font: normal normal normal 14px/1 FontAwesome;
+	font-size: inherit;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+input[type='checkbox']:checked + label:before {
+	content: '\f14a';
 }
 #container,
 #answer {
@@ -54,6 +69,7 @@ input:focus, select:focus, textarea:focus, button:focus {
 	/*border:1px solid #9CA299;*/
 	/*border-bottom:none;*/
 	margin:25vh auto 0;
+	overflow: hidden;
 }
 header, 
 form {
@@ -333,12 +349,12 @@ main {
 	width:100%;
 }
 .cta:hover {
-	background-color: blue;
+	/*background-color: blue;*/
 }
 .cta:active {
-	color:#009bff;
-	background-color: #fff;
-	border-top: 1px solid #009bff;
+	/*color:#009bff;*/
+	/*background-color: #fff;*/
+	/*border-top: 1px solid #009bff;*/
 }
 #answer {
 	/*border:1px solid #555;*/
@@ -487,6 +503,10 @@ input.instagramGradient:hover,
 a.instagramGradient:hover {
 	/*filter:drop-shadow(8px 8px 10px red);*/
 	filter:brightness(90%);
+}
+input.instagramGradient:active {
+	filter:brightness(100%);
+	background: #9CA299;
 }
 .clearfix:after { 
    content: "."; 
