@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Beepi | Capturing the Moment</title>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<link rel="stylesheet" type="text/css" href="thankYou.css">
+	<link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,500,600,700,800" rel="stylesheet" type="text/css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+<body>
+<div id='slideshow'>
+	<h1><img src='images/beepi_iso_white.png'>Thank you, Beepiers.</h1>
+	<a>See the smiles</a>
+	<ul>
+		<li style='background-image:url(images/capturingTheMomentPhotos/20150309_155747.jpg);'><li>
+	</ul>
+</div>
+</body>
+
+<script>
+jQuery(function($){
+	var folder = "images/capturingTheMomentPhotos/";
+
+	$.ajax({
+	    url : folder,
+	    success: function (data) {
+	        $(data).find("a").attr("href", function (i, val) {
+	            if( val.match(/\.(jpe?g|png|gif)$/) ) { 
+	                $("ul").append( "<li style='background-image: url("+ folder + val +");'>" );
+	            } 
+	        });
+	    }
+	});
+})
+</script>
+
+<script type="text/javascript">
+	jQuery(function($){
+     	     $( '.menu-btn' ).click(function(){
+     	     $('.responsive-menu').toggleClass('expand')
+     	     $('.menu-btn').toggleClass('open-btn')
+     	     $('.menu-btn span').toggleClass('open')
+     	     })
+    	
+    	 $( '.close-btn' ).click(function(){
+    		$('.responsive-menu').removeClass('expand')
+    		$('.menu-btn').removeClass('btn-none')
+    	})
+  	})
+ </script>
+
+<script>
+var myIndex = 0;
+carousel();
+
+function carousel() {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    for (i = 0; i < x.length; i++) {
+       x[i].style.display = "none";  
+    }
+    myIndex++;
+    if (myIndex > x.length) {myIndex = 1}    
+    x[myIndex-1].style.display = "block";  
+    setTimeout(carousel, 9000);    
+}
+</script>
+
+</html>
