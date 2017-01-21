@@ -4,20 +4,31 @@
 	<title>Beepi | Capturing the Moment</title>
 	<meta name='viewport' content='width=device-width, initial-scale=1'>
 	<link rel="stylesheet" type="text/css" href="thankYou.css">
-	<link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,500,600,700,800" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,500,600,700,800" rel="stylesheet" type="text/css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </head>
 <body>
-<div id='slideshow'>
-	<h1><img src='images/beepi_iso_white.png'>Thank you, Beepiers.</h1>
-	<a>See the smiles</a>
-	<ul>
-		<li style='background-image:url(images/capturingTheMomentPhotos/20150309_155747.jpg);'><li>
-	</ul>
-</div>
+	<h1><img src='images/beepi_iso_white.png'><span>Thank you,</span> Beepiers.</h1>
+	<a id='seeSmiles' onclick="stopSlideshow(),gridMode()">See Smiles</a>
+	<div id='slideshow'>
+		<ul>
+			<li style='background-image:url(images/capturingTheMomentPhotos/20150309_155747.jpg);'></li>
+			<li style='background-image:url(images/capturingTheMomentPhotos/DSC_0001.JPG);'></li>
+			<li style='background-image:url(images/capturingTheMomentPhotos/IMAG1431.jpg);'></li>
+			<li style='background-image:url(images/capturingTheMomentPhotos/20150309_155747.jpg);'></li>
+			<li style='background-image:url(images/capturingTheMomentPhotos/DSC_0001.JPG);'></li>
+			<li style='background-image:url(images/capturingTheMomentPhotos/IMAG1431.jpg);'></li>
+			<li style='background-image:url(images/capturingTheMomentPhotos/20150309_155747.jpg);'></li>
+			<li style='background-image:url(images/capturingTheMomentPhotos/DSC_0001.JPG);'></li>
+			<li style='background-image:url(images/capturingTheMomentPhotos/IMAG1431.jpg);'></li>
+			<li style='background-image:url(images/capturingTheMomentPhotos/DSC_0001.JPG);'></li>
+			<li style='background-image:url(images/capturingTheMomentPhotos/IMAG1431.jpg);'></li>
+		</ul>
+	</div>
+	<a id='seeMore' onclick=''>See More</a>
 </body>
 
-<script>
+<!-- <script>
 jQuery(function($){
 	var folder = "images/capturingTheMomentPhotos/";
 
@@ -26,20 +37,48 @@ jQuery(function($){
 	    success: function (data) {
 	        $(data).find("a").attr("href", function (i, val) {
 	            if( val.match(/\.(jpe?g|png|gif)$/) ) { 
-	                $("ul").append( "<li style='background-image: url("+ folder + val +");'>" );
+	                $("ul").append( "<li style='background-image: url("+ folder + val +");'></li>" );
 	            } 
 	        });
 	    }
 	});
 })
+</script> -->
+
+<script>
+	// $("#slideshow li:gt(0)").hide();
+
+	var interval = setInterval(nextSlide, 3000);
+
+	function nextSlide() {
+	  $('#slideshow li:first')
+	    .animate({'filter':'blur(5px)'})
+	    .fadeOut(1000)
+	    .next()
+	    .fadeIn(2000)
+	    .end()
+	    .appendTo('#slideshow ul');
+	};
+
+	// playSlideshow ();
+
+	function stopSlideshow() {
+	  clearInterval(interval);
+	};
+
+	function gridMode() {
+	  $('#slideshow').toggleClass('grid');
+	  $('#seeSmiles').hide();
+	  $('#seeMore').show(1000);
+	};
 </script>
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 	jQuery(function($){
      	     $( '.menu-btn' ).click(function(){
-     	     $('.responsive-menu').toggleClass('expand')
-     	     $('.menu-btn').toggleClass('open-btn')
-     	     $('.menu-btn span').toggleClass('open')
+	     	     $('.responsive-menu').toggleClass('expand')
+	     	     $('.menu-btn').toggleClass('open-btn')
+	     	     $('.menu-btn span').toggleClass('open')
      	     })
     	
     	 $( '.close-btn' ).click(function(){
@@ -47,9 +86,9 @@ jQuery(function($){
     		$('.menu-btn').removeClass('btn-none')
     	})
   	})
- </script>
+ </script> -->
 
-<script>
+<!-- <script>
 var myIndex = 0;
 carousel();
 
@@ -64,6 +103,6 @@ function carousel() {
     x[myIndex-1].style.display = "block";  
     setTimeout(carousel, 9000);    
 }
-</script>
+</script> -->
 
 </html>

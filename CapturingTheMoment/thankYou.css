@@ -11,22 +11,22 @@ html {
 *:after {
 	box-sizing: inherit;
 }
+a {
+	cursor: pointer;
+}
 body {
 	padding:0;
 	margin:0;
 	font-size:24px;
-}
-#slideshow {
+	position:relative;
 	height:100vh;
 	width:100%;
-	/*background-image: url(images/capturingTheMomentPhotos/20150309_155747.jpg);*/
-	/*background-size:cover;*/
-	position:relative;
 }
+
 h1 {
 	font-size:3em;
 	color:#fff;
-	padding: .5em;
+	padding: .25em;
 	margin:0;
 	text-shadow: 0px 0px 4em #aaa;
 }
@@ -35,33 +35,100 @@ h1 img {
 	padding-right: .5em;
 	vertical-align: text-top;
 }
-#slideshow a {
+h1 span {
+	white-space: nowrap;
+}
+
+#seeSmiles,
+#seeMore {
 	display:block;
 	margin: auto;
 	text-align:center;
 	border-radius:5px;
+	padding:.5em;
+	position:fixed;
+	bottom:2em;
+	left:50%;
+	transform: translate(-50%, 0);
+	text-transform: uppercase;
+	font-weight:600;
+}
+#seeSmiles {
 	background-color:#009bff;
 	color:#fff;
-	padding:.5em;
-	position:absolute;
-	bottom:2em;
-	right:50%;
-	text-transform: uppercase;
 }
-li {
-	height:100%;
-	width:100%;
-	background-size:cover;
+#seeSmiles:hover {
+	background-color:darkblue;
+}
+#seeSmiles:active {
+	background-color:#fff;
+	color:#009bff;
+}
+#seeMore {
+	display:none;
+	color:#fff;
+	text-shadow: 0px 0px 4em #aaa;
+}
+#seeMore:hover {
+	font-weight:bolder;
+	text-shadow: 0px 0px 2em #aaa;
+}
+#seeMore:active {
+	font-weight:bolder;
+	color:#009bff;
+}
+
+#slideshow,
+#slideshow li {
 	position:absolute;
 	top: 0;
     left: 0;
     z-index: -1;
+    height:100vh;
+	width:100%;
+}
+#slideshow {
+	
+}
+#slideshow ul {
+	margin:0;
+	padding:0;
+}
+#slideshow li {
+	background-size:cover;
+	background-repeat:no-repeat;
+    list-style-type: none;
+}
+
+.grid {
+	/*position:static !important;*/
+}
+.grid li {
+	width:33.33% !important;
+	height: 30vh !important;
+	position:static !important;
+	display:block !important;
+	float:left;
+	-webkit-transition: all .5s ease-in-out;
+	-moz-transition:    all .5s ease-in-out;
+	-ms-transition:     all .5s ease-in-out;
+	-o-transition:      all .5s ease-in-out;
+	transition:         all .5s ease-in-out;
 }
 
 @media only screen and (max-width: 600px) {
-	#slideshow a {
+	h1 {
+		font-size: 2.5em;
+		text-align: center;
+	}
+	.grid li {
+		width:100% !important;
+	}
+	#seeSmiles,
+	#seeMore {
 		width:100%;
 		bottom:0;
 		right:0;
-		border-radius:0;
+		border-radius: 0;
 	}
+}
