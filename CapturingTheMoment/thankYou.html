@@ -6,23 +6,29 @@
 	<link rel="stylesheet" type="text/css" href="thankYou.css">
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,500,600,700,800" rel="stylesheet" type="text/css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.8/jquery.mask.min.js"></script>
 </head>
 <body>
-	<h1><img src='images/beepi_iso_white.png'><span>Thank you,</span> Beepiers.</h1>
+	<header class='clearfix'>
+		<h1><!-- <img src='images/beepi_iso_white.png'> --><span>Thank you,</span> Beepiers.</h1>
+		<div class='toggle clearfix'>
+	      <input type="radio" name="customer-type" id="filter-all" value="all" checked></input>
+	      <label for='filter-all'>All</label>
+	      <input type="radio" name="customer-type" id="filter-sellers" value="seller"></input>
+	      <label for='filter-sellers'>Sellers</label>
+	      <input type="radio" name="customer-type" id="filter-buyers" value="buyer"></input>
+	      <label for='filter-buyers'>Buyers</label>
+	    </div>
+	</header>
 	<a id='seeSmiles' onclick="stopSlideshow(),gridMode()">See Smiles</a>
-	<div id='slideshow'>
+	<div id='slideshow' class='clearfix'>
 		<ul>
-			<li style='background-image:url(images/capturingTheMomentPhotos/20150309_155747.jpg);'></li>
-			<li style='background-image:url(images/capturingTheMomentPhotos/DSC_0001.JPG);'></li>
-			<li style='background-image:url(images/capturingTheMomentPhotos/IMAG1431.jpg);'></li>
-			<li style='background-image:url(images/capturingTheMomentPhotos/20150309_155747.jpg);'></li>
-			<li style='background-image:url(images/capturingTheMomentPhotos/DSC_0001.JPG);'></li>
-			<li style='background-image:url(images/capturingTheMomentPhotos/IMAG1431.jpg);'></li>
-			<li style='background-image:url(images/capturingTheMomentPhotos/20150309_155747.jpg);'></li>
-			<li style='background-image:url(images/capturingTheMomentPhotos/DSC_0001.JPG);'></li>
-			<li style='background-image:url(images/capturingTheMomentPhotos/IMAG1431.jpg);'></li>
-			<li style='background-image:url(images/capturingTheMomentPhotos/DSC_0001.JPG);'></li>
-			<li style='background-image:url(images/capturingTheMomentPhotos/IMAG1431.jpg);'></li>
+			<li style='background-image:url(images/capturingTheMomentPhotos/20150309_155747.jpg);'>
+				<button class='close'>x</button>
+				<div class='details'>
+					<span class='name'>John</span>, Seller #55 <span class='date'>Mar 2014</span>
+				</div>
+			</li>
 		</ul>
 	</div>
 	<a id='seeMore' onclick=''>See More</a>
@@ -46,6 +52,54 @@ jQuery(function($){
 </script> -->
 
 <script>
+
+	var photos = [
+		{
+			'first':'John',
+			'photo':'images/capturingTheMomentPhotos/IMAG1431.jpg',
+			'type':'seller',
+			'date':'Mar 2014',
+			'saleID':'54'
+		},
+		{
+			'first':'Jane',
+			'photo':'images/capturingTheMomentPhotos/DSC_0001.JPG',
+			'type':'buyer',
+			'date':'Apr 2015',
+			'saleID':'162'
+		},
+		{
+			'first':'Joe',
+			'photo':'images/capturingTheMomentPhotos/20150309_155747.jpg',
+			'type':'buyer',
+			'date':'Sep 2016',
+			'saleID':'1037'
+		}
+	];
+
+	var ul = '';
+
+	for (i = 0; i < photos.length; i++) {
+		var x = photos[i]
+
+		ul += 
+			'<li id="smile_' + i +'" data-customer-type="' + x.type + '" ' + 
+				'onclick="view(\'#smile_'+ i + '\')" ' + 
+				'style="background-image:url(' + x.photo + ');">' + 
+				// '<a ' + 'href="view(\'#smile_'+ i + '\')" ' + '>' +
+					// '<button class="close">x</button>' +
+					'<div class="details">' +
+						'<span class="name">' + x.first + '</span> | <span class="type">' + x.type + '</span> #<span class="number">' + x.saleID + '</span> <span class="date">' + x.date + '</span>' +
+					'</div>' +
+				// '</a>'
+			'</li>'
+	};
+
+	ul = ul + ul + ul + ul
+
+	$('#slideshow ul').html(ul);
+	$('.number').mask('#,##0', {reverse: true});
+
 	// $("#slideshow li:gt(0)").hide();
 
 	var interval = setInterval(nextSlide, 3000);
@@ -68,25 +122,57 @@ jQuery(function($){
 
 	function gridMode() {
 	  $('#slideshow').toggleClass('grid');
+	  $('header').toggleClass('grid');
 	  $('#seeSmiles').hide();
-	  $('#seeMore').show(1000);
+	  // $('#seeMore').show(1000);
+	  $('#seeMore').css('display','table');
 	};
-</script>
 
-<!-- <script type="text/javascript">
-	jQuery(function($){
-     	     $( '.menu-btn' ).click(function(){
-	     	     $('.responsive-menu').toggleClass('expand')
-	     	     $('.menu-btn').toggleClass('open-btn')
-	     	     $('.menu-btn span').toggleClass('open')
-     	     })
-    	
-    	 $( '.close-btn' ).click(function(){
-    		$('.responsive-menu').removeClass('expand')
-    		$('.menu-btn').removeClass('btn-none')
-    	})
-  	})
- </script> -->
+	function view(smile) {
+		$(smile).toggleClass('view');
+	}
+
+	// $('#slideshow li').click(function() {
+	// 	$(this).toggleClass('view');
+	// 	return false;
+	// });
+
+
+	// $('#slideshow li[data-customer-type="seller"]').hide();
+	// $('#slideshow li[data-customer-type="buyer"]').hide();
+	// $('#slideshow li').show();
+	// $('#slideshow li').hide();
+	// $('#slideshow li').filter('[data-customer-type!="buyer"]').hide();
+
+	function customerToggle() {
+		var customers = $('input[name="customer-type"]:checked').val();
+		var filter ='';
+		if (customers != 'all') {
+			filter = '[data-customer-type!="' + customers + '"]';
+		};
+		// return filter;
+		$('#slideshow li').show().filter(filter).hide();
+	};
+
+	$('input[name="customer-type"]').change(
+		customerToggle(),
+		function() {
+			alert('changed');
+		}
+	);
+
+	// customerToggle();
+
+	// $('#slideshow li').filter(customerToggle()).show();
+	
+
+	stopSlideshow();
+	gridMode();
+	// view('#smile_1');
+
+	// $('.grid li').click(view());
+
+</script>
 
 <!-- <script>
 var myIndex = 0;
