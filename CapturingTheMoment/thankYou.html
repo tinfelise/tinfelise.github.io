@@ -21,16 +21,14 @@
 	    </div>
 	</header>
 	<a id='seeSmiles' onclick="stopSlideshow(),gridMode()">See Smiles</a>
-	<div id='slideshow' class='clearfix'>
-		<ul>
-			<li style='background-image:url(images/capturingTheMomentPhotos/20150309_155747.jpg);'>
-				<button class='close'>x</button>
-				<div class='details'>
-					<span class='name'>John</span>, Seller #55 <span class='date'>Mar 2014</span>
-				</div>
-			</li>
-		</ul>
-	</div>
+	<ul id='slideshow' class='clearfix'>
+		<li style='background-image:url(images/capturingTheMomentPhotos/20150309_155747.jpg);'>
+			<button class='close'>x</button>
+			<div class='details'>
+				<span class='name'>John</span>, Seller #55 <span class='date'>Mar 2014</span>
+			</div>
+		</li>
+	</ul>
 	<a id='seeMore' onclick=''>See More</a>
 </body>
 
@@ -100,7 +98,7 @@ jQuery(function($){
 		ul = ul + ul;
 	};
 
-	$('#slideshow ul').html(ul);
+	$('#slideshow').html(ul);
 	$('.number').mask('#,##0', {reverse: true});
 
 	// $("#slideshow li:gt(0)").hide();
@@ -114,7 +112,7 @@ jQuery(function($){
 	    .next()
 	    .fadeIn(2000)
 	    .end()
-	    .appendTo('#slideshow ul');
+	    .appendTo('#slideshow');
 	};
 
 	// playSlideshow ();

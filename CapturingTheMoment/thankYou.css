@@ -138,13 +138,14 @@ header.grid,
 	width:100%;
 }
 #slideshow {}
-#slideshow ul {
+#slideshow {
 	margin:0;
 	padding:0;
 }
 #slideshow li {
 	background-size:cover;
 	background-repeat:no-repeat;
+	background-position: center;
     list-style-type: none;
     overflow: hidden;
 }
