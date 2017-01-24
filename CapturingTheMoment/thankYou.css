@@ -291,11 +291,11 @@ button {
 		text-align: center;
 	}
 	.toggle {
-		width: 75%;
+		width: calc(100% - 1em);
 		margin: .25em auto;
 	}
 	.toggle label {
-		width: 33%;
+		width: calc(100% / 3);
 	}
 	header.grid,
 	#slideshow.grid:before {
@@ -304,8 +304,8 @@ button {
 	.grid li {
 		width:100% !important;
 	}
-	#seeSmiles,
-	#seeMore {
+	/*#seeMore,*/
+	#seeSmiles {
 		width:100%;
 		bottom:0;
 		right:0;

@@ -95,7 +95,10 @@ jQuery(function($){
 			'</li>'
 	};
 
-	ul = ul + ul + ul + ul
+	// ul = ul + ul + ul + ul;
+	for (i=0; i < 2; i++) {
+		ul = ul + ul;
+	};
 
 	$('#slideshow ul').html(ul);
 	$('.number').mask('#,##0', {reverse: true});
@@ -154,13 +157,14 @@ jQuery(function($){
 		$('#slideshow li').show().filter(filter).hide();
 	};
 
+	// $(document).ready(function() {
 	$('input[name="customer-type"]').change(
-		customerToggle(),
-		function() {
-			alert('changed');
-		}
+		customerToggle() //removed comma
+		// function() {
+		// 	alert('changed');
+		// }
 	);
-
+	// };
 	// customerToggle();
 
 	// $('#slideshow li').filter(customerToggle()).show();
