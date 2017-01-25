@@ -7,6 +7,9 @@
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,500,600,700,800" rel="stylesheet" type="text/css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.8/jquery.mask.min.js"></script>
+	<script type="text/javascript">
+		
+	</script>
 </head>
 <body>
 	<header class='clearfix'>
@@ -20,7 +23,7 @@
 	      <label for='filter-buyers'>Buyers</label>
 	    </div>
 	</header>
-	<a id='seeSmiles' onclick="stopSlideshow(),gridMode()">See Smiles</a>
+	<a id='seeSmiles' onclick="exitSlideshow()">See Smiles</a>
 	<ul id='slideshow' class='clearfix'>
 		<li style='background-image:url(images/capturingTheMomentPhotos/20150309_155747.jpg);'>
 			<button class='close'>x</button>
@@ -29,7 +32,7 @@
 			</div>
 		</li>
 	</ul>
-	<a id='seeMore' onclick=''>See More</a>
+	<a id='seeMore' onclick='seeMore(1)'>See More</a>
 </body>
 
 <!-- <script>
@@ -50,6 +53,21 @@ jQuery(function($){
 </script> -->
 
 <script>
+
+	// $.getJSON("http://tinfelise.github.io/CapturingTheMoment/photos.json", function(data) {
+	//     // console.log('data returned:')
+	//     // console.log(data.responseText);
+	//     var results = data;
+	//     // console.log('results:')
+	//     // console.log(results);
+	//     var photos = JSON.parse(results.responseText);
+	//     // console.log('photos:')
+	//     // console.log(photos);
+	//     photos;
+	// });
+
+	// var results = $.getJSON("http://tinfelise.github.io/CapturingTheMoment/photos.json");
+	// var photos = JSON.parse(results.responseText);
 
 	var photos = [
 		{
@@ -78,7 +96,7 @@ jQuery(function($){
 	var ul = '';
 
 	for (i = 0; i < photos.length; i++) {
-		var x = photos[i]
+		var x = photos[i];
 
 		ul += 
 			'<li id="smile_' + i +'" data-customer-type="' + x.type + '" ' + 
@@ -90,15 +108,22 @@ jQuery(function($){
 						'<span class="name">' + x.first + '</span> | <span class="type">' + x.type + '</span> #<span class="number">' + x.saleID + '</span> <span class="date">' + x.date + '</span>' +
 					'</div>' +
 				// '</a>'
-			'</li>'
+			'</li>';
 	};
 
-	// ul = ul + ul + ul + ul;
-	for (i=0; i < 2; i++) {
-		ul = ul + ul;
+	function seeMore (x) {
+		// var loaded = $('li').length;
+		// var anchor = $('li[loaded]').attr('id');
+		// var anchor = $('li').last().id;
+		for (i=0; i < x; i++) {
+			ul = ul + ul;
+		};
+		$('#slideshow').html(ul);
+		// $(document.body).scrollTop($('"#"+ anchor').offset().top);
 	};
+	seeMore(2);
 
-	$('#slideshow').html(ul);
+	// $('#slideshow').html(ul);
 	$('.number').mask('#,##0', {reverse: true});
 
 	// $("#slideshow li:gt(0)").hide();
@@ -107,7 +132,7 @@ jQuery(function($){
 
 	function nextSlide() {
 	  $('#slideshow li:first')
-	    .animate({'filter':'blur(5px)'})
+	    // .animate({'filter':'blur(5px)'})
 	    .fadeOut(1000)
 	    .next()
 	    .fadeIn(2000)
@@ -128,6 +153,11 @@ jQuery(function($){
 	  // $('#seeMore').show(1000);
 	  $('#seeMore').css('display','table');
 	};
+
+	function exitSlideshow () {
+		stopSlideshow();
+		gridMode();
+	}
 
 	function view(smile) {
 		$(smile).toggleClass('view');
