@@ -60,6 +60,27 @@ h1:before {
 	vertical-align: text-top;
 }
 
+/*Blue overlay on slideshow*/
+/*h1:after {
+	content:'';
+	display:block;
+	position:absolute;
+	height:100%;
+	width:100%;
+	left:0;
+}
+h1,
+h1:after {
+	background-color:rgba(0,155,255,.5);
+	padding-bottom:0;
+}
+.grid h1:after {
+	content:none;
+}
+.grid h1 {
+	background-color: #fff;
+}*/
+
 header.grid h1 {
 	font-size:1em;
 	font-weight:100;
