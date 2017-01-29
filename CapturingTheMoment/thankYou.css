@@ -333,4 +333,10 @@ button {
 		right:0;
 		border-radius: 0;
 	}
+	.view div:before {
+		content:'x';
+		position:absolute;
+		top:0;
+		right:0;
+	}
 }
