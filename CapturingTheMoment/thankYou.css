@@ -335,8 +335,10 @@ button {
 	}
 	.view div:before {
 		content:'x';
-		position:absolute;
-		top:0;
-		right:0;
+		position:fixed;
+		top:.25em;
+		right:.25em;
+		color:#fff;
+		text-shadow: 0px 0px 4em #aaa;
 	}
 }
