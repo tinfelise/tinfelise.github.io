@@ -336,7 +336,7 @@ button {
 		right:0;
 		border-radius: 0;
 	}
-	.view div:before {
+	.view div.details:before {
 		content:'x';
 		position:fixed;
 		top:.25em;
