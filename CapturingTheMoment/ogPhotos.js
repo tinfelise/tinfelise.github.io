@@ -1,3 +1,36 @@
+var testimonials = [
+	'https://static.beepi.com/images/Testimonials/LoveStories/testimonial178.jpg',
+	'https://static.beepi.com/images/Testimonials/LoveStories/testimonial186.jpg',
+	'https://static.beepi.com/images/Testimonials/LoveStories/testimonial157.jpg',
+	'https://static.beepi.com/images/Testimonials/LoveStories/testimonial44.jpg',
+	'https://static.beepi.com/images/Testimonials/LoveStories/testimonial163.jpg',
+	'https://static.beepi.com/images/Testimonials/LoveStories/testimonial172.jpg',
+	'https://static.beepi.com/images/Testimonials/LoveStories/testimonial134.jpg',
+	'https://static.beepi.com/images/Testimonials/LoveStories/testimonial113.jpg',
+	'https://static.beepi.com/images/Testimonials/LoveStories/testimonial161.jpg',
+	'https://static.beepi.com/images/Testimonials/LoveStories/testimonial168.jpg',
+	'https://static.beepi.com/images/Testimonials/LoveStories/testimonial143.jpg',
+	'https://static.beepi.com/images/Testimonials/LoveStories/testimonial154.jpg',
+	'https://static.beepi.com/images/Testimonials/LoveStories/testimonial145.jpg',
+	'https://static.beepi.com/images/Testimonials/LoveStories/testimonial174.jpg',
+	'https://static.beepi.com/images/Testimonials/LoveStories/testimonial197.jpg',
+	'https://static.beepi.com/images/Testimonials/LoveStories/testimonial152.jpg',
+	'https://static.beepi.com/images/Testimonials/LoveStories/testimonial176.jpg',
+	'https://static.beepi.com/images/Testimonials/LoveStories/testimonial140.jpg',
+	'https://static.beepi.com/images/Testimonials/LoveStories/testimonial133.jpg',
+	'https://static.beepi.com/images/Testimonials/LoveStories/testimonial175.jpg',
+	'https://static.beepi.com/images/Testimonials/LoveStories/testimonial151.jpg',
+	'https://static.beepi.com/images/Testimonials/LoveStories/testimonial137.jpg',
+	'https://static.beepi.com/images/Testimonials/LoveStories/testimonial181.jpg',
+	'https://static.beepi.com/images/Testimonials/LoveStories/testimonial184.jpg',
+	'https://static.beepi.com/images/Testimonials/LoveStories/testimonial158.jpg',
+	'https://static.beepi.com/images/Testimonials/LoveStories/testimonial155.jpg',
+	'https://static.beepi.com/images/Testimonials/LoveStories/testimonial159.jpg',
+	'https://static.beepi.com/images/Testimonials/LoveStories/testimonial139.jpg',
+	'https://static.beepi.com/images/Testimonials/LoveStories/testimonial58.jpg',
+	'https://static.beepi.com/images/Testimonials/LoveStories/testimonial171.jpg'
+];
+
 var ogPhotos = [
 	'20150309_155747.jpg',
 	'20150311_121811.jpg',
@@ -187,14 +220,23 @@ var ogPhotos = [
 	'Lawrence.jpeg'
 ];
 
+function getTestimonials() {
+	for (i=0; i < testimonials.length; i++) {
+		var photo = testimonials[i];
+		$('ul').append(
+			'<li id="smile_og_' + i +'" data-customer-type="original" ' + 'onclick="view(\'#smile_og_'+ i + '\')" ' + 'style="background-image:url(' + photo + ');"></li>'
+		);
+	};
+}
+
 function getOGPhotos() {
 	for (i=0; i < ogPhotos.length; i++) {
 		var photo = 'images/capturingTheMomentPhotos/' + ogPhotos[i].split(' ').join('%20');
-		// console.log(photo);
 		$('ul').append(
 			'<li id="smile_og_' + i +'" data-customer-type="original" ' + 'onclick="view(\'#smile_og_'+ i + '\')" ' + 'style="background-image:url(' + photo + ');"></li>'
 		);
 	};
 };
 
+getTestimonials();
 getOGPhotos();
