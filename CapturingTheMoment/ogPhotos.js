@@ -240,14 +240,14 @@ function getOriginals(interval) {
 	for (i = startOriginals; i < endTestimonials; i++) {
 		var testimonialPhoto = testimonials[i];
 		$('ul').append(
-			'<li id="smile_og_' + i +'" data-customer-type="original" ' + 'onclick="view(\'#smile_og_'+ i + '\')" ' + 'style="background-image:url(' + testimonialPhoto + ');"></li>'
+			'<li id="smile_og_' + i +'" data-customer-type="original" ' + 'onclick="view(\'#smile_og_'+ i + '\')" ' + 'style="background-image:url(' + testimonialPhoto + ');"><div class="details"></div></li>'
 		);
 	};
 
 	for (i = startOriginals; i < endOGPhotos; i++) {
 		var ogPhoto = 'images/capturingTheMomentPhotos/' + ogPhotos[i].split(' ').join('%20');
 		$('ul').append(
-			'<li id="smile_og_' + i +'" data-customer-type="original" ' + 'onclick="view(\'#smile_og_'+ i + '\')" ' + 'style="background-image:url(' + ogPhoto + ');"></li>'
+			'<li id="smile_og_' + i +'" data-customer-type="original" ' + 'onclick="view(\'#smile_og_'+ i + '\')" ' + 'style="background-image:url(' + ogPhoto + ');"><div class="details"></div></li>'
 		);
 	};
 
