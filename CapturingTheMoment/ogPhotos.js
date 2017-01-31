@@ -240,7 +240,7 @@ function getOriginals(interval) {
 	for (i = startOriginals; i < endTestimonials; i++) {
 		var testimonialPhoto = testimonials[i];
 		$('ul').append(
-			'<li id="smile_og_' + i +'" data-customer-type="original" ' + 'onclick="view(\'#smile_og_'+ i + '\')" ' + 'style="background-image:url(' + testimonialPhoto + ');"><div class="details"></div></li>'
+			'<li id="smile_testimonial_' + i +'" data-customer-type="original" ' + 'onclick="view(\'#smile_testimonial_'+ i + '\')" ' + 'style="background-image:url(' + testimonialPhoto + ');"><div class="details"></div></li>'
 		);
 	};
 
