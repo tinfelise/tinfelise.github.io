@@ -106,7 +106,7 @@ header.grid h1 span {
 	font-weight:400;
 }
 #seeSmiles {
-	background-color:rgba(0,155,255,.9);
+	background-color:rgba(0,155,255,.75);
 	color:#fff;
 	border-radius:5px;
 	padding:.5em;
@@ -249,6 +249,8 @@ button {
 	z-index: 1 !important;
 	cursor:zoom-out !important;
 	transition-property: height, width !important;
+	background-size: contain !important;
+    background-color: black;
 }
 .view .close,
 .view .details {
