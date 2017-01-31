@@ -106,7 +106,7 @@ header.grid h1 span {
 	font-weight:400;
 }
 #seeSmiles {
-	background-color:#009bff;
+	background-color:rgba(0,155,255,.9);
 	color:#fff;
 	border-radius:5px;
 	padding:.5em;
@@ -127,7 +127,7 @@ header.grid h1 span {
 	/*color:#fff;
 	text-shadow: 0px 0px 4em #aaa;*/
 	color:#009bff;
-	margin: .5em auto;
+	margin: .5em auto 2em;
     border-top: 2px solid #009bff;
     padding-top: .25em;
 }
@@ -198,7 +198,6 @@ button {
 }
 .name, 
 .type {
-	text-transform: lowercase;
 	text-transform: capitalize;
 }
 .name {
