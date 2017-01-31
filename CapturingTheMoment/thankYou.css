@@ -196,16 +196,18 @@ button {
 	font-weight:100;
 	transition: bottom .25s ease;
 }
+.name, 
+.type {
+	text-transform: lowercase;
+	text-transform: capitalize;
+}
 .name {
 	font-weight:600;
 }
-.type {
-	text-transform: capitalize;
-}
-.date {
-	display:block;
+.details div {
 	font-size:.5em;
 }
+.type {}
 
 #slideshow.grid,
 #slideshow.grid li {
