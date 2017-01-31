@@ -8,12 +8,16 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.8/jquery.mask.min.js"></script>
 	<script type="text/javascript">
+		// var results = $.getJSON("http://tinfelise.github.io/CapturingTheMoment/tyler.json");
+		// $( window ).on( "load", function() {
+			// $('input[name="customer-type"]').change(customerToggle());
+		// })
 		
 	</script>
 </head>
 <body>
 	<header class='clearfix'>
-		<h1><!-- <img src='images/beepi_iso_white.png'> --><span>Thank you,</span> Beepiers.</h1>
+		<h1><span>Thank you,</span> Beepiers.</h1>
 		<div class='toggle clearfix'>
 	      <input type="radio" name="customer-type" id="filter-all" value="all" checked></input>
 	      <label for='filter-all'>All</label>
@@ -25,202 +29,190 @@
 	</header>
 	<a id='seeSmiles' onclick="exitSlideshow()">See Smiles</a>
 	<ul id='slideshow' class='clearfix'>
-		<li style='background-image:url(images/capturingTheMomentPhotos/20150309_155747.jpg);'>
+		<!-- <li id='example' data-customer-type="seller" onclick="view('#example')" style='background-image:url(images/capturingTheMomentPhotos/20150309_155747.jpg);'>
 			<button class='close'>x</button>
 			<div class='details'>
 				<span class='name'>John</span>, Seller #55 <span class='date'>Mar 2014</span>
 			</div>
-		</li>
+		</li> -->
 	</ul>
-	<a id='seeMore' onclick='seeMore(1)'>See More</a>
+	<a id='seeMore' onclick='getOriginals(50), addCustomers(50)'>See More</a>
 </body>
 
-<!-- <script>
-jQuery(function($){
-	var folder = "images/capturingTheMomentPhotos/";
-
-	$.ajax({
-	    url : folder,
-	    success: function (data) {
-	        $(data).find("a").attr("href", function (i, val) {
-	            if( val.match(/\.(jpe?g|png|gif)$/) ) { 
-	                $("ul").append( "<li style='background-image: url("+ folder + val +");'></li>" );
-	            } 
-	        });
-	    }
-	});
-})
-</script> -->
+<script type="text/javascript" src='ogPhotos.js'></script>
 
 <script>
 
-	// $.getJSON("http://tinfelise.github.io/CapturingTheMoment/photos.json", function(data) {
-	//     // console.log('data returned:')
-	//     // console.log(data.responseText);
-	//     var results = data;
-	//     // console.log('results:')
-	//     // console.log(results);
-	//     var photos = JSON.parse(results.responseText);
-	//     // console.log('photos:')
-	//     // console.log(photos);
-	//     photos;
-	// });
+var start = 5000;
 
-	// var results = $.getJSON("http://tinfelise.github.io/CapturingTheMoment/photos.json");
-	// var photos = JSON.parse(results.responseText);
+function addCustomers (interval) {
+	$.ajax({
+		url: "http://tinfelise.github.io/CapturingTheMoment/tyler.json",
+		dataType: 'json',
+		success: function(data) {
+			var end = start + interval;
+			
+			for (i = start; i < end; i++) {
+				var x = data.photos[i];
+				// ignoreBlanks(x.photo);
 
-	var photos = [
-		{
-			'first':'John',
-			'photo':'images/capturingTheMomentPhotos/IMAG1431.jpg',
-			'type':'seller',
-			'date':'Mar 2014',
-			'saleID':'54'
-		},
-		{
-			'first':'Jane',
-			'photo':'images/capturingTheMomentPhotos/DSC_0001.JPG',
-			'type':'buyer',
-			'date':'Apr 2015',
-			'saleID':'162'
-		},
-		{
-			'first':'Joe',
-			'photo':'images/capturingTheMomentPhotos/20150309_155747.jpg',
-			'type':'buyer',
-			'date':'Sep 2016',
-			'saleID':'1037'
+				function ignoreBlanks (imageURL) {
+					var tmpImg = new Image();
+					tmpImg.src = imageURL;
+					$(tmpImg)
+						// .on('load',function(){
+						// 	var width = tmpImg.width;
+						// 	createPhoto();
+						// 	if (width == null) {
+					 //            console.log('Blank');
+					 //        } else {
+					 //        	console.log(x.saleID + ':' + width);
+					 //        	// createPhoto();
+					 //        };
+					 //    })
+					    .on('load', createPhoto() )
+					    .on('error',function(){
+					    	console.log('Error')
+						});
+				};
+
+				function createPhoto () {
+					$('ul').append(
+						'<li id="smile_' + i +'" data-customer-type="' + x.type + '" ' + 'onclick="view(\'#smile_'+ i + '\')" ' + 'style="background-image:url(' + x.photo + ');">' + 
+								'<div class="details">' +
+									'<span class="name">' + x.first.toLowerCase() + '</span>' +
+									'<div>' +
+										'<span class="type">' + x.type + '</span> #<span class="number">' + x.saleID + '</span> &#8226; <span class="date">' + dateFormat(x.date) + '</span>' +
+									'</div>' +
+								'</div>' +
+						'</li>'
+					);
+				};
+
+				ignoreBlanks(x.photo);
+				// createPhoto();
+			};
+			start = end + 1;
+			addSelectChange();
+			commaSeparate();
 		}
-	];
+		// complete: hideBlanks();
+	});
+};
 
-	var ul = '';
+addCustomers(100);
 
-	for (i = 0; i < photos.length; i++) {
-		var x = photos[i];
 
-		ul += 
-			'<li id="smile_' + i +'" data-customer-type="' + x.type + '" ' + 
-				'onclick="view(\'#smile_'+ i + '\')" ' + 
-				'style="background-image:url(' + x.photo + ');">' + 
-				// '<a ' + 'href="view(\'#smile_'+ i + '\')" ' + '>' +
-					// '<button class="close">x</button>' +
-					'<div class="details">' +
-						'<span class="name">' + x.first + '</span> | <span class="type">' + x.type + '</span> #<span class="number">' + x.saleID + '</span> <span class="date">' + x.date + '</span>' +
-					'</div>' +
-				// '</a>'
-			'</li>';
-	};
 
-	function seeMore (x) {
-		// var loaded = $('li').length;
-		// var anchor = $('li[loaded]').attr('id');
-		// var anchor = $('li').last().id;
-		for (i=0; i < x; i++) {
-			ul = ul + ul;
-		};
-		$('#slideshow').html(ul);
-		// $(document.body).scrollTop($('"#"+ anchor').offset().top);
-	};
-	seeMore(2);
+// function hideBlanks () {
+// 	$('li').each( function() {
+// 		var id = $(this).attr('id');
+// 		// console.log(id);
+// 		// console.log($(this).css('background-image'));
+// 		var backgroundImg = $(this).css('background-image').slice(5,-2);
+// 		// console.log(backgroundImg);
+// 		var tmpImg = new Image();
+// 		tmpImg.src = backgroundImg;
+// 		// console.log('src='+tmpImg.src);
+// 		$(tmpImg).on('load',function(){
+// 			var width = tmpImg.width;
+// 			console.log(id + ':' + width);
+// 			if (width == null) {
+// 			// if( typeof width === 'undefined' || width === null ){
+// 	            $('li#'+id).hide();
+// 	        };
+// 		});
+// 	});
+// };
 
-	// $('#slideshow').html(ul);
+// hideBlanks();
+
+
+// Comma separate Sale ID
+function commaSeparate () {
 	$('.number').mask('#,##0', {reverse: true});
+};
 
-	// $("#slideshow li:gt(0)").hide();
+// Date formatting
+function dateFormat (date) {
+	var month = date.slice(0,-date.length + 3);
+	var yearStart = date.slice(4).indexOf(' ');
+	var year = date.slice(4).slice(yearStart, yearStart+5);
+	var formattedDate = month + ' ' + year;
+	return formattedDate;
+};
 
-	var interval = setInterval(nextSlide, 3000);
+// Name formatting
+function titleCase (name) {
 
-	function nextSlide() {
-	  $('#slideshow li:first')
-	    // .animate({'filter':'blur(5px)'})
-	    .fadeOut(1000)
-	    .next()
-	    .fadeIn(2000)
-	    .end()
-	    .appendTo('#slideshow');
+};
+
+// Playing the slideshow
+var interval = setInterval(nextSlide, 3000);
+
+function nextSlide() {
+  $('#slideshow li:first')
+    // .animate({'filter':'blur(5px)'})
+    .fadeOut(1000)
+    .next()
+    .fadeIn(2000)
+    .end()
+    .appendTo('#slideshow');
+};
+
+function playSlideshow () {
+	$('#slideshow li').hide();
+ 	$('#slideshow').toggleClass('grid');
+ 	$('header').toggleClass('grid');
+ 	$('#seeSmiles').show();
+ 	$('#seeMore').hide();
+	interval = setInterval(nextSlide, 3000);
+}
+
+// stopping the Slideshow and going into grid mode
+function stopSlideshow() {
+  clearInterval(interval);
+};
+
+function gridMode() {
+	$('#slideshow li').show();
+ 	$('#slideshow').toggleClass('grid');
+ 	$('header').toggleClass('grid');
+ 	$('#seeSmiles').hide();
+ 	// $('#seeMore').show(1000);
+ 	$('#seeMore').css('display','table');
+};
+
+function exitSlideshow () {
+	stopSlideshow();
+	gridMode();
+}
+
+// clicking on a photo to view it
+function view(smile) {
+	$(smile).toggleClass('view');
+}
+
+// Filter by customer type
+function customerFilter() {
+	var customers = $('input[name="customer-type"]:checked').val();
+	var filter ='';
+	if (customers != 'all') {
+		filter = '[data-customer-type!="' + customers + '"]';
 	};
+	$('#slideshow li').show(500).filter(filter).hide(1000);
+};
 
-	// playSlideshow ();
+function addSelectChange() {
+   $('input[name="customer-type"]').bind('change', customerFilter);
+};
 
-	function stopSlideshow() {
-	  clearInterval(interval);
-	};
-
-	function gridMode() {
-	  $('#slideshow').toggleClass('grid');
-	  $('header').toggleClass('grid');
-	  $('#seeSmiles').hide();
-	  // $('#seeMore').show(1000);
-	  $('#seeMore').css('display','table');
-	};
-
-	function exitSlideshow () {
-		stopSlideshow();
-		gridMode();
-	}
-
-	function view(smile) {
-		$(smile).toggleClass('view');
-	}
-
-	// $('#slideshow li').click(function() {
-	// 	$(this).toggleClass('view');
-	// 	return false;
-	// });
-
-
-	// $('#slideshow li[data-customer-type="seller"]').hide();
-	// $('#slideshow li[data-customer-type="buyer"]').hide();
-	// $('#slideshow li').show();
-	// $('#slideshow li').hide();
-	// $('#slideshow li').filter('[data-customer-type!="buyer"]').hide();
-
-	function customerToggle() {
-		var customers = $('input[name="customer-type"]:checked').val();
-		var filter ='';
-		if (customers != 'all') {
-			filter = '[data-customer-type!="' + customers + '"]';
-		};
-		// return filter;
-		$('#slideshow li').show().filter(filter).hide();
-	};
-
-	// $(document).ready(function() {
-	$('input[name="customer-type"]').change(
-		customerToggle() //removed comma
-		// function() {
-		// 	alert('changed');
-		// }
-	);
-	// };
-	// customerToggle();
-
-	// $('#slideshow li').filter(customerToggle()).show();
-	
-
-	// stopSlideshow();
-	// gridMode();
-	// view('#smile_1');
-
-	// $('.grid li').click(view());
+// Testing modes
+// stopSlideshow();
+// gridMode();
+// exitSlideshow();
+// view('#smile_1');
 
 </script>
-
-<!-- <script>
-var myIndex = 0;
-carousel();
-
-function carousel() {
-    var i;
-    var x = document.getElementsByClassName("mySlides");
-    for (i = 0; i < x.length; i++) {
-       x[i].style.display = "none";  
-    }
-    myIndex++;
-    if (myIndex > x.length) {myIndex = 1}    
-    x[myIndex-1].style.display = "block";  
-    setTimeout(carousel, 9000);    
-}
-</script> -->
 
 </html>
