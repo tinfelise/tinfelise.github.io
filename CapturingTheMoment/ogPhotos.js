@@ -220,23 +220,39 @@ var ogPhotos = [
 	'Lawrence.jpeg'
 ];
 
-function getTestimonials() {
-	for (i=0; i < testimonials.length; i++) {
-		var photo = testimonials[i];
+var startOriginals = 0;
+
+function getOriginals(interval) {
+	
+	var endOriginals = startOriginals + interval;
+
+	var endTestimonials = endOriginals;
+	var endOGPhotos = endOriginals;
+
+	if (endTestimonials > testimonials.length) {
+		endTestimonials = testimonials.length;
+	};
+
+	if (endOGPhotos > ogPhotos.length) {
+		endOGPhotos = ogPhotos.length;
+	};
+
+	for (i = startOriginals; i < endTestimonials; i++) {
+		var testimonialPhoto = testimonials[i];
 		$('ul').append(
-			'<li id="smile_og_' + i +'" data-customer-type="original" ' + 'onclick="view(\'#smile_og_'+ i + '\')" ' + 'style="background-image:url(' + photo + ');"></li>'
+			'<li id="smile_og_' + i +'" data-customer-type="original" ' + 'onclick="view(\'#smile_og_'+ i + '\')" ' + 'style="background-image:url(' + testimonialPhoto + ');"></li>'
 		);
 	};
+
+	for (i = startOriginals; i < endOGPhotos; i++) {
+		var ogPhoto = 'images/capturingTheMomentPhotos/' + ogPhotos[i].split(' ').join('%20');
+		$('ul').append(
+			'<li id="smile_og_' + i +'" data-customer-type="original" ' + 'onclick="view(\'#smile_og_'+ i + '\')" ' + 'style="background-image:url(' + ogPhoto + ');"></li>'
+		);
+	};
+
+	startOriginals = endOriginals + 1;
 }
 
-function getOGPhotos() {
-	for (i=0; i < ogPhotos.length; i++) {
-		var photo = 'images/capturingTheMomentPhotos/' + ogPhotos[i].split(' ').join('%20');
-		$('ul').append(
-			'<li id="smile_og_' + i +'" data-customer-type="original" ' + 'onclick="view(\'#smile_og_'+ i + '\')" ' + 'style="background-image:url(' + photo + ');"></li>'
-		);
-	};
-};
+getOriginals(50);
 
-getTestimonials();
-getOGPhotos();
