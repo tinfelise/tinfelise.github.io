@@ -1,5 +1,4 @@
 var testimonials = [
-	'https://static.beepi.com/images/Testimonials/LoveStories/testimonial178.jpg',
 	'https://static.beepi.com/images/Testimonials/LoveStories/testimonial186.jpg',
 	'https://static.beepi.com/images/Testimonials/LoveStories/testimonial157.jpg',
 	'https://static.beepi.com/images/Testimonials/LoveStories/testimonial44.jpg',
@@ -17,6 +16,7 @@ var testimonials = [
 	'https://static.beepi.com/images/Testimonials/LoveStories/testimonial152.jpg',
 	'https://static.beepi.com/images/Testimonials/LoveStories/testimonial176.jpg',
 	'https://static.beepi.com/images/Testimonials/LoveStories/testimonial140.jpg',
+	'https://static.beepi.com/images/Testimonials/LoveStories/testimonial178.jpg',
 	'https://static.beepi.com/images/Testimonials/LoveStories/testimonial133.jpg',
 	'https://static.beepi.com/images/Testimonials/LoveStories/testimonial175.jpg',
 	'https://static.beepi.com/images/Testimonials/LoveStories/testimonial151.jpg',
@@ -229,19 +229,8 @@ function getOriginals(interval) {
 	var endTestimonials = endOriginals;
 	var endOGPhotos = endOriginals;
 
-	if (endTestimonials > testimonials.length) {
-		endTestimonials = testimonials.length;
-	};
-
 	if (endOGPhotos > ogPhotos.length) {
 		endOGPhotos = ogPhotos.length;
-	};
-
-	for (i = startOriginals; i < endTestimonials; i++) {
-		var testimonialPhoto = testimonials[i];
-		$('ul').append(
-			'<li id="smile_testimonial_' + i +'" data-customer-type="original" ' + 'onclick="view(\'#smile_testimonial_'+ i + '\')" ' + 'style="background-image:url(' + testimonialPhoto + ');"><div class="details"></div></li>'
-		);
 	};
 
 	for (i = startOriginals; i < endOGPhotos; i++) {
@@ -251,8 +240,19 @@ function getOriginals(interval) {
 		);
 	};
 
+	if (endTestimonials > testimonials.length) {
+		endTestimonials = testimonials.length;
+	};
+
+	for (i = startOriginals; i < endTestimonials; i++) {
+		var testimonialPhoto = testimonials[i];
+		$('ul').append(
+			'<li id="smile_testimonial_' + i +'" data-customer-type="original" ' + 'onclick="view(\'#smile_testimonial_'+ i + '\')" ' + 'style="background-image:url(' + testimonialPhoto + ');"><div class="details"></div></li>'
+		);
+	};
+
 	startOriginals = endOriginals + 1;
 }
 
-getOriginals(50);
+getOriginals(10);
 
