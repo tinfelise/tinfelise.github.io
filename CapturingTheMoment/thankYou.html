@@ -165,7 +165,8 @@ function customerFilter() {
 	if (customers != 'all') {
 		filter = '[data-customer-type!="' + customers + '"]';
 	};
-	$('#slideshow li').show(500).filter(filter).hide(1000);
+	// $('#slideshow li').show(500).filter(filter).hide(1000);
+	$('#slideshow li').show().filter(filter).hide();
 };
 
 function addSelectChange() {
