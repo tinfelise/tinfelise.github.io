@@ -39,9 +39,49 @@
 	<a id='seeMore' onclick='getOriginals(50), addCustomers(50)'>See More</a>
 </body>
 
-<script type="text/javascript" src='ogPhotos.js'></script>
+<!-- <script type="text/javascript" src='ogPhotos.js'></script> -->
 
 <script>
+
+function createPhoto (x) {
+	$('ul').append(
+		'<li id="smile_' + i +'" data-customer-type="' + x.type + '" ' + 'onclick="view(\'#smile_'+ i + '\')" ' + 'style="background-image:url(' + x.photo + ');">' + 
+				'<div class="details">' +
+					'<span class="name">' + x.first.toLowerCase() + '</span>' +
+					'<div>' +
+						'<span class="type">' + x.type + '</span> #<span class="number">' + x.saleID + '</span> &#8226; <span class="date">' + dateFormat(x.date) + '</span>' +
+					'</div>' +
+				'</div>' +
+		'</li>'
+	);
+};
+function ignoreBlanks (customer) {
+	var tmpImg = new Image();
+	tmpImg.src = customer.photo;
+	// console.log(imageURL);
+	$(tmpImg)
+		.on('load',function(){
+			// console.log(i+' loaded');
+			// var width = tmpImg.width;
+			// console.log(i+':'+imageAvailable);
+			// var missing = false;
+			// console.log(x.saleID+':'+width);
+			createPhoto(customer);
+	    })
+	    // .on('load', createPhoto(customer) )
+  //   $(tmpImg)
+	 //    .on('error',function(){
+	 //    	console.log(i+' was missing');
+	 //    	// console.log(x.saleID+':Error')
+	 //    	// imageAvailable = false;
+	 //    	// console.log(i+':'+imageAvailable)
+		// });
+	// if (missing != true) { 
+	// 	console.log(i);
+	// 	createPhoto();
+	// }
+	// console.log(i+':'+missing)
+};
 
 var start = 5000;
 
@@ -54,53 +94,19 @@ function addCustomers (interval) {
 			
 			for (i = start; i < end; i++) {
 				var x = data.photos[i];
-				// ignoreBlanks(x.photo);
 
-				function ignoreBlanks (imageURL) {
-					var tmpImg = new Image();
-					tmpImg.src = imageURL;
-					$(tmpImg)
-						// .on('load',function(){
-						// 	var width = tmpImg.width;
-						// 	createPhoto();
-						// 	if (width == null) {
-					 //            console.log('Blank');
-					 //        } else {
-					 //        	console.log(x.saleID + ':' + width);
-					 //        	// createPhoto();
-					 //        };
-					 //    })
-					    .on('load', createPhoto() )
-					    .on('error',function(){
-					    	console.log('Error')
-						});
-				};
-
-				function createPhoto () {
-					$('ul').append(
-						'<li id="smile_' + i +'" data-customer-type="' + x.type + '" ' + 'onclick="view(\'#smile_'+ i + '\')" ' + 'style="background-image:url(' + x.photo + ');">' + 
-								'<div class="details">' +
-									'<span class="name">' + x.first.toLowerCase() + '</span>' +
-									'<div>' +
-										'<span class="type">' + x.type + '</span> #<span class="number">' + x.saleID + '</span> &#8226; <span class="date">' + dateFormat(x.date) + '</span>' +
-									'</div>' +
-								'</div>' +
-						'</li>'
-					);
-				};
-
-				ignoreBlanks(x.photo);
+				ignoreBlanks(x);
 				// createPhoto();
 			};
+
 			start = end + 1;
 			addSelectChange();
 			commaSeparate();
 		}
-		// complete: hideBlanks();
 	});
 };
 
-addCustomers(100);
+addCustomers(50);
 
 
 
