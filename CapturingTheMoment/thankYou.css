@@ -251,7 +251,7 @@ button {
 	width:100% !important;
 	z-index: 1 !important;
 	cursor:zoom-out !important;
-	transition-property: height, width !important;
+	transition-property: height !important;
 	background-size: contain !important;
     background-color: black;
 }
