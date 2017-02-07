@@ -130,6 +130,7 @@ header.grid h1 span {
 	margin: .5em auto 2em;
     border-top: 2px solid #009bff;
     padding-top: .25em;
+    padding-bottom:1em;
 }
 #seeMore:hover {
 	font-weight:bolder;
