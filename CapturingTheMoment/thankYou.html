@@ -5,6 +5,25 @@
 	<meta name='viewport' content='width=device-width, initial-scale=1'>
 	<link rel="stylesheet" type="text/css" href="thankYou.css">
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,500,600,700,800" rel="stylesheet" type="text/css">
+	<!-- <script src="https://use.fontawesome.com/1727fd84aa.js"></script> -->
+
+	<link rel="icon" type="image/png" href="https://static.beepi.com/images/favicon/android-chrome-192x192.png?v=2" sizes="192x192" />
+	<link rel="apple-touch-icon" sizes="180x180" href="https://static.beepi.com/images/favicon/apple-touch-icon-180x180.png?v=2" />
+	<link rel="apple-touch-icon" sizes="152x152" href="https://static.beepi.com/images/favicon/apple-touch-icon-152x152.png?v=2" />
+	<link rel="apple-touch-icon" sizes="144x144" href="https://static.beepi.com/images/favicon/apple-touch-icon-144x144.png?v=2" />
+	<link rel="apple-touch-icon" sizes="120x120" href="https://static.beepi.com/images/favicon/apple-touch-icon-120x120.png?v=2" />
+	<link rel="apple-touch-icon" sizes="114x114" href="https://static.beepi.com/images/favicon/apple-touch-icon-114x114.png?v=2" />
+	<link rel="icon" type="image/png" href="https://static.beepi.com/images/favicon/favicon-96x96.png?v=2" sizes="96x96" />
+	<link rel="apple-touch-icon" sizes="76x76" href="https://static.beepi.com/images/favicon/apple-touch-icon-76x76.png?v=2" />
+	<link rel="apple-touch-icon" sizes="72x72" href="https://static.beepi.com/images/favicon/apple-touch-icon-72x72.png?v=2" />
+	<link rel="apple-touch-icon" sizes="60x60" href="https://static.beepi.com/images/favicon/apple-touch-icon-60x60.png?v=2" />
+	<link rel="apple-touch-icon" sizes="57x57" href="https://static.beepi.com/images/favicon/apple-touch-icon-57x57.png?v=2" />
+	<link rel="icon" type="image/png" href="https://static.beepi.com/images/favicon/favicon-16x16.png?v=2" sizes="16x16" />
+	<link rel="icon" type="image/png" href="https://static.beepi.com/images/favicon/favicon-32x32.png?v=2" sizes="32x32" />
+	<link rel="shortcut icon" href="https://static.beepi.com/images/favicon.ico?v=2" />
+	<link rel="apple-touch-icon" href="https://static.beepi.com/images/favicon.ico?v=2" />
+	<link rel="icon" type="image/png" href="https://static.beepi.com/images/beepiIcon.png" />
+
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.8/jquery.mask.min.js"></script>
 	<script type="text/javascript">
@@ -63,10 +82,10 @@ function ignoreBlanks (customer,i) {
 		// 	createPhoto(customer,i);
 	 //    })
         .on('load', createPhoto.bind(null, customer, i))
-    $(tmpImg)
-	    .on('error',function(){
-	    	console.log(i+' was missing');
-		});
+  //   $(tmpImg)
+	 //    .on('error',function(){
+	 //    	console.log(i+' was missing');
+		// });
 };
 
 var start = 5000;
@@ -153,10 +172,17 @@ function exitSlideshow () {
 	gridMode();
 }
 
-// clicking on a photo to view it
+// clicking on a photo to view it and creating shareable URLs
 function view(smile) {
 	$(smile).toggleClass('view');
-}
+	var currentURL = window.location.href;
+	if (currentURL.toLowerCase().indexOf("?id=") == -1) {
+		window.history.pushState(smile,smile,currentURL + '?id=' + smile);
+	} else {
+		var backURL = window.location.href.split('?')[0];
+		window.history.pushState(null,'Thanks',backURL)
+	};
+};
 
 // Filter by customer type
 function customerFilter() {
