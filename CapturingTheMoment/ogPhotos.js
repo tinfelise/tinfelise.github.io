@@ -222,6 +222,19 @@ var ogPhotos = [
 
 var startOriginals = 0;
 
+function createOGPhoto (index, type, photo) {
+	$('ul').append(
+		'<li id="smile_' + type + '_' + index +
+			'" data-customer-type="original" ' + 
+			'onclick="view(\'#smile_' + type + '_'+ index + '\')" ' + 
+			'style="background-image:url(' + photo + ');">' + 
+			'<div class="details">' +
+				'<span class="name">Early Bird</span>' +
+			'</div>' + 
+		'</li>'
+	);
+}
+
 function getOriginals(interval) {
 	
 	var endOriginals = startOriginals + interval;
@@ -235,9 +248,10 @@ function getOriginals(interval) {
 
 	for (i = startOriginals; i < endOGPhotos; i++) {
 		var ogPhoto = 'images/capturingTheMomentPhotos/' + ogPhotos[i].split(' ').join('%20');
-		$('ul').append(
-			'<li id="smile_og_' + i +'" data-customer-type="original" ' + 'onclick="view(\'#smile_og_'+ i + '\')" ' + 'style="background-image:url(' + ogPhoto + ');"><div class="details"></div></li>'
-		);
+		createOGPhoto(i,'og',ogPhoto);
+		// $('ul').append(
+		// 	'<li id="smile_og_' + i +'" data-customer-type="original" ' + 'onclick="view(\'#smile_og_'+ i + '\')" ' + 'style="background-image:url(' + ogPhoto + ');"><div class="details"></div></li>'
+		// );
 	};
 
 	if (endTestimonials > testimonials.length) {
@@ -246,9 +260,10 @@ function getOriginals(interval) {
 
 	for (i = startOriginals; i < endTestimonials; i++) {
 		var testimonialPhoto = testimonials[i];
-		$('ul').append(
-			'<li id="smile_testimonial_' + i +'" data-customer-type="original" ' + 'onclick="view(\'#smile_testimonial_'+ i + '\')" ' + 'style="background-image:url(' + testimonialPhoto + ');"><div class="details"></div></li>'
-		);
+		createOGPhoto(i,'testimonial',testimonialPhoto);
+		// $('ul').append(
+		// 	'<li id="smile_testimonial_' + i +'" data-customer-type="original" ' + 'onclick="view(\'#smile_testimonial_'+ i + '\')" ' + 'style="background-image:url(' + testimonialPhoto + ');"><div class="details"></div></li>'
+		// );
 	};
 
 	startOriginals = endOriginals + 1;
