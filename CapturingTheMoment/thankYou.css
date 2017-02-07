@@ -116,7 +116,7 @@ header.grid h1 span {
     transform: translate(-50%, 0);
 }
 #seeSmiles:hover {
-	background-color:darkblue;
+	background-color:rgba(4,117,210,.75);
 }
 #seeSmiles:active {
 	background-color:#fff;
@@ -351,7 +351,7 @@ button {
 		height: 1em;
 		background-repeat: no-repeat;
 		position:fixed;
-		top:.25em;
-		right:.25em;
+		top:.5em;
+		right:.5em;
 	}
 }
