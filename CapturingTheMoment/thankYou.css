@@ -115,7 +115,8 @@ header.grid h1 span {
     left: 50%;
     transform: translate(-50%, 0);
 }
-#seeSmiles:hover {
+#seeSmiles:hover,
+#seeMore:active {
 	background-color:rgba(4,117,210,.75);
 }
 #seeSmiles:active {
@@ -138,7 +139,23 @@ header.grid h1 span {
 }
 #seeMore:active {
 	font-weight:bolder;
-	color:darkblue;
+	/*color:darkblue;*/
+}
+.noMore {
+	color:grey !important;
+	border-top: 2px solid grey !important;
+	font-weight:600 !important;
+	pointer-events: none;
+	cursor: default;
+}
+.noMore:after {
+	content: 'Never stop making people smile, Beepiers.';
+	font-size:.5em;
+	font-weight:400;
+	display: block;
+}
+#ferris {
+	background-image: url('images/ferris.gif');
 }
 
 #slideshow.grid:before {
