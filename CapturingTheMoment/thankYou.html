@@ -36,6 +36,8 @@
 		<div class='toggle clearfix'>
 	      <input type="radio" name="customer-type" id="filter-all" value="all" checked></input>
 	      <label for='filter-all'>All</label>
+	      <!-- <input type="radio" name="customer-type" id="filter-originals" value="original"></input>
+	      <label for='filter-originals'>OGs</label> -->
 	      <input type="radio" name="customer-type" id="filter-sellers" value="seller"></input>
 	      <label for='filter-sellers'>Sellers</label>
 	      <input type="radio" name="customer-type" id="filter-buyers" value="buyer"></input>
@@ -52,8 +54,8 @@
 		</li> -->
 	</ul>
 	<a id='seeMore' onclick='
-		getOriginals(50), 
-		addCustomers(50)
+		// getOriginals(50), 
+		addCustomers(500)
 		'>See More</a>
 </body>
 
@@ -102,6 +104,7 @@ function addCustomers (interval) {
 		success: function(data) {
 			var end = start + interval;
 			if (end > data.photos.length) {
+				// console.log('end:'+end);
 				end = data.photos.length;
 			};
 			
@@ -113,12 +116,23 @@ function addCustomers (interval) {
 				// createPhoto();
 			};
 
-			start = end + 1;
+			if (end < data.photos.length) {
+				start = end + 1;
+			} else {
+				console.log('No More');
+				$('#seeMore').toggleClass('noMore').text('The End.');
+				$('ul').append('<li id="ferris" onclick="view(\'#ferris\')"></li>');
+			};
+
+			// viewSharedURL();
+
 			addSelectChange();
+		},
+		complete: function(data) {
+			// viewSharedURL();
 		}
 	});
 };
-addCustomers(50);
 
 // Comma separate Sale ID
 function commaSeparate () {
@@ -133,11 +147,6 @@ function dateFormat (date) {
 	var year = trimmed.split(' ')[2];
 	var formattedDate = month + ' ' + year;
 	return formattedDate;
-};
-
-// Name formatting
-function titleCase (name) {
-
 };
 
 // Playing the slideshow
@@ -179,19 +188,72 @@ function gridMode() {
 function exitSlideshow () {
 	stopSlideshow();
 	gridMode();
-}
+};
+
+var currentURL = window.location.href;
+
+function sharedURL () {
+	if (currentURL.toLowerCase().indexOf("?id=") >= 0) {
+		
+		var sharedID = window.location.href.split('?id=#')[1];
+		var sharedPhotoType = sharedID.split('_')[0];
+		var sharedPhotoID = parseInt(sharedID.split('_')[1]);
+		
+		if (sharedPhotoType == 'smile') {
+			var startSave = start;
+			start = sharedPhotoID;
+			addCustomers(1);
+
+			// view('#'+sharedID);
+		} else {
+			if (sharedPhotoType == 'og') {
+				var photo = 'images/capturingTheMomentPhotos/' + ogPhotos[sharedPhotoID].split(' ').join('%20');
+			};
+			if (sharedPhotoType == 'testimonial') {
+				var photo = testimonials[sharedPhotoID];
+			};
+			createOGPhoto(sharedPhotoID, sharedPhotoType, photo);
+		};
+
+		exitSlideshow();
+		// viewSharedURL();
+		$('#'+sharedID).addClass('view');
+		// $('#'+sharedID).bind('load', viewSharedURL);
+
+		// start = startSave; // why the fuck isn't this working either?
+		// console.log(start);
+
+	};
+
+};
+
+// function viewSharedURL () {
+// 	if (currentURL.toLowerCase().indexOf("?id=") >= 0) {
+// 		var sharedID = window.location.href.split('?id=')[1];
+// 		console.log('view:'+sharedID);
+// 		$(sharedID).addClass('view'); //why the fuck isn't this working?
+// 		// $(sharedID).on('load', testView.bind(null, sharedID));
+// 		// $('#'+sharedID).bind('change', viewSharedURL);
+// 		// $(sharedID).bind('load', function() {
+// 		// 	view(sharedID);
+// 		// });
+// 	};
+// };
+// function testView (x) {
+// 	$(x).addClass('view');
+// }
 
 // clicking on a photo to view it and creating shareable URLs
 function view(smile) {
-	console.log($(smile+' .number').text());
-	// $(smile).toggleClass('view');
-	// var currentURL = window.location.href;
-	// if (currentURL.toLowerCase().indexOf("?id=") == -1) {
-	// 	window.history.pushState(smile,smile,currentURL + '?id=' + smile);
-	// } else {
-	// 	var backURL = window.location.href.split('?')[0];
-	// 	window.history.pushState(null,'Thanks',backURL)
-	// };
+	// console.log($(smile+' .number').text());
+	$(smile).toggleClass('view');
+	currentURL = window.location.href;
+	if (currentURL.toLowerCase().indexOf("?id=") == -1) {
+		window.history.pushState(smile,smile,currentURL + '?id=' + smile);
+	} else {
+		var backURL = window.location.href.split('?')[0];
+		window.history.pushState(null,'Thanks',backURL)
+	};
 };
 
 // Filter by customer type
@@ -209,11 +271,22 @@ function addSelectChange() {
    $('input[name="customer-type"]').bind('change', customerFilter);
 };
 
-// Testing modes
+// Execute modes
+sharedURL();
+// viewSharedURL();
+addCustomers(1000);
+// getOriginals(10);
 // stopSlideshow();
 // gridMode();
-// exitSlideshow();
-// view('#smile_1');
+exitSlideshow();
+// view('li:first-child');
+
+// $(document).ready(function(){
+// 	console.log('Doc done')
+// });
+// $(window).bind("load",function(){
+// 	console.log('Window done')
+// });
 
 </script>
 
