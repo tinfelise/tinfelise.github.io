@@ -224,16 +224,16 @@ var startOriginals = 0;
 
 function createOGPhoto (index, type, photo) {
 	$('ul').append(
-		'<li id="smile_' + type + '_' + index +
+		'<li id="' + type + '_' + index +
 			'" data-customer-type="original" ' + 
-			'onclick="view(\'#smile_' + type + '_'+ index + '\')" ' + 
+			'onclick="view(\'#' + type + '_'+ index + '\')" ' + 
 			'style="background-image:url(' + photo + ');">' + 
 			'<div class="details">' +
 				'<span class="name">Early Bird</span>' +
 			'</div>' + 
 		'</li>'
 	);
-}
+};
 
 function getOriginals(interval) {
 	
@@ -267,7 +267,5 @@ function getOriginals(interval) {
 	};
 
 	startOriginals = endOriginals + 1;
-}
-
-getOriginals(10);
+};
 
