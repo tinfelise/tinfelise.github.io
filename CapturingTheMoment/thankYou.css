@@ -271,7 +271,7 @@ button {
 	cursor:zoom-out !important;
 	transition-property: height !important;
 	background-size: contain !important;
-    background-color: black;
+    background-color: rgba(0,0,0,1);
 }
 .view .close,
 .view .details {
@@ -279,6 +279,7 @@ button {
 }
 .view .details {
 	bottom:0;
+	/*background-color: transparent;*/
 }
 
 .toggle {
@@ -342,6 +343,7 @@ button {
 	}
 	.toggle label {
 		width: calc(100% / 3);
+		/*width: calc(100% / 4);*/
 	}
 	header.grid,
 	#slideshow.grid:before {
