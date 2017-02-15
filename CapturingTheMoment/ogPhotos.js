@@ -220,8 +220,6 @@ var ogPhotos = [
 	'Lawrence.jpeg'
 ];
 
-var startOriginals = 0;
-
 function createOGPhoto (index, type, photo) {
 	$('ul').append(
 		'<li id="' + type + '_' + index +
@@ -234,14 +232,47 @@ function createOGPhoto (index, type, photo) {
 		'</li>'
 	);
 };
+function OGHeadAppend (tempImage, photo) {
+	var height = tempImage.height;
+	var width = tempImage.width;
+
+	$('head').append(
+		'<!-- Facebook Open Graph Tags -->' +
+		'<meta property="og:type" content="website">' +
+		'<meta property="og:title" content="Beepi | Capturing The Moment | Early Bird">' +
+		'<meta name="twitter:description" content="An OG Beepi Customer">' +
+		'<meta property="og:image" content="'+photo+'">' + 
+		'<meta property="og:image:width" content="'+ width + '">' +
+		'<meta property="og:image:height" content="' + height + '">' + 
+
+		'<!-- Twitter Card Tags -->' + 
+		'<meta name="twitter:card" content="summary_large_image">' +
+		'<meta name="twitter:site" content="@beepi">' +
+		'<meta name="twitter:title" content="Beepi | Capturing The Moment | Early Bird">' +
+		'<meta name="twitter:description" content="An OG Beepi Customer">' +
+		'<meta name="twitter:image" content="' + photo + '">'
+	);
+};
+function OGMetadata (photo) {
+	var tmpImg = new Image();
+	tmpImg.src = photo;
+	$(tmpImg).on('load',function() {
+		OGHeadAppend(tmpImg,photo);
+	});
+};
+
+var startOriginals = 0;
 
 function getOriginals(interval) {
 	
 	var endOriginals = startOriginals + interval;
 
 	var endTestimonials = endOriginals;
-	var endOGPhotos = endOriginals;
+	if (endTestimonials > testimonials.length) {
+		endTestimonials = testimonials.length;
+	};
 
+	var endOGPhotos = endOriginals;
 	if (endOGPhotos > ogPhotos.length) {
 		endOGPhotos = ogPhotos.length;
 	};
@@ -249,21 +280,11 @@ function getOriginals(interval) {
 	for (i = startOriginals; i < endOGPhotos; i++) {
 		var ogPhoto = 'images/capturingTheMomentPhotos/' + ogPhotos[i].split(' ').join('%20');
 		createOGPhoto(i,'og',ogPhoto);
-		// $('ul').append(
-		// 	'<li id="smile_og_' + i +'" data-customer-type="original" ' + 'onclick="view(\'#smile_og_'+ i + '\')" ' + 'style="background-image:url(' + ogPhoto + ');"><div class="details"></div></li>'
-		// );
-	};
-
-	if (endTestimonials > testimonials.length) {
-		endTestimonials = testimonials.length;
 	};
 
 	for (i = startOriginals; i < endTestimonials; i++) {
 		var testimonialPhoto = testimonials[i];
 		createOGPhoto(i,'testimonial',testimonialPhoto);
-		// $('ul').append(
-		// 	'<li id="smile_testimonial_' + i +'" data-customer-type="original" ' + 'onclick="view(\'#smile_testimonial_'+ i + '\')" ' + 'style="background-image:url(' + testimonialPhoto + ');"><div class="details"></div></li>'
-		// );
 	};
 
 	startOriginals = endOriginals + 1;
