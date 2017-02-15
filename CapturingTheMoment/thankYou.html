@@ -267,7 +267,7 @@ function jsonMetadata (i) {
 // checking for shared URLs with photo ID
 var currentURL = window.location.href;
 
-function sharedURL () {
+function checkSharedURL () {
 	if (currentURL.toLowerCase().indexOf("?id=") >= 0) {
 		
 		var sharedID = window.location.href.split('?id=#')[1];
@@ -347,7 +347,7 @@ function addSelectChange() {
 };
 
 // Execute modes
-sharedURL();
+checkSharedURL();
 // viewSharedURL();
 // addCustomers(1000);
 // getOriginals(10);
