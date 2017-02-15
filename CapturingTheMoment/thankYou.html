@@ -30,21 +30,9 @@
 	<meta name="robots" content="noindex" />
 	<meta name="robots" content="nofollow" />
 
-	<!-- Facebook Open Graph Tags -->
-	<meta property="og:type" content="website">
-	<meta property="og:title" content="Beepi | Capturing The Moment">
-	<meta property="og:description" content="Thank you, Beepiers. Never stop making people smile.">
-	<meta property="og:url" content="http://tinfelise.github.io/CapturingTheMoment/thankYou.html">
-	<meta property="og:image" content="http://tinfelise.github.io/CapturingTheMoment/images/BeepiMosaic.png">
-	<meta property="og:image:width" content="568">
-	<meta property="og:image:height" content="568">
-	
-	<!-- Twitter Card Tags -->
-	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:site" content="@beepi">
-	<meta name="twitter:title" content="Beepi | Capturing The Moment">
-	<meta name="twitter:description" content="Thank you, Beepiers. Never stop making people smile.">
-	<meta name="twitter:image" content="http://tinfelise.github.io/CapturingTheMoment/images/BeepiMosaic.png">
+	<script type="text/javascript">
+		// var currentURL = window.location.href;
+	</script>
 
 </head>
 <body>
@@ -53,8 +41,8 @@
 		<div class='toggle clearfix'>
 	      <input type="radio" name="customer-type" id="filter-all" value="all" checked></input>
 	      <label for='filter-all'>All</label>
-	      <!-- <input type="radio" name="customer-type" id="filter-originals" value="original"></input>
-	      <label for='filter-originals'>OGs</label> -->
+	      <input type="radio" name="customer-type" id="filter-originals" value="original"></input>
+	      <label for='filter-originals'>OGs</label>
 	      <input type="radio" name="customer-type" id="filter-sellers" value="seller"></input>
 	      <label for='filter-sellers'>Sellers</label>
 	      <input type="radio" name="customer-type" id="filter-buyers" value="buyer"></input>
@@ -94,39 +82,33 @@ function createPhoto (x,i) {
 				'<div class="details">' +
 					'<span class="name">' + x.first.toLowerCase() + '</span>' +
 					'<div>' +
-						'<span class="type">' + x.type + '</span> #<span class="number">' + x.saleID + '</span> &#8226; <span class="date">' + dateFormat(x.date) + '</span>' +
+						'<span class="type">' + x.type + '</span> #<span class="number">' + x.saleID + '</span> &#8226; <span class="date">' + dateFormat(x.date) + 
+						'</span>' +
 					'</div>' +
 				'</div>' +
 		'</li>'
 	);
+	viewSharedURL();
 	commaSeparate();
 	photoCount++;
 };
 function ignoreBlanks (customer,i) {
 	var tmpImg = new Image();
 	tmpImg.src = customer.photo;
-
-	$(tmpImg)
-		// .on('load',function(){
-		// 	createPhoto(customer,i);
-	 //    })
-        .on('load', createPhoto.bind(null, customer, i))
-  //   $(tmpImg)
-	 //    .on('error',function(){
-	 //    	console.log(i+' was missing');
-		// });
+	$(tmpImg).on('load', createPhoto.bind(null, customer, i))
+		// .on('load',function(){createPhoto(customer,i);})
+        // .on('error',function(){console.log(i+' was missing');});
 };
 
 var start = 4000;
 
-function addCustomers (interval) {
+function addCustomers (interval, callback) {
 	$.ajax({
 		url: "http://tinfelise.github.io/CapturingTheMoment/tyler.json",
 		dataType: 'json',
 		success: function(data) {
 			var end = start + interval;
 			if (end > data.photos.length) {
-				// console.log('end:'+end);
 				end = data.photos.length;
 			};
 			
@@ -147,11 +129,14 @@ function addCustomers (interval) {
 			};
 
 			// viewSharedURL();
-
 			addSelectChange();
 		},
 		complete: function(data) {
-			// viewSharedURL();
+			var ogInterval = interval / 100;
+			getOriginals(ogInterval);
+			// if (callback) {
+			// 	callback();
+			// };
 		}
 	});
 };
@@ -191,7 +176,7 @@ function playSlideshow () {
  	$('#seeSmiles').show();
  	$('#seeMore').hide();
 	interval = setInterval(nextSlide, 3000);
-}
+};
 
 // stopping the Slideshow and going into grid mode
 function stopSlideshow() {
@@ -212,6 +197,74 @@ function exitSlideshow () {
 	gridMode();
 };
 
+// Metadata generation
+function metadata() {
+	$('head').append(
+		'<!-- Facebook Open Graph Tags -->' +
+		'<meta property="og:type" content="website">' +
+		'<meta property="og:title" content="Beepi | Capturing The Moment">' +
+		'<meta property="og:description" content="Thank you, Beepiers. Never stop making people smile.">' +
+		'<meta property="og:url" content="http://tinfelise.github.io/CapturingTheMoment/thankYou.html">' +
+		'<meta property="og:image" content="http://tinfelise.github.io/CapturingTheMoment/images/BeepiMosaic.png">' +
+		'<meta property="og:image:width" content="568">' +
+		'<meta property="og:image:height" content="568">' +
+		
+		'<!-- Twitter Card Tags -->' +
+		'<meta name="twitter:card" content="summary_large_image">' +
+		'<meta name="twitter:site" content="@beepi">' +
+		'<meta name="twitter:title" content="Beepi | Capturing The Moment">' +
+		'<meta name="twitter:description" content="Thank you, Beepiers. Never stop making people smile.">' +
+		'<meta name="twitter:image" content="http://tinfelise.github.io/CapturingTheMoment/images/BeepiMosaic.png">'
+	);
+};
+
+function jsonHeadAppend (image, x, data) {
+	var name = x.first;
+	var type = x.type;
+	var date = dateFormat(x.date);
+	var photo = x.photo;
+
+	var height = image.height;
+	var width = image.width;
+	
+	$('head').append(
+		'<!-- Facebook Open Graph Tags -->' +
+		'<meta property="og:type" content="website">' +
+		'<meta property="og:title" content="Beepi | Capturing The Moment | '+ name + '">' +
+		'<meta name="twitter:description" content="'+ 'Beepi '+ type + ' | '+ date +'">' +
+		'<meta property="og:image" content="'+photo+'">' + 
+		'<meta property="og:image:width" content="'+ width + '">' +
+		'<meta property="og:image:height" content="' + height + '">' + 
+
+		'<!-- Twitter Card Tags -->' + 
+		'<meta name="twitter:card" content="summary_large_image">' +
+		'<meta name="twitter:site" content="@beepi">' +
+		'<meta name="twitter:title" content="Beepi | Capturing The Moment | ' + name + '">' +
+		'<meta name="twitter:description" content="' + 'Beepi '+type + ' | '+ date +'">' +
+		'<meta name="twitter:image" content="' + photo + '">'
+	);
+};
+
+function jsonMetadata (i) {
+	$.ajax({
+		url: "http://tinfelise.github.io/CapturingTheMoment/tyler.json",
+		dataType: 'json',
+		success: function(data) {
+			var x = data.photos[i];
+			
+			var tmpImg = new Image();
+			tmpImg.src = x.photo;
+			$(tmpImg).on('load',function() {
+				jsonHeadAppend(tmpImg,x,i);
+			});
+			// .on('load', jsonHeadAppend.bind(null, tmpImg, x, i))
+			
+		}
+	});
+};
+// jsonMetadata(4837);
+
+// checking for shared URLs with photo ID
 var currentURL = window.location.href;
 
 function sharedURL () {
@@ -225,7 +278,10 @@ function sharedURL () {
 			var startSave = start;
 			start = sharedPhotoID;
 			addCustomers(1);
-
+			jsonMetadata(sharedPhotoID);
+			start = startSave;
+			addCustomers(1000);
+			// getOriginals(10);
 			// view('#'+sharedID);
 		} else {
 			if (sharedPhotoType == 'og') {
@@ -235,35 +291,32 @@ function sharedURL () {
 				var photo = testimonials[sharedPhotoID];
 			};
 			createOGPhoto(sharedPhotoID, sharedPhotoType, photo);
+			OGMetadata(photo);
+			addCustomers(1000);
+			$('#'+sharedID).addClass('view');
 		};
 
 		exitSlideshow();
 		// viewSharedURL();
-		$('#'+sharedID).addClass('view');
+		
+		// console.log($('#'+sharedID));
+		// console.log('test')
 		// $('#'+sharedID).bind('load', viewSharedURL);
 
-		// start = startSave; // why the fuck isn't this working either?
-		// console.log(start);
-
+	} else {
+		addCustomers(1000);
+		// getOriginals(10);
+		metadata();
 	};
 
 };
 
-// function viewSharedURL () {
-// 	if (currentURL.toLowerCase().indexOf("?id=") >= 0) {
-// 		var sharedID = window.location.href.split('?id=')[1];
-// 		console.log('view:'+sharedID);
-// 		$(sharedID).addClass('view'); //why the fuck isn't this working?
-// 		// $(sharedID).on('load', testView.bind(null, sharedID));
-// 		// $('#'+sharedID).bind('change', viewSharedURL);
-// 		// $(sharedID).bind('load', function() {
-// 		// 	view(sharedID);
-// 		// });
-// 	};
-// };
-// function testView (x) {
-// 	$(x).addClass('view');
-// }
+function viewSharedURL () {
+	if (currentURL.toLowerCase().indexOf("?id=") >= 0) {
+		var sharedID = window.location.href.split('?id=')[1];
+		$(sharedID).addClass('view');
+	};
+};
 
 // clicking on a photo to view it and creating shareable URLs
 function view(smile) {
@@ -296,11 +349,11 @@ function addSelectChange() {
 // Execute modes
 sharedURL();
 // viewSharedURL();
-addCustomers(1000);
+// addCustomers(1000);
 // getOriginals(10);
 // stopSlideshow();
 // gridMode();
-exitSlideshow();
+// exitSlideshow();
 // view('li:first-child');
 
 // $(document).ready(function(){
