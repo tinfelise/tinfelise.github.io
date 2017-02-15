@@ -343,7 +343,7 @@ button {
 	}
 	.toggle label {
 		width: calc(100% / 3);
-		/*width: calc(100% / 4);*/
+		width: calc(100% / 4);
 	}
 	header.grid,
 	#slideshow.grid:before {
