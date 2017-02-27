@@ -60,7 +60,8 @@
 	</ul>
 	<a id='seeMore' onclick='
 		// getOriginals(50), 
-		addCustomers(500)
+		addCustomers(50),
+		customerFilter()
 		'>See More</a>
 </body>
 
@@ -76,7 +77,8 @@ for (i=0; i<rotated.length; i++) {
 // console.log(ignore.length+ ' ignored');
 
 var photoCount = 0;
-function createPhoto (x,i) {
+function createPhoto (i) {
+	var x = jsonData[i];
 	$('ul').append(
 		'<li id="smile_' + i +'" data-customer-type="' + x.type + '" ' + 'onclick="view(\'#smile_'+ i + '\')" ' + 'style="background-image:url(' + x.photo + ');">' + 
 				'<div class="details">' +
@@ -88,21 +90,25 @@ function createPhoto (x,i) {
 				'</div>' +
 		'</li>'
 	);
-	viewSharedURL();
+	// viewSharedURL();
 	commaSeparate();
 	photoCount++;
 };
-function ignoreBlanks (customer,i) {
-	var tmpImg = new Image();
-	tmpImg.src = customer.photo;
-	$(tmpImg).on('load', createPhoto.bind(null, customer, i))
-		// .on('load',function(){createPhoto(customer,i);})
-        // .on('error',function(){console.log(i+' was missing');});
-};
+// function ignoreBlanks (customer,i, length) {
+// 	var tmpImg = new Image();
+// 	tmpImg.src = customer.photo;
+// 	$(tmpImg)
+// 		.on('load', createPhoto.bind(null, customer, i));
+// 		// .on('load',function(){
+// 		// 	console.log(i+" "+ length);
+// 		// 	createPhoto(customer,i);
+// 		// 	if (i === length) {
+// 		// 		end(i);
+// 		// 	};
+// 		// });
+//         // .on('error',function(){console.log(i+' was missing');});
+// };
 
-var start = 4000;
-
-function addCustomers (interval, callback) {
 // var cleanedPhotos = [];
 // function checkBlanks (customer, destination) {
 // 	var tmpImg = new Image();
@@ -134,42 +140,85 @@ function addCustomers (interval, callback) {
 // };
 // cleanupJSON();
 
+var start = 0;
+var jsonData= [];
+
+function getCustomers (interval) {
 	$.ajax({
-		url: "http://tinfelise.github.io/CapturingTheMoment/tyler.json",
+		url: "https://tinfelise.github.io/CapturingTheMoment/data.json",
 		dataType: 'json',
 		success: function(data) {
-			var end = start + interval;
-			if (end > data.photos.length) {
-				end = data.photos.length;
-			};
-			
-			for (i = start; i < end; i++) {
-				var x = data.photos[i];
-				if ($.inArray(x.saleID, ignore) == -1) {
-					ignoreBlanks(x,i);
-				};
-				// createPhoto();
-			};
-
-			if (end < data.photos.length) {
-				start = end + 1;
-			} else {
-				console.log('No More');
-				$('#seeMore').toggleClass('noMore').text('The End.');
-				$('ul').append('<li id="ferris" onclick="view(\'#ferris\')"></li>');
-			};
-
-			// viewSharedURL();
+			jsonData = data;
+			checkSharedURL();
+			addCustomers(interval);
 			addSelectChange();
-		},
-		complete: function(data) {
-			var ogInterval = interval / 100;
-			getOriginals(ogInterval);
-			// if (callback) {
-			// 	callback();
-			// };
 		}
 	});
+};
+
+function addCustomers (interval) {
+	var end = start + interval;
+	if (end > jsonData.length) {
+		end = jsonData.length;
+	};
+	
+	for (i = start; i < end; i++) {
+		createPhoto(i);
+	};
+
+	var ogInterval = interval / 10;
+	getOriginals(ogInterval);
+
+	if (end < jsonData.length) {
+		start = end + 1;
+	} else {
+		theEnd();
+	};
+};
+
+// function addCustomers (interval, callback) {
+// 	$.ajax({
+// 		url: "https://tinfelise.github.io/CapturingTheMoment/tyler.json",
+// 		dataType: 'json',
+// 		success: function(data) {
+// 			// jsonData = data;
+
+// 			var end = start + interval;
+// 			if (end > data.photos.length) {
+// 				end = data.photos.length;
+// 			};
+			
+// 			for (i = start; i < end; i++) {
+// 				var x = data.photos[i];
+// 				if ($.inArray(x.saleID, ignore) == -1) {
+// 					ignoreBlanks(x,i, data.photos.length);
+// 				};
+// 				// createPhoto();
+// 			};
+
+// 			if (end < data.photos.length) {
+// 				start = end + 1;
+// 			} else {
+// 				theEnd ();
+// 			};
+
+// 			// viewSharedURL();
+// 			addSelectChange();
+// 		},
+// 		complete: function(data) {
+// 			var ogInterval = interval / 100;
+// 			getOriginals(ogInterval);
+// 			// if (callback) {
+// 			// 	callback();
+// 			// };
+// 		}
+// 	});
+// };
+
+function theEnd () {
+	console.log('No More');
+	$('#seeMore').toggleClass('noMore').text('The End.');
+	$('ul').append('<li id="ferris" onclick="view(\'#ferris\')"></li>');
 };
 
 // Comma separate Sale ID
@@ -187,6 +236,13 @@ function dateFormat (date) {
 	return formattedDate;
 };
 
+// Camel/ Title Case
+function titleCase(str) {
+  return str.toLowerCase().split(' ').map(function(word) {
+    return word.replace(word[0], word[0].toUpperCase());
+  }).join(' ');
+};
+
 // Playing the slideshow
 var interval = setInterval(nextSlide, 3000);
 
@@ -199,6 +255,23 @@ function nextSlide() {
     .end()
     .appendTo('#slideshow');
 };
+
+var Counter = (function() {
+	var count = 0;
+
+	return {
+		increment: function() {
+			count++;
+		}
+	}
+
+})();
+
+{
+	count: 1
+}
+
+Counter.increment();
 
 function playSlideshow () {
 	$('#slideshow li').hide();
@@ -261,8 +334,8 @@ function jsonHeadAppend (image, x, data) {
 	$('head').append(
 		'<!-- Facebook Open Graph Tags -->' +
 		'<meta property="og:type" content="website">' +
-		'<meta property="og:title" content="Beepi | Capturing The Moment | '+ name + '">' +
-		'<meta name="twitter:description" content="'+ 'Beepi '+ type + ' | '+ date +'">' +
+		'<meta property="og:title" content="Beepi | Capturing The Moment | '+ titleCase(name) + '">' +
+		'<meta name="twitter:description" content="'+ 'Beepi '+ titleCase(type) + ' | '+ date +'">' +
 		'<meta property="og:image" content="'+photo+'">' + 
 		'<meta property="og:image:width" content="'+ width + '">' +
 		'<meta property="og:image:height" content="' + height + '">' + 
@@ -270,30 +343,39 @@ function jsonHeadAppend (image, x, data) {
 		'<!-- Twitter Card Tags -->' + 
 		'<meta name="twitter:card" content="summary_large_image">' +
 		'<meta name="twitter:site" content="@beepi">' +
-		'<meta name="twitter:title" content="Beepi | Capturing The Moment | ' + name + '">' +
-		'<meta name="twitter:description" content="' + 'Beepi '+type + ' | '+ date +'">' +
+		'<meta name="twitter:title" content="Beepi | Capturing The Moment | ' + titleCase(name) + '">' +
+		'<meta name="twitter:description" content="' + 'Beepi '+ titleCase(type) + ' | '+ date +'">' +
 		'<meta name="twitter:image" content="' + photo + '">'
 	);
 };
 
+// function jsonMetadata (i) {
+// 	$.ajax({
+// 		url: "http://tinfelise.github.io/CapturingTheMoment/tyler.json",
+// 		dataType: 'json',
+// 		success: function(data) {
+// 			var x = data.photos[i];
+			
+// 			var tmpImg = new Image();
+// 			tmpImg.src = x.photo;
+// 			$(tmpImg).on('load',function() {
+// 				jsonHeadAppend(tmpImg,x,i);
+// 			});
+// 			// .on('load', jsonHeadAppend.bind(null, tmpImg, x, i))
+			
+// 		}
+// 	});
+// };
+// jsonMetadata(4837);
+
 function jsonMetadata (i) {
-	$.ajax({
-		url: "http://tinfelise.github.io/CapturingTheMoment/tyler.json",
-		dataType: 'json',
-		success: function(data) {
-			var x = data.photos[i];
-			
-			var tmpImg = new Image();
-			tmpImg.src = x.photo;
-			$(tmpImg).on('load',function() {
-				jsonHeadAppend(tmpImg,x,i);
-			});
-			// .on('load', jsonHeadAppend.bind(null, tmpImg, x, i))
-			
-		}
+	var x = jsonData[i];
+	var tmpImg = new Image();
+	tmpImg.src = x.photo;
+	$(tmpImg).on('load',function() {
+		jsonHeadAppend(tmpImg,x,i);
 	});
 };
-// jsonMetadata(4837);
 
 // checking for shared URLs with photo ID
 var currentURL = window.location.href;
@@ -306,12 +388,13 @@ function checkSharedURL () {
 		var sharedPhotoID = parseInt(sharedID.split('_')[1]);
 		
 		if (sharedPhotoType == 'smile') {
-			var startSave = start;
-			start = sharedPhotoID;
-			addCustomers(1);
+			// var startSave = start;
+			// start = sharedPhotoID;
+			// addCustomers(1);
+			createPhoto(sharedPhotoID);
 			jsonMetadata(sharedPhotoID);
-			start = startSave;
-			addCustomers(1000);
+			//start = startSave;
+			//addCustomers(1000);
 			// getOriginals(10);
 			// view('#'+sharedID);
 		} else {
@@ -323,10 +406,10 @@ function checkSharedURL () {
 			};
 			createOGPhoto(sharedPhotoID, sharedPhotoType, photo);
 			OGMetadata(photo);
-			addCustomers(1000);
-			$('#'+sharedID).addClass('view');
+			// addCustomers(1000);
+			// $('#'+sharedID).addClass('view');
 		};
-
+		$('#'+sharedID).addClass('view');
 		exitSlideshow();
 		// viewSharedURL();
 		
@@ -335,23 +418,23 @@ function checkSharedURL () {
 		// $('#'+sharedID).bind('load', viewSharedURL);
 
 	} else {
-		addCustomers(1000);
+		// addCustomers(1000);
 		// getOriginals(10);
 		metadata();
 	};
-
 };
 
-function viewSharedURL () {
-	if (currentURL.toLowerCase().indexOf("?id=") >= 0) {
-		var sharedID = window.location.href.split('?id=')[1];
-		$(sharedID).addClass('view');
-	};
-};
+// function viewSharedURL () {
+// 	if (currentURL.toLowerCase().indexOf("?id=") >= 0) {
+// 		var sharedID = window.location.href.split('?id=')[1];
+// 		$(sharedID).addClass('view');
+// 	};
+// };
 
 // clicking on a photo to view it and creating shareable URLs
 function view(smile) {
 	// console.log($(smile+' .number').text());
+	console.log('Viewed:'+smile);
 	$(smile).toggleClass('view');
 	currentURL = window.location.href;
 	if (currentURL.toLowerCase().indexOf("?id=") == -1) {
@@ -377,8 +460,11 @@ function addSelectChange() {
    $('input[name="customer-type"]').bind('change', customerFilter);
 };
 
+// $('li').bind('load', customerFilter); //why doesn't this work?
+
 // Execute modes
-checkSharedURL();
+getCustomers(50);
+// checkSharedURL();
 // viewSharedURL();
 // addCustomers(1000);
 // getOriginals(10);
