@@ -103,6 +103,37 @@ function ignoreBlanks (customer,i) {
 var start = 4000;
 
 function addCustomers (interval, callback) {
+// var cleanedPhotos = [];
+// function checkBlanks (customer, destination) {
+// 	var tmpImg = new Image();
+// 	tmpImg.src = customer.photo;
+// 	$(tmpImg).on('load',function(){
+// 		console.log(customer.photo);
+// 		destination.push(customer);
+// 	});
+// };
+// function cleanupJSON () {
+// 	$.ajax({
+// 		url: "http://tinfelise.github.io/CapturingTheMoment/tyler.json",
+// 		dataType: 'json',
+// 		success: function(data) {
+// 			var photos = data.photos;
+// 			// var cleanedPhotos = [];
+
+// 			photos.forEach(function(photo, i) {
+// 				// if ( (4000 < i) && (i < 5000) ) {
+// 					if ($.inArray(photo.saleID, ignore) == -1) {
+// 						// console.log(i);
+// 						checkBlanks(photo, cleanedPhotos);
+// 					};
+// 				// };
+// 			});
+// 			console.log(JSON.stringify(cleanedPhotos));
+// 		}
+// 	});
+// };
+// cleanupJSON();
+
 	$.ajax({
 		url: "http://tinfelise.github.io/CapturingTheMoment/tyler.json",
 		dataType: 'json',
