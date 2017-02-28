@@ -254,6 +254,7 @@ button {
 	display:block;
 	float:left;
 	cursor: zoom-in;
+	animation: none !important;
 }
 .grid li:hover {
 	/*transform: scale(1.2);*/
