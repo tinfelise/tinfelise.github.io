@@ -50,14 +50,8 @@
 	    </div>
 	</header>
 	<a id='seeSmiles' onclick="exitSlideshow()">See Smiles</a>
-	<ul id='slideshow' class='clearfix'>
-		<!-- <li id='example' data-customer-type="seller" onclick="view('#example')" style='background-image:url(images/capturingTheMomentPhotos/20150309_155747.jpg);'>
-			<button class='close'>x</button>
-			<div class='details'>
-				<span class='name'>John</span>, Seller #55 <span class='date'>Mar 2014</span>
-			</div>
-		</li> -->
-	</ul>
+	<a id='play' onclick='playSlideshow(), togglePlay()'>&#9658;</a>
+	<ul id='slideshow' class='clearfix'></ul>
 	<a id='seeMore' onclick='
 		// getOriginals(50), 
 		addCustomers(50),
@@ -68,6 +62,21 @@
 <script type="text/javascript" src='ogPhotos.js'></script>
 
 <script>
+
+// From Pradeep...
+// var Counter = (function() {
+// 	var count = 0;
+// 	return {
+// 		increment: function() {
+// 			count++;
+// 		}
+// 	}
+// })();
+// {
+// 	count: 1
+// }
+// Counter.increment();
+
 // var ignore = [];
 var ignore = ['27525', '28502', '31965', '27223', '31113', '39221', '34525', '37755', '27018', '35180', '39659', '36211', '36530', '38952', '37552', '37688', '38995', '39461', '22201', '42004', '39623', '35167', '43325', '41821', '34976', '40068', '43627', '39219', '30440', '42111', '38136', '37664', '27711', '32897', '46376', '47710', '39041', '37424', '36623', '38469', '45687', '36782', '46914', '38586', '49729', '44138', '43111', '46117', '46242', '36798', '47161', '44461', '48238', '41806', '28764', '48992', '38312', '46548', '49670', '45944', '34409', '49101', '40993', '44460', '46913', '50081', '47962', '49384', '44242', '35943', '36625', '52245', '35853', '32981', '39888', '32295', '46658', '52501', '50228', '33003', '31446', '43867', '38718', '52122', '42705', '40826', '33305', '50040', '48832', '50539', '37404', '38927', '52580', '53677', '49236', '46583', '54914', '48314', '37793', '50270', '51651', '53157', '52031', '46594', '57593', '49838', '55102', '46794', '41097', '53456', '53378', '38983', '59530', '43896', '60082', '51185', '58514', '61006', '60278', '56746', '43152', '61447', '59853', '62595', '60989', '64693', '72037', '72386', '66430', '78071', '77512', '80645', '78518', '76419', '81331', '83743', '68946', '80542', '80215', '71151', '84248', '54207', '98452', '79256', '75240', '80839', '43119'];
 var rotated = ['49680', '55439', '56535', '62582', '48043', '64677', '64653', '71464', '43697', '54071', '76159', '78978', '69528', '68267', '77358', '83147', '84940', '63466', '64685', '73714', '84073', '79441', '64847', '69304', '90618', '79748', '62530', '74967', '61433', '80136', '66839', '91585', '61748', '76059', '74635', '92781', '71158', '96514', '95991', '62070', '76592', '79959', '81866', '71272', '73590', '97931', '96721', '90614', '99260'];
@@ -126,14 +135,14 @@ function createPhoto (i) {
 // 			var photos = data.photos;
 // 			// var cleanedPhotos = [];
 
-// 			photos.forEach(function(photo, i) {
-// 				// if ( (4000 < i) && (i < 5000) ) {
-// 					if ($.inArray(photo.saleID, ignore) == -1) {
-// 						// console.log(i);
-// 						checkBlanks(photo, cleanedPhotos);
-// 					};
-// 				// };
-// 			});
+			// photos.forEach(function(photo, i) {
+			// 	// if ( (4000 < i) && (i < 5000) ) {
+			// 		if ($.inArray(photo.saleID, ignore) == -1) {
+			// 			// console.log(i);
+			// 			checkBlanks(photo, cleanedPhotos);
+			// 		};
+			// 	// };
+			// });
 // 			console.log(JSON.stringify(cleanedPhotos));
 // 		}
 // 	});
@@ -152,6 +161,7 @@ function getCustomers (interval) {
 			checkSharedURL();
 			addCustomers(interval);
 			addSelectChange();
+			createCSSslideshow();
 		}
 	});
 };
@@ -244,51 +254,103 @@ function titleCase(str) {
 };
 
 // Playing the slideshow
-var interval = setInterval(nextSlide, 3000);
+function createCSSslideshow() {
+	// stopSlideshow();
 
-function nextSlide() {
-  $('#slideshow li:first')
-    // .animate({'filter':'blur(5px)'})
-    .fadeOut(1000)
-    .next()
-    .fadeIn(2000)
-    .end()
-    .appendTo('#slideshow');
+	var interval = 2;
+	var slideCount = $('li').length;
+	var runtime = slideCount * interval;
+	var stagger = runtime;
+	var startFade = 100 / slideCount;
+
+	var selectors = '';
+	for (i=1; i<=slideCount; i++) {
+		stagger = stagger - interval;
+		selectors += '#slideshow li:nth-child(' + i + ') {' +
+			'animation: xfade ' + runtime + 's ' + stagger + 's infinite;' + 
+			'}';
+	};
+
+	var steps = {
+		'0':1,
+		[startFade * .9]:1,
+		[startFade]:0,
+		'98':0,
+		'100':1
+	};
+	var keyframes = '@keyframes xfade {';
+	for (var i in steps) {
+		keyframes += 
+			i + '% {' +
+				'opacity: ' + steps[i] +';' + 
+			'}';
+	};
+	keyframes += '}'
+
+	var css = selectors + '\n' + keyframes;
+	injectStyles(css);
+	// console.log(css);
 };
 
-var Counter = (function() {
-	var count = 0;
+function injectStyles(rule) {
+  var stylesheet = $("<style />", {
+    html: rule
+  }).appendTo("body");    
+};
 
-	return {
-		increment: function() {
-			count++;
-		}
-	}
+// var interval = setInterval(nextSlide, 3000);
 
-})();
+// function nextSlide() {
+// 	$('#slideshow li:first')
+// 	    // .animate({'filter':'blur(5px)'})
+// 	    .fadeOut(1000)
+// 	    .next()
+// 	    .fadeIn(2000)
+// 	    .end()
+// 	    .appendTo('#slideshow');
+// 	    // .fadeOut(1000)
+// 	    // .end()
+// 	// $('#slideshow li:first')
+// 	//     .appendTo('#slideshow')
+// 	//     // .end()
+// 	//     .show();
+// 	//     // .end();
+// };
 
-{
-	count: 1
-}
+// function playSlideshow () {
+// 	interval = setInterval(nextSlide, 3000);
+// };
 
-Counter.increment();
-
-function playSlideshow () {
-	$('#slideshow li').hide();
+function restartSlideshow () {
+	// $('#slideshow li').hide();
  	$('#slideshow').toggleClass('grid');
  	$('header').toggleClass('grid');
  	$('#seeSmiles').show();
  	$('#seeMore').hide();
-	interval = setInterval(nextSlide, 3000);
+	// playSlideshow();
+	createCSSslideshow();
+};
+
+function togglePlay () {
+	var status = $('#play').text();
+	var play = '&#9658;';
+	var playUTF16 = '\u25B6';
+	var pause = 'II'
+
+	if (status == play || status == playUTF16) {
+		$('#play').text(pause);
+	} else {
+		$('#play').text(playUTF16);
+	};
 };
 
 // stopping the Slideshow and going into grid mode
-function stopSlideshow() {
-  clearInterval(interval);
-};
+// function stopSlideshow() {
+//   clearInterval(interval);
+// };
 
 function gridMode() {
-	$('#slideshow li').show();
+	// $('#slideshow li').show();
  	$('#slideshow').toggleClass('grid');
  	$('header').toggleClass('grid');
  	$('#seeSmiles').hide();
@@ -297,8 +359,9 @@ function gridMode() {
 };
 
 function exitSlideshow () {
-	stopSlideshow();
+	// stopSlideshow();
 	gridMode();
+	$('#play').text('\u25B6');
 };
 
 // Metadata generation
@@ -463,7 +526,7 @@ function addSelectChange() {
 // $('li').bind('load', customerFilter); //why doesn't this work?
 
 // Execute modes
-getCustomers(50);
+getCustomers(10);
 // checkSharedURL();
 // viewSharedURL();
 // addCustomers(1000);
