@@ -98,30 +98,43 @@ header.grid h1 span {
 }
 
 #seeSmiles,
-#seeMore {
+#seeMore,
+#play {
 	display:block;
 	/*margin: auto;*/
 	text-align:center;
 	text-transform: uppercase;
 	font-weight:400;
 }
-#seeSmiles {
+#seeSmiles,
+#play {
 	background-color:rgba(0,155,255,.75);
 	color:#fff;
-	border-radius:5px;
 	padding:.5em;
 	position: fixed;
-    bottom: 2em;
-    left: 50%;
-    transform: translate(-50%, 0);
+    bottom: 4em;
+    height: 2em
 }
 #seeSmiles:hover,
+#play:hover,
 #seeMore:active {
 	background-color:rgba(4,117,210,.75);
 }
-#seeSmiles:active {
+#seeSmiles:active,
+#play:active {
 	background-color:#fff;
 	color:#009bff;
+}
+#seeSmiles {
+	border-radius:5px;
+	left: 50%;
+	transform: translate(-50%, 0);
+}
+#play {
+	border-radius: 50%;
+	right:1em;
+    width: 2em;
+    z-index: 1;
 }
 #seeMore {
 	display:none;
