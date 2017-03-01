@@ -1,5 +1,4 @@
 var testimonials = [
-	'https://static.beepi.com/images/Testimonials/LoveStories/testimonial186.jpg',
 	'https://static.beepi.com/images/Testimonials/LoveStories/testimonial157.jpg',
 	'https://static.beepi.com/images/Testimonials/LoveStories/testimonial44.jpg',
 	'https://static.beepi.com/images/Testimonials/LoveStories/testimonial163.jpg',
@@ -8,6 +7,7 @@ var testimonials = [
 	'https://static.beepi.com/images/Testimonials/LoveStories/testimonial113.jpg',
 	'https://static.beepi.com/images/Testimonials/LoveStories/testimonial161.jpg',
 	'https://static.beepi.com/images/Testimonials/LoveStories/testimonial168.jpg',
+	'https://static.beepi.com/images/Testimonials/LoveStories/testimonial186.jpg',
 	'https://static.beepi.com/images/Testimonials/LoveStories/testimonial143.jpg',
 	'https://static.beepi.com/images/Testimonials/LoveStories/testimonial154.jpg',
 	'https://static.beepi.com/images/Testimonials/LoveStories/testimonial145.jpg',
