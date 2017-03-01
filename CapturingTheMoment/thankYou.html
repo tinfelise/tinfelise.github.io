@@ -50,9 +50,7 @@
 	    </div>
 	</header>
 	<a id='seeSmiles' onclick="exitSlideshow()">See Smiles</a>
-	<a id='play' onclick='
-		// restartSlideshow(), 
-		togglePlay()'><i class="fa fa-pause" aria-hidden="true"></i></a>
+	<a id='play' onclick='togglePlay()'><i class="fa fa-pause" aria-hidden="true"></i></a>
 	<ul id='slideshow' class='clearfix'></ul>
 	<a id='seeMore' onclick='
 		// getOriginals(50), 
@@ -255,7 +253,7 @@ function titleCase(str) {
   }).join(' ');
 };
 
-// Playing the slideshow
+// Creating css selectors and keyframes for the slideshow based on number of customers loaded
 function createCSSslideshow() {
 	var interval = 2;
 	var slideCount = $('li').length;
