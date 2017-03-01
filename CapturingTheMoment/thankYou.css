@@ -136,6 +136,10 @@ header.grid h1 span {
     width: 2em;
     z-index: 1;
 }
+.pause li {
+	-webkit-animation-play-state: paused !important; /* Safari 4.0 - 8.0 */
+    animation-play-state: paused !important;
+}
 #seeMore {
 	display:none;
 	/*color:#fff;

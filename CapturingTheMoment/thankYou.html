@@ -50,7 +50,9 @@
 	    </div>
 	</header>
 	<a id='seeSmiles' onclick="exitSlideshow()">See Smiles</a>
-	<a id='play' onclick='restartSlideshow(), togglePlay()'>&#9658;</a>
+	<a id='play' onclick='
+		// restartSlideshow(), 
+		togglePlay()'>II</a>
 	<ul id='slideshow' class='clearfix'></ul>
 	<a id='seeMore' onclick='
 		// getOriginals(50), 
@@ -342,6 +344,7 @@ function togglePlay () {
 	} else {
 		$('#play').text(playUTF16);
 	};
+	$('#slideshow').toggleClass('pause');
 };
 
 // stopping the Slideshow and going into grid mode
