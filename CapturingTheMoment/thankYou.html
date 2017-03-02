@@ -49,6 +49,7 @@
 	      <label for='filter-buyers'>Buyers</label>
 	    </div>
 	</header>
+	<div id='splash'><span></span></div>
 	<a id='seeSmiles' onclick="exitSlideshow()">See Smiles</a>
 	<a id='play' onclick='togglePlay()'><i class="fa fa-pause" aria-hidden="true"></i></a>
 	<ul id='slideshow' class='clearfix'></ul>
@@ -62,6 +63,11 @@
 <script type="text/javascript" src='ogPhotos.js'></script>
 
 <script>
+
+//Hide the loading splash screen once the ken burns animation is complete
+$('#splash span').one('animationend', function() {
+	$('#splash').hide();
+});
 
 // From Pradeep...
 // var Counter = (function() {
