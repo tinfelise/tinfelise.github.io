@@ -224,7 +224,7 @@ function createOGPhoto (index, type, photo) {
 	$('ul').append(
 		'<li id="' + type + '_' + index +
 			'" data-customer-type="original" ' + 
-			'onclick="view(\'#' + type + '_'+ index + '\')" ' + 
+			'onclick="view(\'#' + type + '_'+ index + '\', \'Early Bird\')" ' + 
 			'style="background-image:url(' + photo + ');">' + 
 			'<div class="details">' +
 				'<span class="name">Early Bird</span>' +

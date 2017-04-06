@@ -94,8 +94,16 @@ for (i=0; i<rotated.length; i++) {
 var photoCount = 0;
 function createPhoto (i) {
 	var x = jsonData[i];
+
+	var capType = '';
+	if (x.type == 'buyer') {
+		capType = 'Buyer';
+	} else if (x.type == 'seller') {
+		capType = 'Seller';
+	};
+	
 	$('ul').append(
-		'<li id="smile_' + i +'" data-customer-type="' + x.type + '" ' + 'onclick="view(\'#smile_'+ i + '\')" ' + 'style="background-image:url(' + x.photo + ');">' + 
+		'<li id="smile_' + i +'" data-customer-type="' + x.type + '" ' + 'onclick="view(\'#smile_'+ i + '\',\'Beepi ' + capType + ' ' + x.first + '\')" ' + 'style="background-image:url(' + x.photo + ');">' + 
 				'<div class="details">' +
 					'<span class="name">' + x.first.toLowerCase() + '</span>' +
 					'<div>' +
@@ -461,16 +469,18 @@ function checkSharedURL () {
 // };
 
 // clicking on a photo to view it and creating shareable URLs
-function view(smile) {
+function view(smile,titleAppend) {
 	// console.log($(smile+' .number').text());
 	console.log('Viewed:'+smile);
 	$(smile).toggleClass('view');
 	currentURL = window.location.href;
 	if (currentURL.toLowerCase().indexOf("?id=") == -1) {
 		window.history.pushState(smile,smile,currentURL + '?id=' + smile);
+		document.title = 'Beepi | Capturing the Moment | ' + titleAppend;
 	} else {
 		var backURL = window.location.href.split('?')[0];
 		window.history.pushState(null,'Thanks',backURL)
+		document.title = 'Beepi | Capturing the Moment';
 	};
 };
 
