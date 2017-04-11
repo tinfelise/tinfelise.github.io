@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>L.O.C. | Lots of Chicken | Simply the best</title>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+	<script src="https://use.fontawesome.com/1727fd84aa.js"></script>
+	<link rel="stylesheet" href="LotsOfChicken.css">
+
+	<!-- favicons -->
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery.countdown/2.2.0/jquery.countdown.min.js'></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+
+</head>
+<body>
+	<header class='clearfix'>
+		<a id='logo' href='#coop'>
+			<span>Lots Of Chicken</span>
+		</a>
+		<nav>
+			<a href='#wings'>The Wings</a>
+			<a href='#team'>The Team</a>
+			<a href='#testimonials'>The Word</a>
+			<a href='#faqs'>The FAQs</a>
+			<a href='#houseCalls'>House Calls</a>
+		</nav>
+	</header>
+
+	<section id='coop' class='backgroundImage'>
+		<div class='locator'>
+			<h1><strong>Can I chicken?</strong> <span id='rapResponse'>Yes you can!</span></h1>
+			<div id='countdown'></div>
+			<div id='current'></div>
+			<a id='pay' href='https://venmo.com/?txn=pay&audience=friends&recipients=LOC-Chicken&note=The%20best%20ever%20chicken%20wings%20and%20sawce%20in%20Dolores%20Park.%20%F0%9F%90%94%F0%9F%8D%97&share=f' target="blank_">
+				<span>Pay for my chicken</span>
+			</a>
+		</div>
+		<div id='upcoming'></div>
+		<div class='sharing clearfix'>
+			<span>Invite yo peeps</span>
+			<a href='' target='blank_'><i class="fa fa-facebook" aria-hidden="true"></i></a>
+			<a href='' target='blank_'><i class="fa fa-twitter" aria-hidden="true"></i></a>
+			<a href='' target='blank_'><i class="fa fa-envelope" aria-hidden="true"></i></a>
+			<a href='https://www.yelp.com/events/san-francisco-loc-lots-of-chicken-pop-up-in-dolores-park' target='blank_'><i class="fa fa-yelp" aria-hidden="true"></i></a>
+		</div>
+	</section>
+
+	<section id='wings' class='clearfix'>
+		<div class='clearfix'>
+			<h2>The Menu</h2>
+			<div class='toggle clearfix'>
+			  <input type="radio" name="menu-item" id="wings-learn" value="wings" checked></input>
+			  <label for='wings-learn'>Wings</label>
+			  <input type="radio" name="menu-item" id="nugs-learn" value="nugs"></input>
+			  <label for='nugs-learn'>Nugs</label>
+			</div>
+		</div>
+		<div class='food' id='wings-info'>
+			<div class='info'>
+				<span class='quantity'>4 Pieces</span>
+				<span class='sawce'>+ Buffalo Sawce</span>
+				<span class='price'>6 Bucks</span>
+				<span class='description'>Vaporware VHS synth, ugh green juice prism raclette subway tile poutine hammock umami actually. Salvia man braid iPhone venmo disrupt, franzen hexagon chia gentrify locavore put a bird on it cliche banh mi tacos. Green juice farm-to-table iceland brunch. Live-edge williamsburg etsy crucifix, vegan listicle copper mug keytar blue bottle. Authentic four loko tousled kombucha bushwick, skateboard mustache health goth kickstarter synth banjo knausgaard quinoa. Actually shabby chic jean shorts, vegan cray banh mi photo booth succulents kitsch echo park selfies iPhone literally slow-carb YOLO.</span>
+			</div>
+		</div>
+		<div class='food' id='nugs-info'>
+			<div class='info'>
+				<span class='quantity'>4 Pieces</span>
+				<span class='sawce'>+ Honey Mustard Sawce</span>
+				<span class='price'>5 Bucks</span>
+				<span class='description'>3 wolf moon chartreuse fingerstache etsy copper mug meggings. Forage flannel kickstarter, authentic hashtag intelligentsia godard. Hammock lumbersexual freegan, enamel pin tumeric normcore bespoke wolf. Raclette listicle cardigan irony, unicorn poke photo booth drinking vinegar. Shabby chic lo-fi pug snackwave kale chips, wayfarers 8-bit tote bag biodiesel godard. Food truck thundercats DIY, put a bird on it master cleanse green juice man braid truffaut craft beer. Cold-pressed microdosing beard skateboard echo park.</span>
+			</div>
+		</div>
+		<a onclick='showChickenBack()' alt='ChickenBack Guarantee' class='guarantee'>ChickenBack Guarantee</a>
+		<div id='chickenBack'>
+			<a id='chickenBackClose' onclick='hideChickenBack()'><i class="fa fa-times" aria-hidden="true"></i></a>
+			<h2>Our Guarantee</h2>
+			<p>If your wings, nugs or sawce aren't the best you've ever had, we'll eat them ourselves.</p>
+		</div>
+	</section>
+
+	<section id='team' class='backgroundImage'>
+		<h2>The Team</h2>
+		<div class='clearfix'>
+			<div class='team' id='alec'>
+				<span class='name'>Alec</span>
+				<span class='nickname'>"The Wolf"</span>
+				<span class='description'>Like a wolf in a henhouse, this guy knows how to carve up some chicken. This chicken guru isn't your everyday wings expert.</span>
+			</div>
+			<div class='team' id='jesse'>
+				<span class='name'>Jesse</span>
+				<span class='nickname'>"The Heisenberg"</span>
+				<span class='description'>Hours of experimentation in the lab have resulted in sawces so good, they're <i>addictive</i>.</span>
+			</div>
+		</div>
+		<div class='testimonialPreview'>
+			"Those aprons tho..." - Random Passerby
+			<a href='#testimonials'>See what else people are saying
+				<i class="fa fa-angle-down" aria-hidden="true"></i>
+				<!-- <i class="fa fa-chevron-down" aria-hidden="true"></i> -->
+			</a>
+		</div>
+	</section>
+
+	<section id='testimonials'>
+		<h2>The Word</h2>
+		<div class='clearfix'></div>
+	</section>
+
+	<section id='faqs' class='clearfix'>
+		<h2 class='whiteHeader'>Frequently Asked Questions</h2>
+		<ul></ul>
+	</section>
+
+	<section id='houseCalls' class='backgroundImage'>
+		<div class='overlay'>
+			<h2>Holla at us</h2>
+			<!-- <div>I want to...</div> -->
+			<div id='contactSuggestions'></div>
+			<a>
+				<i class="fa fa-envelope-o" aria-hidden="true"></i>
+				<i class="fa fa-envelope" aria-hidden="true"></i>
+				Email LOC
+			</a>
+		</div>
+		<!-- <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScP-eKjdMtm-ul3Ezgb0lct93uLAFoiO-wzKFhkowEaTAJtgg/viewform?embedded=true" width="100%" height="1000" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe> -->
+	</section>
+
+	<footer>
+		<div class='clearfix'>
+			<div class='social'>
+				<a href='' target='blank_'><i class="fa fa-facebook" aria-hidden="true"></i></a>
+				<a href='' target='blank_'><i class="fa fa-twitter" aria-hidden="true"></i></a>
+				<a href='' target='blank_'><i class="fa fa-instagram" aria-hidden="true"></i></a>
+				<a href='https://www.yelp.com/events/san-francisco-loc-lots-of-chicken-pop-up-in-dolores-park' target='blank_'><i class="fa fa-yelp" aria-hidden="true"></i></a>
+			</div>
+			<a id='pay' href='https://venmo.com/?txn=pay&audience=friends&recipients=LOC-Chicken&note=The%20best%20ever%20chicken%20wings%20and%20sawce%20in%20Dolores%20Park.%20%F0%9F%90%94%F0%9F%8D%97&share=f' target="blank_">
+				<span>Pay for my chicken</span>
+			</a>
+		</div>
+		<div class='love'>Made with <i class="fa fa-heart" aria-hidden="true"></i> in Dolores Park</div>
+	</footer>
+
+</body>
+
+<script src="data.js"></script>
+<script type="text/javascript">
+
+$(window).on("scroll", function () {
+	var position = $(this).scrollTop();
+	var header = $('header').height();
+	offsetPosition = position + header;
+
+    $('section').each(function() {
+    	var id = $(this).attr('id');
+        if (offsetPosition > $(this).offset().top && offsetPosition <= $(this).offset().top + $(this).height() ){ 
+            $('nav a[href="#'+id+'"]').addClass('current');
+        } else {
+            $('nav a[href="#'+id+'"]').removeClass('current');   
+        }   
+    });
+    if (position > header) {
+        $("header").addClass("filledHeader");
+    }
+    else {
+        $("header").removeClass("filledHeader");
+    }
+});
+// $(document).scroll(function(){
+//     var st = $(this).scrollTop();
+
+//     $(section).each(function() {
+//         if(st > $(this).offset().top && st <= $(this).offset().top + $(this).height() ){                    
+//             var id = $(this).attr('id');
+//             $('a[href="#'+id+'"]').addClass('active');
+//         }else{
+//             var id = $(this).attr('id');
+//             $('a[href="#'+id+'"]').removeClass('active');   
+//         }   
+//     });
+
+// });
+
+function calendar () {
+	var now = new Date($.now());
+	// var html, css;
+	var html = '';
+	var css = '';
+	var eventCount = 0;
+	for (i=0;i<events.length;i++) {
+		var x = events[i];
+		var loc = locations[x.location - 1];
+		
+		var start = Date.parse(x.start);
+		var end = Date.parse(x.end);
+		var weekday = x.start.split(' ')[0];
+		var mon = x.start.split(' ')[1];
+		var month = getMonthFromString(mon);
+		// console.log(month);
+		var day = x.start.split(' ')[2];
+		var year = x.start.split(' ')[3];
+		var MM = month;
+		if (MM < 10) {
+			MM = '0'+ MM;
+		}
+		// var YYYYMMDD = year + MM + day;
+		// var weekdayFull = moment(YYYYMMDD).format('dddd');
+		var startTime = x.start.split(' ')[4];
+		startTime = formatTime(startTime);
+		var endTime = x.end.split(' ')[4];
+		endTime = formatTime(endTime);
+		var timezone = x.start.split(' ')[6];
+		timezone = timezone.substring(1, timezone.indexOf(')'));
+		var timestamp = year + '/'+ month + '/' + day + ' ' + startTime + ' ' + timezone;
+		
+		if (now < end) {
+			eventCount++;
+			html += 
+				'<div class=\'event\'id=\'event_' + i +'\'>' +
+					'<div class=\'calendarDay\'>' +
+						'<span class=\'day\'>' + day + '</span>' +
+						'<span class=\'month\'>' + mon + '</span>' +
+					'</div>' +
+					'<span class=\'location\'>' + loc.name + '</span>' +
+				'</div>';
+			css += 
+				'#event_' + i + '{' +
+					'background-image:url(' + loc.image + ')' +
+				'}';
+			if (eventCount == 1) {
+				createCountdown(start);
+				$('#current').append(
+					'<div id=\'currentPlace\'>' + loc.name + ' | ' + loc.neighborhood + ' | ' + loc.city + '</div>' +
+					'<div id=\'currentTime\'>' + moment(start).format('dddd, MMMM Do') + ', ' + startTime + ' to ' + endTime + '</div>'
+				);
+			};
+		};
+	};
+	if (eventCount > 0) {
+		$('#upcoming').append(html);
+		injectStyles(css);
+		$('.event:first-of-type').addClass('upNext');
+	} else {
+		$('#rapResponse').html('Nope! (Sorry)');
+		$('#current').html('No upcoming chicken events');
+	}
+};
+calendar();
+
+function formatTime(time) {
+	var hour = time.split(':')[0]
+	var period = 'AM';
+	if (hour > 11) {
+		period = 'PM'
+	};
+	if (hour > 12) {
+		hour = hour - 12;
+	} else if (hour < 10) {
+		hour = hour[1];
+	}
+	var minute = time.split(':')[1]
+	if (minute != '00') {
+		minute = ':' + minute;
+	} else {
+		minute = '';
+	}
+	time = hour + minute + period;
+	return time;
+		
+}
+
+function getMonthFromString(mon){
+   return new Date(Date.parse(mon +" 1, 2012")).getMonth()+1;
+}
+
+// var test = 'Sat Apr 08 2017 12:00:00 GMT-0700 (PDT)';
+// var test = "2017/05/01";
+// var test = "2017/05/01 13:00:00 PDT";
+
+// function createCountdown (timestamp) {
+// 	$("#countdown").countdown(timestamp, function(event) {
+// 	    $(this).html(
+// 	    	event.strftime(
+// 	    		'In ' +
+// 		      	// '<span>%w</span> week%!W ' +
+// 			    '<strong><span>%-D</span> day%!D</strong> ' +
+// 			    '<strong><span>%-H</span> hour%!H</strong> ' +
+// 			    '<strong><span>%-M</span> minute%!M</strong> ' +
+// 			    '<strong><span>%-S</span> second%!S</strong>'
+// 		    )
+// 	  	);
+// 	});
+// };
+function createCountdown (timestamp) {
+	$('#countdown').countdown(timestamp)
+		.on('update.countdown', function(event) {
+			var format = '<strong>In ';
+			if(event.offset.totalDays > 0) {
+				format += '<strong><span>%-D</span> day%!D</strong> ';
+			}
+			if(event.offset.hours > 0) {
+				format += '<strong><span>%-H</span> hour%!H</strong> ';
+			}
+			format += '</strong><strong>'
+			if(event.offset.minutes > 0) {
+				format += '<strong><span>%-M</span> minute%!M</strong> ';
+			}
+			if(event.offset.seconds > 0) {
+				format += '<strong><span>%-S</span> second%!S</strong>';
+			}
+			format += '</strong>'
+			$(this).html(event.strftime(format));
+		})
+		.on('finish.countdown', function(event) {
+			$(this).html('LOC Chicken is currently open');
+			$('#coop #pay').addClass('viewPay');
+		});
+};
+// function createCountdown (timestamp) {
+// 	$("#countdown").countdown(timestamp)
+// 		.on('update.countdown', function(event) {
+// 		    var format = 'In ' +
+// 		      	// '<span>%w</span> week%!W ' +
+// 			    '<strong><span>%-D</span> day%!D</strong> ' +
+// 			    '<strong><span>%-H</span> hour%!H</strong> ' +
+// 			    '<strong><span>%-M</span> minute%!M</strong> ' +
+// 			    '<strong><span>%-S</span> second%!S</strong>';
+// 			$(this).html(event.strftime(format));
+// 		})
+// };
+// createCountdown(test);
+// createCountdown(Date.parse(events[1].start));
+
+function injectStyles(rule) {
+  var stylesheet = $("<style />", {
+    html: rule
+  }).appendTo("body");    
+};
+
+// Filter by menu type
+function menuSelector() {
+	var itemSelected = $('input[name="menu-item"]:checked').val();
+	var selector = '#' + itemSelected + '-info';
+	$('.food').removeClass('view');
+	$(selector).addClass('view');
+};
+menuSelector();
+$('input[name="menu-item"]').bind('change', menuSelector);
+
+function showChickenBack() {
+	$('#chickenBack').addClass('showChickenBack');
+	$('#wings .food, #wings .toggle, #wings .guarantee').addClass('blur');
+};
+function hideChickenBack() {
+	$('#chickenBack').removeClass('showChickenBack');
+	$('#wings .food, #wings .toggle, #wings .guarantee').toggleClass('blur');	
+}
+
+function testimonials() {
+	var html = '';
+	for(i=0; i<testimonialsData.length; i++) {
+		var x = testimonialsData[i];
+		html +=
+			'<div class=\'testimonial\'>' +
+				'<div class=\'photo\' style=\'background-image:url(' + x.photo + ')\' alt=\'Photo of ' + x.name + '\'></div>' +
+				'<div class=\'testimonialText\'>' + 
+					'<span class=\'name\'>' + x.name + '</span>' +
+					'<span class=\'title\'> | ' + x.title + '</span>' +
+					'<span class=\'quote\'>' + x.quote + '</span>' +
+				'</div>' +
+			'</div>';
+	};
+	$('#testimonials div').append(html);
+};
+testimonials();
+
+function createFAQs() {
+	var html = '';
+	for(i=0; i<faqs.length; i++) {
+		var x = faqs[i];
+		html += 
+			'<li>' + 
+				'<h3>' + x.question + '</h3>' +
+				'<span>' + x.answer + '</span>' +
+			'</li>';
+	}
+	$('#faqs ul').append(html);
+};
+createFAQs();
+
+function createContactSuggestions () {
+	var html = '';
+	for(i=0; i<contactSuggestionsData.length; i++) {
+		var x = contactSuggestionsData[i];
+		// console.log(x);
+		html += '<span>' + x + '</span>';
+	}
+	$('#contactSuggestions').append(html);
+	createCSSslideshow('#contactSuggestions span');
+};
+createContactSuggestions();
+
+function createCSSslideshow(selector) {
+	var interval = 4;
+	var slideCount = $(selector).length;
+	var runtime = slideCount * interval;
+	var stagger = runtime;
+	var startFade = 100 / slideCount;
+
+	var selectors = '';
+	for (i=1; i<=slideCount; i++) {
+		stagger = stagger - interval;
+		selectors +=  selector + ':nth-child(' + i + ') {' +
+			'animation: xfade ' + runtime + 's ' + stagger + 's infinite;' + 
+			'}';
+	};
+
+	var steps = {
+		'0':1,
+		[startFade * .9]:1,
+		[startFade]:0,
+		'98':0,
+		'100':1
+	};
+	var keyframes = '@keyframes xfade {';
+	for (var i in steps) {
+		keyframes += 
+			i + '% {' +
+				'opacity: ' + steps[i] +';' + 
+			'}';
+	};
+	keyframes += '}'
+
+	var css = selectors + '\n' + keyframes;
+	injectStyles(css);
+};
+
+function contactUsMailto (link) {
+	var domain = document.location.pathname;
+	var email = 'hello@' + domain;
+	var subject = 'Hello LOC!'
+	var body = 'Hi their Team LOC!%0A%0AI\'looking to...';
+	body += '%0A%0A%0A%0A%0ADetails on my upcoming event (if applicable)!%0ALocation:%0ADate%0ATime%0ANumber of chicken eaters:%0ASpecial requests:'
+	body.split(" ").join("%20")
+	var mailto = 'mailto:' + email + '?&subject=' + subject + '&body=' + body;
+	$(link).attr('href', mailto);
+}
+contactUsMailto('#houseCalls a');
+
+function createMetadata (image, height, width) {
+	var name = 'L.O.C.';
+	var title = document.title;
+	var description = 'Description text';
+
+	var domain = document.location.pathname;
+	var menu = domain + '#menu';
+	var email = 'hello@' + domain;
+	var phone = '';
+
+	var address = {
+		'street':'Dolores St & 19th St',
+		'city':'San Francisco',
+		'state':'CA',
+		'zip':'94114',
+		'country':'United States'
+	};
+	
+	var openGraph = 
+		'<meta property="og:type" content="restaurant.restaurant">' +
+		'<meta property="og:title" content="' + title + '">' +
+		'<meta property="og:site_name" content="' + '">'
+		'<meta property="og:url" content="' + domain + '">' +
+		'<meta property="og:description" content="' + description + '">' +
+		'<meta property="og:image" content="' + image + '">';
+	if (width) {
+		openGraph += '<meta property="og:image:width" content="'+ width + '">';
+	};
+	if (height) {
+		openGraph += '<meta property="og:image:height" content="' + height + '">';
+	};
+	openGraph +=
+		'<meta property="restaurant:menu" content="' + menu + '">' +
+		'<meta property="restaurant:contact_info:website" content="' + domain + '">' +
+		'<meta property="restaurant:contact_info:street_address" content="' + address.street + '">' +
+		'<meta property="restaurant:contact_info:locality" content="' + address.city + '">' +
+		'<meta property="restaurant:contact_info:region" content="' + address.state + '">' +
+		'<meta property="restaurant:contact_info:postal_code" content="' + address.zip + '">' +
+		'<meta property="restaurant:contact_info:country_name" content="' +  address.country + '">' +
+		'<meta property="restaurant:contact_info:email" content="' + email + '">';
+	if (phone != '') {
+		openGraph += '<meta property="restaurant:contact_info:phone_number" content="' + phone + '">';
+	};
+	var twitterHandle = '@loc-chicken'
+	var twitterCard =
+		'<meta name="twitter:card" content="summary_large_image">' +
+		'<meta name="twitter:site" content="' + twitterHandle + '">' +
+		'<meta name="twitter:title" content="' + title + '">' +
+		'<meta name="twitter:description" content="' + description + '">' +
+		'<meta name="twitter:image" content="' + image + '">';
+
+	var reservations = 'No';
+	var cuisine = 'Chicken Wings';
+	var priceRange = '$';
+
+	var schemaOrg = 
+		'<script type="application/ld+json">' +
+		'{' +
+		  '"@context": "http://schema.org/",' +
+		  '"@type": "Restaurant",' +
+		  '"name": "' + title + '",' +
+		  '"acceptsReservations": "' + reservations + '",' +
+		  '"menu": "' + menu + '",' +
+		  '"servesCuisine": "' + cuisine + '",' +
+		  '"priceRange": "' + priceRange + '",' +
+		  '"address": {' +
+		    '"@type": "PostalAddress",' +
+		    '"streetAddress": "' + address.street + '",' +
+		    '"addressLocality": "' + address.city + '",' +
+		    '"addressRegion": "' + address.state + '",' +
+		    '"postalCode": "' + address.zip + '"' +
+		  '},';
+	if (phone != '') {
+		schemaOrg += '"telephone": "' + phone + '"';
+	};
+	schemaOrg += 
+		'}' +
+		'<\/script>';
+
+	var tags =
+		'<!-- Facebook Open Graph Tags -->' +
+		openGraph +
+
+		'<!-- Twitter Card Tags -->' + 
+		twitterCard +
+
+		'<!-- Schema.org JSON-LD Tags -->' +
+		schemaOrg;
+
+	$('head').append(tags);
+	// console.log(tags);
+}
+var sharedImage = $('#wings-info').css('background-image');
+sharedImage = sharedImage.substring(5,sharedImage.length - 2);
+function sharingImage (imageURL) {
+	var tmpImg = new Image();
+	tmpImg.src = imageURL;
+	$(tmpImg)
+		.on('load',function() {
+			var height = tmpImg.height;
+			var width = tmpImg.width;
+			createMetadata(sharedImage, height, width);
+		})
+		.on('error',function() {
+			console.log('Sharing image not found')
+			createMetadata(sharedImage);	
+		});
+};
+sharingImage(sharedImage);
+// metadata();
+
+</script>
+</html>

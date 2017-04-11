@@ -1,0 +1,90 @@
+var locations = [
+	{
+		'id':'1',
+		'name':'Dolores Park',
+		'neighborhood': 'The Mission',
+		'city': 'San Francisco',
+		'state' : 'CA',
+		'image':'http://ww3.hdnux.com/photos/45/35/34/9819958/3/920x920.jpg',
+		'directions':'https://goo.gl/maps/mEHkmVcygF72'
+	}
+];
+
+var events = [
+	{
+		'location':'1',
+		'start': 'Sat Apr 08 2017 12:00:00 GMT-0700 (PDT)',
+		'end': 'Sat Apr 08 2017 15:00:00 GMT-0700 (PDT)'
+	},
+	{
+		'location':'1',
+		'start': 'Sat Apr 15 2017 12:00 GMT-0700 (PDT)',
+		'end': 'Sat Apr 15 2017 15:00:00 GMT-0700 (PDT)'
+	},
+	{
+		'location':'1',
+		'start': 'Sat Apr 22 2017 08:00:00 GMT-0700 (PDT)',
+		'end': 'Sat Apr 22 2017 15:00:00 GMT-0700 (PDT)'
+	}
+];
+
+var menu = [
+	{
+		'item':'wings',
+		'quantity':'4',
+		'quantityType':'pieces',
+		'sawce':'Buffalo',
+		'price':'6',
+		'description':'Vaporware VHS synth, ugh green juice prism raclette subway tile poutine hammock umami actually. Salvia man braid iPhone venmo disrupt, franzen hexagon chia gentrify locavore put a bird on it cliche banh mi tacos. Green juice farm-to-table iceland brunch. Live-edge williamsburg etsy crucifix, vegan listicle copper mug keytar blue bottle. Authentic four loko tousled kombucha bushwick, skateboard mustache health goth kickstarter synth banjo knausgaard quinoa. Actually shabby chic jean shorts, vegan cray banh mi photo booth succulents kitsch echo park selfies iPhone literally slow-carb YOLO.'
+	},
+	{
+		'item':'nugs',
+		'quantity':'4',
+		'quantityType':'pieces',
+		'sawce':'Honey Mustard',
+		'price':'5',
+		'description':'3 wolf moon chartreuse fingerstache etsy copper mug meggings. Forage flannel kickstarter, authentic hashtag intelligentsia godard. Hammock lumbersexual freegan, enamel pin tumeric normcore bespoke wolf. Raclette listicle cardigan irony, unicorn poke photo booth drinking vinegar. Shabby chic lo-fi pug snackwave kale chips, wayfarers 8-bit tote bag biodiesel godard. Food truck thundercats DIY, put a bird on it master cleanse green juice man braid truffaut craft beer. Cold-pressed microdosing beard skateboard echo park.'
+	}
+];
+
+var testimonialsData = [
+	{
+		'name':'Tyler',
+		'title':'Former Head of Product, Failed Startup',
+		'photo':'https://scontent.fsnc1-1.fna.fbcdn.net/v/t31.0-8/10295492_712132199347_8592865206102675508_o.jpg?oh=8cc70268e264bc65801d0c0f4a9c4a78&oe=59934198',
+		'quote':'Best buffalo wings I\'ve ever had.'
+	},
+	{
+		'name':'Ale',
+		'title':'Argentinian Dude',
+		'photo':'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/AlejandroResnik_-_CEO_Beepi.jpg/2880px-AlejandroResnik_-_CEO_Beepi.jpg',
+		'quote':'I just can\'t.'
+	},
+	{
+		'name':'Isaiah',
+		'title':'NBA Star',
+		'photo':'https://usatftw.files.wordpress.com/2017/02/isaiah-thomas-dunk.jpg?w=1000&h=600&crop=1',
+		'quote':'@LOC-Chicken &#x1f440;'
+	}
+];
+
+var faqs = [
+	{
+		'question':'Can I get ranch dip with that?',
+		'answer':'Nope, it takes away from the flavors of the sawce.'
+	},
+	{
+		'question':'But please??? I really want some blue cheese!',
+		'answer':'Does this look like a cheese stand to you?'
+	}
+];
+
+var contactSuggestionsData = [
+	'have LOC wings catered at my next event.',
+	'tell LOC how amazing their chicken is.',
+	'ask the LOC team a question.',
+	'sue LOC for sawce patent infringement.',
+	'complain profusely about the weather in San Francisco.',
+	'help take LOC global.'
+];
+
