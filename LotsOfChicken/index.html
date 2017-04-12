@@ -585,6 +585,9 @@ function testURLs() {
 	if (test == 'noevents') {
 		testNoEvents();
 	};
+	if (test == 'lotsofevents') {
+		testLotsOfEvents();
+	};
 };
 function testOpen () {
 	var second = 1000;
@@ -603,6 +606,13 @@ function testOpen () {
 function testNoEvents () {
 	events = [];
 }
+function testLotsOfEvents() {
+	$(events).each(function() {
+		events.push(this);
+		events.push(this);
+		events.push(this);
+	});
+};
 // testURLs();
 
 </script>
