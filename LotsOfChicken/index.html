@@ -479,7 +479,7 @@ function createMetadata (image, height, width) {
 	var openGraph = 
 		'<meta property="og:type" content="restaurant.restaurant">' +
 		'<meta property="og:title" content="' + title + '">' +
-		'<meta property="og:site_name" content="' + '">'
+		'<meta property="og:site_name" content="' + name + '">' +
 		'<meta property="og:url" content="' + domain + '">' +
 		'<meta property="og:description" content="' + description + '">' +
 		'<meta property="og:image" content="' + image + '">';
@@ -559,11 +559,11 @@ function sharingImage (imageURL) {
 		.on('load',function() {
 			var height = tmpImg.height;
 			var width = tmpImg.width;
-			createMetadata(sharedImage, height, width);
+			createMetadata(imageURL, height, width);
 		})
 		.on('error',function() {
 			console.log('Sharing image not found')
-			createMetadata(sharedImage);	
+			createMetadata(imageURL);	
 		});
 };
 sharingImage(sharedImage);
