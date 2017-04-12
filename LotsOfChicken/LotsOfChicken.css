@@ -109,7 +109,7 @@ header.filledHeader a {
 	color:#2e343b !important;
 }
 .filledHeader #logo span:before {
-	background-image:url('images/icon_grey.png');
+	background-image:url('images/icon_red.png');
 }
 
 #coop {
