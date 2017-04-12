@@ -733,6 +733,9 @@ footer #pay {
 	background-color: #fff;
 	box-shadow: 0px 0px 4em #555;
 }
+.backgroundImage a {
+	color:#fff;
+}
 .whiteHeader {
 	color:#fff;
 }
