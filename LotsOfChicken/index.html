@@ -458,10 +458,16 @@ function contactUsMailto (link) {
 contactUsMailto('#houseCalls a');
 
 // METADATA CREATION
-function createMetadata (image, height, width) {
+function createMetadata () {
 	var name = 'L.O.C.';
 	var title = document.title;
 	var description = 'Description text';
+
+	// var image = $('#wings-info').css('background-image');
+	// image = sharedImage.substring(5,sharedImage.length - 2);
+	var image = 'images/day1/loc-7.jpg';
+	var width = '5760';
+	var height = '3840';
 
 	var domain = document.location;
 	var menu = domain + '#menu';
@@ -552,25 +558,22 @@ function createMetadata (image, height, width) {
 	$('head').append(tags);
 	// console.log(tags);
 }
-var sharedImage = $('#wings-info').css('background-image');
-sharedImage = sharedImage.substring(5,sharedImage.length - 2);
-sharedImage = 'images/day1/loc-7.jpg';
-function sharingImage (imageURL) {
-	var tmpImg = new Image();
-	tmpImg.src = imageURL;
-	$(tmpImg)
-		.on('load',function() {
-			var height = tmpImg.height;
-			var width = tmpImg.width;
-			createMetadata(imageURL, height, width);
-		})
-		.on('error',function() {
-			console.log('Sharing image not found')
-			createMetadata(imageURL);	
-		});
-};
-sharingImage(sharedImage);
-// metadata();
+createMetadata();
+// function sharingImage (imageURL) {
+// 	var tmpImg = new Image();
+// 	tmpImg.src = imageURL;
+// 	$(tmpImg)
+// 		.on('load',function() {
+// 			var height = tmpImg.height;
+// 			var width = tmpImg.width;
+// 			createMetadata(imageURL, height, width);
+// 		})
+// 		.on('error',function() {
+// 			console.log('Sharing image not found')
+// 			createMetadata(imageURL);	
+// 		});
+// };
+// sharingImage(sharedImage);
 
 // TEST CASES
 function testURLs() {
