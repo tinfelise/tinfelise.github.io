@@ -582,6 +582,9 @@ function testURLs() {
 	if (test == 'open') {
 		testOpen();
 	};
+	if (test == 'noevents') {
+		testNoEvents();
+	};
 };
 function testOpen () {
 	var second = 1000;
@@ -597,6 +600,9 @@ function testOpen () {
 		testEvent.end = end;
 	events.push(testEvent);
 };
+function testNoEvents () {
+	events = [];
+}
 // testURLs();
 
 </script>
