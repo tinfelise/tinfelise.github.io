@@ -13,18 +13,18 @@ var locations = [
 var events = [
 	{
 		'location':'1',
-		'start': 'Sat Apr 08 2017 12:00:00 GMT-0700 (PDT)',
-		'end': 'Sat Apr 08 2017 15:00:00 GMT-0700 (PDT)'
+		'start': 'Apr 08 2017 12:00:00 PDT',
+		'end': 'Apr 08 2017 15:00:00 PDT'
 	},
 	{
 		'location':'1',
-		'start': 'Sat Apr 15 2017 12:00 GMT-0700 (PDT)',
-		'end': 'Sat Apr 15 2017 15:00:00 GMT-0700 (PDT)'
+		'start': 'Apr 15 2017 12:30:00 PDT',
+		'end': 'Apr 15 2017 15:00:00 PDT'
 	},
 	{
 		'location':'1',
-		'start': 'Sat Apr 22 2017 08:00:00 GMT-0700 (PDT)',
-		'end': 'Sat Apr 22 2017 15:00:00 GMT-0700 (PDT)'
+		'start': 'Apr 22 2017 08:00:00 PDT',
+		'end': 'Apr 22 2017 15:00:00 PDT'
 	}
 ];
 

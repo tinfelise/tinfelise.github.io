@@ -183,38 +183,40 @@ $(window).on("scroll", function () {
 //     });
 
 // });
+var now = new Date();
+	now = now.getTime();
 
 function calendar () {
-	var now = new Date($.now());
+	// var now = new Date($.now());
+	
 	// var html, css;
 	var html = '';
 	var css = '';
 	var eventCount = 0;
+	
+	testURLs();
+	orderEvents();
+
 	for (i=0;i<events.length;i++) {
 		var x = events[i];
 		var loc = locations[x.location - 1];
 		
-		var start = Date.parse(x.start);
-		var end = Date.parse(x.end);
-		var weekday = x.start.split(' ')[0];
-		var mon = x.start.split(' ')[1];
-		var month = getMonthFromString(mon);
-		// console.log(month);
-		var day = x.start.split(' ')[2];
-		var year = x.start.split(' ')[3];
-		var MM = month;
-		if (MM < 10) {
-			MM = '0'+ MM;
-		}
-		// var YYYYMMDD = year + MM + day;
-		// var weekdayFull = moment(YYYYMMDD).format('dddd');
-		var startTime = x.start.split(' ')[4];
-		startTime = formatTime(startTime);
-		var endTime = x.end.split(' ')[4];
-		endTime = formatTime(endTime);
-		var timezone = x.start.split(' ')[6];
-		timezone = timezone.substring(1, timezone.indexOf(')'));
-		var timestamp = year + '/'+ month + '/' + day + ' ' + startTime + ' ' + timezone;
+		var start = x.start;
+		if (!$.isNumeric(start)) {
+			start = Date.parse(start);
+		};
+		var end = x.end;
+		if (!$.isNumeric(end)) {
+			end = Date.parse(end);
+		};
+		
+		var day = moment(start).format('D');
+		var mon = moment(start).format('MMM');
+		
+		var startTime = moment(start).format('kk:mm');
+			startTime = formatTime(startTime);
+		var endTime = moment(end).format('kk:mm');
+			endTime = formatTime(endTime);
 		
 		if (now < end) {
 			eventCount++;
@@ -250,6 +252,12 @@ function calendar () {
 };
 calendar();
 
+function orderEvents () {
+	events = events.sort(function (a, b) {
+    	return a.start.localeCompare(b.start);
+	});
+};
+
 function formatTime(time) {
 	var hour = time.split(':')[0]
 	var period = 'AM';
@@ -268,13 +276,12 @@ function formatTime(time) {
 		minute = '';
 	}
 	time = hour + minute + period;
-	return time;
-		
-}
+	return time;		
+};
 
-function getMonthFromString(mon){
-   return new Date(Date.parse(mon +" 1, 2012")).getMonth()+1;
-}
+// function getMonthFromString(mon){
+//    return new Date(Date.parse(mon +" 1, 2012")).getMonth()+1;
+// }
 
 // var test = 'Sat Apr 08 2017 12:00:00 GMT-0700 (PDT)';
 // var test = "2017/05/01";
@@ -450,6 +457,7 @@ function contactUsMailto (link) {
 }
 contactUsMailto('#houseCalls a');
 
+// METADATA CREATION
 function createMetadata (image, height, width) {
 	var name = 'L.O.C.';
 	var title = document.title;
@@ -560,6 +568,36 @@ function sharingImage (imageURL) {
 };
 sharingImage(sharedImage);
 // metadata();
+
+// TEST CASES
+function testURLs() {
+	var currentURL = window.location.href;
+	var test = currentURL.split('?')[1];
+	
+	if (test) {
+		var position = test.split('#')[1];
+		test = test.split('#')[0];
+		console.log('Testing ' + test + ' at height ' + position);
+	}
+	if (test == 'open') {
+		testOpen();
+	};
+};
+function testOpen () {
+	var second = 1000;
+	var hour = second*60*60;
+	
+	var start = now + (second*10);
+	var length = 3*hour;
+	var end = start + length;
+	
+	var testEvent = {};
+		testEvent.location = '1';
+		testEvent.start = start;
+		testEvent.end = end;
+	events.push(testEvent);
+};
+// testURLs();
 
 </script>
 </html>
