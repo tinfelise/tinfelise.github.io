@@ -42,17 +42,19 @@
 				<span>Pay for my chicken</span>
 			</a>
 		</div>
-		<div id='upcoming'></div>
-		<div class='sharingMobile'>
-			<i class="fa fa-bullhorn" aria-hidden="true"></i>
-			<span>Invite</span>
-		</div>
-		<div class='sharing clearfix'>
-			<span>Invite yo peeps</span>
-			<a href='' target='blank_'><i class="fa fa-facebook" aria-hidden="true"></i></a>
-			<a href='' target='blank_'><i class="fa fa-twitter" aria-hidden="true"></i></a>
-			<a href='' target='blank_'><i class="fa fa-envelope" aria-hidden="true"></i></a>
-			<a href='https://www.yelp.com/events/san-francisco-loc-lots-of-chicken-pop-up-in-dolores-park' target='blank_'><i class="fa fa-yelp" aria-hidden="true"></i></a>
+		<div class='sidebar'>
+			<div id='upcoming'></div>
+			<div class='sharing clearfix'>
+				<span>Invite yo peeps</span>
+				<a href='' target='blank_'><i class="fa fa-facebook" aria-hidden="true"></i></a>
+				<a href='' target='blank_'><i class="fa fa-twitter" aria-hidden="true"></i></a>
+				<a href='' target='blank_'><i class="fa fa-envelope" aria-hidden="true"></i></a>
+				<a href='https://www.yelp.com/events/san-francisco-loc-lots-of-chicken-pop-up-in-dolores-park' target='blank_'><i class="fa fa-yelp" aria-hidden="true"></i></a>
+				<div onclick='showShareButtons()' class='mobile fadeRight'>
+					<i class="fa fa-bullhorn" aria-hidden="true"></i>
+					<span>Invite</span>
+				</div>
+			</div>
 		</div>
 	</section>
 
@@ -359,6 +361,14 @@ function injectStyles(rule) {
   }).appendTo("body");    
 };
 
+function showShareButtons() {
+	$('.sharing').show();
+	$('.sharing .mobile').hide();
+};
+function hideShareButtons() {
+	$('.sharing').hide();	
+};
+
 // Filter by menu type
 function menuSelector() {
 	var itemSelected = $('input[name="menu-item"]:checked').val();
@@ -603,8 +613,8 @@ function testURLs() {
 	if (test == 'noevents') {
 		testNoEvents();
 	};
-	if (test == 'lotsofevents') {
-		testLotsOfEvents();
+	if (test == 'busy') {
+		testBusy();
 	};
 };
 function testOpen () {
@@ -624,7 +634,7 @@ function testOpen () {
 function testNoEvents () {
 	events = [];
 }
-function testLotsOfEvents() {
+function testBusy() {
 	$(events).each(function() {
 		events.push(this);
 		events.push(this);
