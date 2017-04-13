@@ -1,7 +1,7 @@
 var locations = [
 	{
 		'id':'1',
-		'name':'Mission Dolores Park',
+		'name':'Dolores Park',
 		'neighborhood': 'The Mission',
 		'city': 'San Francisco',
 		'state' : 'CA',
