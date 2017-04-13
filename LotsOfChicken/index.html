@@ -239,7 +239,11 @@ function calendar () {
 			if (eventCount == 1) {
 				createCountdown(start);
 				$('#current').append(
-					'<div id=\'currentPlace\'>' + loc.name + ' | ' + loc.neighborhood + ' | ' + loc.city + '</div>' +
+					'<div id=\'currentPlace\'>' + 
+						'<span>' + loc.name + ' | <\/span> ' + 
+						// '<span>' + loc.neighborhood + ' | <\/span> ' + 
+						'<span>' + loc.city + '<\/span> ' + 
+					'</div>' +
 					'<div id=\'currentTime\'>' + moment(start).format('dddd, MMMM Do') + ', ' + startTime + ' to ' + endTime + '</div>'
 				);
 			};
