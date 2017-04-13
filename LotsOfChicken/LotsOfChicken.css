@@ -775,3 +775,8 @@ footer #pay {
 }
 
 
+@keyframes GradientAnimation { 
+    0%{background-position:0% 44%}
+    50%{background-position:100% 57%}
+    100%{background-position:0% 44%}
+}
