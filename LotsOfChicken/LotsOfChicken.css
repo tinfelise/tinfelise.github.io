@@ -280,10 +280,15 @@ h1 strong {
 	display: inline-block;
 	margin-top: 1em;
 	color:#2e343b;
-	display:none;
+	/*display:none;*/
+	visibility: hidden;
+	opacity: 0;
 }
 .viewPay {
-	display:inline-block !important;
+	/*display:inline-block !important;*/
+	visibility: visible !important;
+	opacity: 1 !important;
+	transition: opacity 2s, height 2s;
 }
 
 h2 {
