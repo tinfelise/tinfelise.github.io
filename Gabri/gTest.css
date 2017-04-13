@@ -564,7 +564,14 @@ input.instagramGradient:active {
 		border-left:none;
 		border-right:none;
 	}
+}
 /*@media only screen and (min-width:568px) and (max-width: 789px) {
 	body {
 		font-size:22px;
-	}*/
+	}
+}*/
+@keyframes GradientAnimation { 
+    0%{background-position:0% 44%;}
+    50%{background-position:100% 57%;}
+    100%{background-position:0% 44%;}
+}
