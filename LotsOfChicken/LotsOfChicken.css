@@ -19,6 +19,9 @@ body {
 	background-color: #fafafa;
 	color:#2e343b;
 }
+/*body * {
+	border:1px solid black;
+}*/
 input, 
 label,
 a,
@@ -66,6 +69,12 @@ strong {
 section {
 	padding:1em;
 	overflow: hidden;
+}
+.airbnb {
+	color:#FF5F5A;
+}
+.triadYellow {
+	color:#FBFF73
 }
 
 header {
@@ -391,6 +400,10 @@ h2:before {
 	background: -webkit-linear-gradient(right, #1e80dc, #c61590);
 	background: linear-gradient(270deg, #1e80dc, #c61590);
 	background-size: 300% 300%;
+	/*-webkit-animation:GradientRotation 12s steps(120) infinite;
+	animation:GradientRotation 12s steps(120) infinite;*/
+	/*background: -webkit-radial-gradient(70% 70% ellipse, #ee583f 8%, #d92d77 42%, #bd3381 58%);
+	background: radial-gradient(ellipse at 70% 70%, #ee583f 8%, #d92d77 42%, #bd3381 58%);*/
 }
 .toggle input:checked + label,
 .gradientBackground {
@@ -813,12 +826,12 @@ footer #pay {
 	16.666666666666668% {opacity: 0;}
 }
 
-
 @keyframes GradientAnimation { 
     0%{background-position:0% 44%}
     50%{background-position:100% 57%}
     100%{background-position:0% 44%}
 }
+
 @media only screen and (max-width: 1330px) {
 	body{
 		font-size: 18px;
