@@ -366,9 +366,10 @@ h2:before {
 	float:right;
 }
 .toggle {
-	border: 2px solid #555;
+	border: 1px solid #ccc;
 	border-radius: 5px;
 	display:block;
+	overflow: hidden;
 }
 .toggle input {
 	position: absolute;
@@ -380,7 +381,7 @@ h2:before {
 	padding: .25em;
 	text-align:center;
 	display:inline-block;
-	border-right: 2px solid #555;
+	border-right: 1px solid #ccc;
 	width: calc(100%/2);
 	background-color: #fff;
 }
@@ -402,6 +403,7 @@ h2:before {
 	animation: GradientAnimation 40s ease infinite;
 	background: -webkit-linear-gradient(right, #1e80dc, #c61590);
 	background: linear-gradient(270deg, #1e80dc, #c61590);
+	background: linear-gradient(270deg, #FF5F5A, #FBFF73);
 	background-size: 300% 300%;
 	/*-webkit-animation:GradientRotation 12s steps(120) infinite;
 	animation:GradientRotation 12s steps(120) infinite;*/
@@ -961,6 +963,30 @@ footer #pay {
 		padding:.5em 0 0;
 	}
 
+	#wings {
+		padding:0;
+	}
+	#wings div:first-child {
+		padding:.5em;
+	}
+	#wings .toggle {
+		float:none;
+		width:100%;
+		margin:auto;
+	}
+	.food {
+		width:100%;
+		border-radius: 0;
+		border-right: 0;
+		border-left: 0;
+	}
+	.guarantee {
+		display:block;
+		float:none;
+		margin: 1em auto;
+		text-align:center;
+	}
+
 	#team {
 		background-position: bottom;
 	}
@@ -1029,7 +1055,6 @@ footer #pay {
 		width: 90%;
 		margin: .5em auto;
 	}
-
 }
 
 .fadeRight {
