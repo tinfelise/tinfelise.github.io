@@ -620,6 +620,13 @@ h2:before {
 	width: 75%;
 	padding:.5em;
 }
+.testimonial:nth-of-type(2n+0) .photo {
+	float:right !important;
+}
+.testimonial:nth-of-type(2n+0) .testimonialText {
+	float:left !important;
+	text-align: right;
+}
 #testimonials .name {
 	font-weight:600;
 	white-space: nowrap;
