@@ -446,15 +446,11 @@ function hideChickenBack() {
 	$('#wings .food, #wings .toggle, #wings .guarantee').toggleClass('blur');	
 };
 
+// Expand team member descriptions on mobile widths
 $('.member').on('click', function() {
 	var id = '#' + $(this).attr('id');
-	console.log(id);
-	showMemberDescription(id);
-})
-function showMemberDescription(id) {
 	$(id).toggleClass('expand');
-};
-// showMemberDescription('alec');
+});
 
 function testimonials() {
 	var html = '';
