@@ -7,17 +7,62 @@
 	<script src="https://use.fontawesome.com/1727fd84aa.js"></script>
 	<link rel="stylesheet" href="LotsOfChicken.css">
 
-	<!-- favicons -->
-	<link href="images/icon_red.png" rel="shortcut icon">
-
-	<!-- web app titles -->
-	<meta name="apple-mobile-web-app-title" content="L.O.C.">
-	<meta name="application-name" content="L.O.C.">
-	
+	<!-- Libraries -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery.countdown/2.2.0/jquery.countdown.min.js'></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+	
+	<!-- Favicons -->
+	<link href="images/icon_red.png" rel="shortcut icon">
 
+	<!-- Web App Titles -->
+	<meta name="apple-mobile-web-app-title" content="L.O.C.">
+	<meta name="application-name" content="L.O.C.">
+
+	<!-- Facebook Open Graph Tags -->
+	<meta property="og:type" content="restaurant.restaurant">
+	<meta property="og:title" content="L.O.C. | Lots of Chicken | Dolores Park | Simply The Best">
+	<meta property="og:site_name" content="L.O.C.">
+	<meta property="og:url" content="https://tinfelise.github.io/LotsOfChicken/">
+	<meta property="og:description" content="Serving Dolores Park the absolute best chicken and nugs you'll ever have.">
+	<meta property="og:image" content="https://tinfelise.github.io/LotsOfChicken/images/day1/loc-7.jpg">
+	<meta property="og:image:width" content="5760">
+	<meta property="og:image:height" content="3840">
+	<meta property="restaurant:menu" content="https://tinfelise.github.io/LotsOfChicken/#menu">
+	<meta property="restaurant:contact_info:website" content="https://tinfelise.github.io/LotsOfChicken/">
+	<meta property="restaurant:contact_info:street_address" content="Dolores St & 19th St">
+	<meta property="restaurant:contact_info:locality" content="San Francisco">
+	<meta property="restaurant:contact_info:region" content="CA">
+	<meta property="restaurant:contact_info:postal_code" content="94114">
+	<meta property="restaurant:contact_info:country_name" content="United States">
+	<meta property="restaurant:contact_info:email" content="hello@lotsofchicken.com">
+	
+	<!-- Twitter Card Tags -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@loc-chicken">
+	<meta name="twitter:title" content="L.O.C. | Lots of Chicken | Dolores Park | Simply The Best">
+	<meta name="twitter:description" content="Serving Dolores Park the absolute best chicken and nugs you'll ever have.">
+	<meta name="twitter:image" content="https://tinfelise.github.io/LotsOfChicken/images/day1/loc-7.jpg">
+	
+	<!-- Schema.org JSON-LD Tags -->
+	<script type="application/ld+json">
+		{
+		    "@context": "http://schema.org/",
+		    "@type": "Restaurant",
+		    "name": "L.O.C. | Lots of Chicken | Dolores Park | Simply The Best",
+		    "acceptsReservations": "No",
+		    "menu": "https://tinfelise.github.io/LotsOfChicken/#menu",
+		    "servesCuisine": "Chicken Wings",
+		    "priceRange": "$",
+		    "address": {
+		        "@type": "PostalAddress",
+		        "streetAddress": "Dolores St & 19th St",
+		        "addressLocality": "San Francisco",
+		        "addressRegion": "CA",
+		        "postalCode": "94114"
+		    },
+		}
+	</script>
 </head>
 <body>
 	<header class='clearfix'>
@@ -481,7 +526,7 @@ function createCSSslideshow(selector) {
 };
 
 function contactUsMailto (link) {
-	var domain = document.location.pathname;
+	var domain = 'tinfelise.github.io/LotsOfChicken/';
 	var email = 'hello@' + domain;
 	var subject = 'Hello LOC!'
 	var body = 'Hi their Team LOC!%0A%0AI\'looking to...';
@@ -504,12 +549,12 @@ function createMetadata () {
 	var width = '5760';
 	var height = '3840';
 
-	var domain = document.location;
-	var menu = domain + '#menu';
+	var domain = 'tinfelise.github.io/LotsOfChicken/';
+	var menu = 'https://' + domain + '#menu';
 	var email = 'hello@' + domain;
 	var phone = '';
 
-	image = domain + image;
+	image = 'https://' + domain + image;
 
 	var address = {
 		'street':'Dolores St & 19th St',
@@ -591,9 +636,9 @@ function createMetadata () {
 		schemaOrg;
 
 	$('head').append(tags);
-	// console.log(tags);
+	console.log(tags);
 }
-createMetadata();
+// createMetadata();
 // function sharingImage (imageURL) {
 // 	var tmpImg = new Image();
 // 	tmpImg.src = imageURL;
