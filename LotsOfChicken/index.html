@@ -26,8 +26,8 @@
 	<meta property="og:url" content="https://tinfelise.github.io/LotsOfChicken/">
 	<meta property="og:description" content="Serving Dolores Park the absolute best chicken wings and nugs you'll ever have.">
 	<meta property="og:image" content="https://tinfelise.github.io/LotsOfChicken/images/social.jpg">
-	<meta property="og:image:width" content="5760">
-	<meta property="og:image:height" content="3840">
+	<meta property="og:image:width" content="3600">
+	<meta property="og:image:height" content="2400">
 	<meta property="restaurant:menu" content="https://tinfelise.github.io/LotsOfChicken/#menu">
 	<meta property="restaurant:contact_info:website" content="https://tinfelise.github.io/LotsOfChicken/">
 	<meta property="restaurant:contact_info:street_address" content="Dolores St & 19th St">
@@ -543,18 +543,18 @@ function createMetadata () {
 	var title = document.title;
 	var description = 'Serving Dolores Park the absolute best chicken and nugs you\'ll ever have.';
 
-	// var image = $('#wings-info').css('background-image');
-	// image = sharedImage.substring(5,sharedImage.length - 2);
-	var image = 'images/day1/loc-7.jpg';
-	var width = '5760';
-	var height = '3840';
-
 	var domain = 'tinfelise.github.io/LotsOfChicken/';
 	var menu = 'https://' + domain + '#menu';
 	var email = 'hello@' + domain;
 	var phone = '';
 
+	// var image = $('#wings-info').css('background-image');
+	// image = sharedImage.substring(5,sharedImage.length - 2);
+	var image = 'images/social.jpg';
 	image = 'https://' + domain + image;
+	var width = '3600';
+	var height = '2400';
+	imageDimensions(image);
 
 	var address = {
 		'street':'Dolores St & 19th St',
@@ -639,21 +639,26 @@ function createMetadata () {
 	console.log(tags);
 }
 // createMetadata();
-// function sharingImage (imageURL) {
-// 	var tmpImg = new Image();
-// 	tmpImg.src = imageURL;
-// 	$(tmpImg)
-// 		.on('load',function() {
-// 			var height = tmpImg.height;
-// 			var width = tmpImg.width;
-// 			createMetadata(imageURL, height, width);
-// 		})
-// 		.on('error',function() {
-// 			console.log('Sharing image not found')
-// 			createMetadata(imageURL);	
-// 		});
-// };
-// sharingImage(sharedImage);
+
+function imageDimensions(imageURL) {
+	console.log('start');
+	var tmpImg = new Image();
+	tmpImg.src = imageURL;
+	$(tmpImg)
+		.on('load',function() {
+			var height = tmpImg.height;
+			var width = tmpImg.width;
+			console.log('Image loaded')
+			console.log('Height:' + height);
+			console.log('Width:' + width);
+			// createMetadata(imageURL, height, width);
+		})
+		.on('error',function() {
+			console.log('Sharing image not found')
+			// createMetadata(imageURL);
+		});
+};
+// imageDimensions(sharedImage);
 
 // TEST CASES
 function testURLs() {
