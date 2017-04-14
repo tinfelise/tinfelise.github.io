@@ -444,7 +444,17 @@ function showChickenBack() {
 function hideChickenBack() {
 	$('#chickenBack').removeClass('showChickenBack');
 	$('#wings .food, #wings .toggle, #wings .guarantee').toggleClass('blur');	
-}
+};
+
+$('.member').on('click', function() {
+	var id = '#' + $(this).attr('id');
+	console.log(id);
+	showMemberDescription(id);
+})
+function showMemberDescription(id) {
+	$(id).toggleClass('expand');
+};
+// showMemberDescription('alec');
 
 function testimonials() {
 	var html = '';
