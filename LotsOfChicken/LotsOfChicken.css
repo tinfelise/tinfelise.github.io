@@ -268,6 +268,7 @@ h1 strong {
 .sharing a {
 	float: left;
 	width:25%;
+	font-size:2em;
 }
 .sharing .mobile {
 	display:none;
@@ -294,6 +295,8 @@ h1 strong {
 	border:1px solid #ccc;
 	border-radius: .5em;
 	padding:.5em;
+	text-align: center;
+	text-transform: uppercase;
 }
 #pay span {}
 #pay span:after {
@@ -310,7 +313,7 @@ h1 strong {
 	width:1em;
 	vertical-align: middle;
 	background-size:cover;
-	margin-right:.25em;
+	margin-right:.5em;
 }
 #coop #pay {
 	/*position:absolute;
@@ -838,10 +841,18 @@ footer #pay {
 	body{
 		font-size: 18px;
 	}
+	header {
+		font-size: 1em;
+	}
 }
 @media only screen and (max-width: 900px) {
 	.locator {
 		width:100%;
+		z-index: 2 !important;
+	}
+	#upcoming,
+	.sharing {
+		max-width: initial;
 	}
 	#upcoming {
 		left:0;
@@ -859,6 +870,16 @@ footer #pay {
 	.location {
 		font-size: .75em
 	}
+
+	.sidebar {
+		float:none;
+		width:100%;
+		z-index:1;
+	}
+	.sharing {
+		width:25%;
+	}
+
 	.team {
 		position: absolute;
 		bottom:3em;
@@ -888,9 +909,6 @@ footer #pay {
 		background-position: left bottom;
 		padding:0;
 	}
-	.locator {
-		z-index: 2 !important;
-	}
 	.locator:before {
 		height:4em;
 		width:4em;
@@ -901,14 +919,9 @@ footer #pay {
 	#countdown div {
 		display:block;
 	}
-	.sidebar {
-		float:none;
-		width:100%;
-		z-index:1;
-	}
+
 	#upcoming,
 	.sharing {
-		margin:0;
 		max-width: initial;
 	}
 	#upcoming {
@@ -929,7 +942,7 @@ footer #pay {
 	.sharing .mobile {
 		display:block;
 		float:right;
-		width:25%;
+		width:100%;
 		padding: .75em;
 		/*margin: .25em;*/
 	}
@@ -993,6 +1006,26 @@ footer #pay {
 		width:100%;
 		margin: 0 auto 1em;
 	}
+
+	footer .social,
+	footer #pay {
+		float:none;
+		display: block;
+	}
+	footer .social {
+		width: 100%;
+	}
+	footer .social a {
+		float: left;
+		width: 25%;
+		margin:auto;
+		text-align: center
+	}
+	footer #pay {
+		width: 90%;
+		margin: .5em auto;
+	}
+
 }
 
 .fadeRight {
