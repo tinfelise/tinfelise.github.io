@@ -246,11 +246,14 @@ function calendar () {
 				createCountdown(start);
 				$('#current').append(
 					'<div id=\'currentPlace\'>' + 
-						'<span>' + loc.name + ' | <\/span> ' + 
+						'<span>' + loc.name + ' | </span> ' + 
 						// '<span>' + loc.neighborhood + ' | <\/span> ' + 
-						'<span>' + loc.city + '<\/span> ' + 
+						'<span>' + loc.city + '</span> ' + 
 					'</div>' +
-					'<div id=\'currentTime\'>' + moment(start).format('dddd, MMMM Do') + ', ' + startTime + ' to ' + endTime + '</div>'
+					'<div id=\'currentTime\'>' + 
+						'<span>' + moment(start).format('dddd, MMMM Do') + '</span>' + 
+						' | <span>' + startTime + ' to ' + endTime + '</span>' + 
+					'</div>'
 				);
 			};
 		};
@@ -325,7 +328,7 @@ function createCountdown (timestamp) {
 			if(event.offset.hours > 0) {
 				format += '<strong><span>%-H</span> hour%!H</strong> ';
 			}
-			format += '</strong><strong>'
+			format += '</strong> <strong>'
 			if(event.offset.minutes > 0) {
 				format += '<strong><span>%-M</span> minute%!M</strong> ';
 			}
@@ -354,6 +357,16 @@ function createCountdown (timestamp) {
 // };
 // createCountdown(test);
 // createCountdown(Date.parse(events[1].start));
+var countdownStatus = 1;
+function toggleCountdown() {
+	if (countdownStatus = 1) {
+		$('#countdown').countdown('stop');
+		countdownStatus = 0;
+	} else {
+		$('#countdown').countdown('start');
+		countdownStatus = 1;
+	};
+};
 
 function injectStyles(rule) {
   var stylesheet = $("<style />", {
@@ -616,6 +629,9 @@ function testURLs() {
 	if (test == 'busy') {
 		testBusy();
 	};
+	if (test == 'freezetime') {
+		toggleCountdown();
+	}
 };
 function testOpen () {
 	var second = 1000;
