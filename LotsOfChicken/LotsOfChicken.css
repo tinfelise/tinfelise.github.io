@@ -603,7 +603,8 @@ h2:before {
 	border: 1px solid #ccc;
 	border-radius: 1em;
 	overflow: hidden;
-	margin:1em;
+	margin:1em auto;
+	max-width:600px;
 	background-color: #fff;
 	/*float:left;*/
 }
@@ -668,6 +669,9 @@ h2:before {
     border:1px solid #ccc;
     border-radius:1em;
     background-color: #fff;
+}
+h3 {
+	margin-top:0;
 }
 
 #houseCalls {
@@ -852,6 +856,11 @@ footer #pay {
 	.member:last-of-type {
 		border-radius: 0 1em 1em 1em;
 	}
+
+	#faqs li {
+		width:45%;
+		min-width: initial;
+	}
 }
 @media only screen and (max-width: 600px) {
 	nav a {
@@ -942,6 +951,11 @@ footer #pay {
 	}
 	.member:last-of-type {
 		border-radius: 1em 0 1em 1em;
+	}
+
+	#faqs li {
+		width:100%;
+		margin: 0 auto 1em;
 	}
 }
 
