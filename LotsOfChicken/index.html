@@ -94,13 +94,13 @@
 
 	<section id='team' class='backgroundImage'>
 		<h2>The Team</h2>
-		<div class='clearfix'>
-			<div class='team' id='alec'>
+		<div class='team clearfix'>
+			<div class='member' id='alec'>
 				<span class='name'>Alec</span>
 				<span class='nickname'>"The Wolf"</span>
 				<span class='description'>Like a wolf in a henhouse, this guy knows how to carve up some chicken. This chicken guru isn't your everyday wings expert.</span>
 			</div>
-			<div class='team' id='jesse'>
+			<div class='member' id='jesse'>
 				<span class='name'>Jesse</span>
 				<span class='nickname'>"The Heisenberg"</span>
 				<span class='description'>Hours of experimentation in the lab have resulted in sawces so good, they're <i>addictive</i>.</span>
@@ -321,21 +321,21 @@ function formatTime(time) {
 function createCountdown (timestamp) {
 	$('#countdown').countdown(timestamp)
 		.on('update.countdown', function(event) {
-			var format = '<strong>In ';
+			var format = '<div>In ';
 			if(event.offset.totalDays > 0) {
 				format += '<strong><span>%-D</span> day%!D</strong> ';
 			}
 			if(event.offset.hours > 0) {
 				format += '<strong><span>%-H</span> hour%!H</strong> ';
 			}
-			format += '</strong> <strong>'
+			format += '</div> <div>'
 			if(event.offset.minutes > 0) {
 				format += '<strong><span>%-M</span> minute%!M</strong> ';
 			}
 			if(event.offset.seconds > 0) {
 				format += '<strong><span>%-S</span> second%!S</strong>';
 			}
-			format += '</strong>'
+			format += '</div>'
 			$(this).html(event.strftime(format));
 		})
 		.on('finish.countdown', function(event) {
@@ -357,14 +357,14 @@ function createCountdown (timestamp) {
 // };
 // createCountdown(test);
 // createCountdown(Date.parse(events[1].start));
-var countdownStatus = 1;
+var countdownState = 1;
 function toggleCountdown() {
-	if (countdownStatus = 1) {
+	if (countdownState == 1) {
 		$('#countdown').countdown('stop');
-		countdownStatus = 0;
+		countdownState = 0;
 	} else {
 		$('#countdown').countdown('start');
-		countdownStatus = 1;
+		countdownState = 1;
 	};
 };
 

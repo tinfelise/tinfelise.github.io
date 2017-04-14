@@ -269,6 +269,9 @@ h1 strong {
 	margin-top: 1em;
 	/*font-size:.5em;*/
 }
+#countdown div {
+	display:inline-block;
+}
 #countdown span {
 	font-size:2em;
 }
@@ -541,23 +544,28 @@ h2:before {
 	min-height:75vh;
 	position: relative;
 }
-.team{
-	padding:1em;
+.member{
 	background-color: rgba(255,90,95,1);
     float: left;
     width: 20%;
-    margin: 1em;
-    /*height:10em;*/
-    border-radius: 1em 0 1em 1em;
+    min-width: 250px;
+    margin: 1em auto;
+    padding:1em;
+    border-radius: 1em 1em 0 1em;
+    border: 1px solid #ccc;
+    text-shadow: none;
 }
-.team:last-of-type {
+.member:last-of-type {
 	float:right;
 	border-radius: 1em 1em 1em 0;
 }
-.team .name {
+.member .name {
 	font-weight:800;
 }
-.team .description {
+.member .nickname {
+	white-space: nowrap;
+}
+.member .description {
 	display: block;
 	border-top: 2px solid #fff;
 }
@@ -825,6 +833,18 @@ footer #pay {
 	.location {
 		font-size: .75em
 	}
+	.team {
+		position: absolute;
+		bottom:3em;
+		left:1em;
+		right:1em;
+	}
+	.member {
+		border-radius: 1em 0 1em 1em;
+	}
+	.member:last-of-type {
+		border-radius: 0 1em 1em 1em;
+	}
 }
 @media only screen and (max-width: 600px) {
 	nav a {
@@ -846,6 +866,9 @@ footer #pay {
 	}
 	h1 {
 		font-size:2em;
+	}
+	#countdown div {
+		display:block;
 	}
 	.sidebar {
 		float:none;
@@ -888,6 +911,30 @@ footer #pay {
 		font-size: .75em;
 		display:block;
 		padding:.5em 0 0;
+	}
+
+	#team {
+		background-position: bottom;
+	}
+	/*.team {
+		left:1em;
+		right:1em;
+	}*/
+	.member {
+		float:none !important;
+		width:100%;
+		border-radius: 0 1em 1em 1em;
+	}
+	.member .nickname:after {
+		content: '+';
+		float:right;
+		line-height:1em;
+	}
+	.member .description {
+		display:none;
+	}
+	.member:last-of-type {
+		border-radius: 1em 0 1em 1em;
 	}
 }
 
