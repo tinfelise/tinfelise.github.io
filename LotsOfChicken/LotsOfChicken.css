@@ -897,6 +897,10 @@ footer #pay {
 		width:45%;
 		min-width: initial;
 	}
+
+	footer .love {
+		font-size: .75em;
+	}
 }
 @media only screen and (max-width: 600px) {
 	nav a {
