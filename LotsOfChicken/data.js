@@ -51,7 +51,7 @@ var testimonialsData = [
 	{
 		'name':'Tyler',
 		'title':'Former Head of Product, Failed Startup',
-		'photo':'images/tyler.jpg',
+		'photo':'images/testimonials/tyler.jpg',
 		'quote':'Best buffalo wings I\'ve ever had.'
 	},
 	{
