@@ -439,11 +439,11 @@ $('input[name="menu-item"]').bind('change', menuSelector);
 
 function showChickenBack() {
 	$('#chickenBack').addClass('showChickenBack');
-	$('#wings .food, #wings .toggle, #wings .guarantee').addClass('blur');
+	$('#wings div:first-of-type, #wings .food, #wings .guarantee').addClass('blur');
 };
 function hideChickenBack() {
 	$('#chickenBack').removeClass('showChickenBack');
-	$('#wings .food, #wings .toggle, #wings .guarantee').toggleClass('blur');	
+	$('#wings div:first-of-type, #wings .food, #wings .guarantee').toggleClass('blur');	
 };
 
 // Expand team member descriptions on mobile widths
