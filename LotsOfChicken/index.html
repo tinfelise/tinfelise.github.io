@@ -488,11 +488,12 @@ function createContactSuggestions () {
 	var html = '';
 	for(i=0; i<contactSuggestionsData.length; i++) {
 		var x = contactSuggestionsData[i];
-		// console.log(x);
-		html += '<span>' + x + '</span>';
+		x = x.split('\n').join('</span> <span>');
+		console.log(x);
+		html += '<div><span>' + x + '</span></div>';
 	}
 	$('#contactSuggestions').append(html);
-	createCSSslideshow('#contactSuggestions span');
+	createCSSslideshow('#contactSuggestions div');
 };
 createContactSuggestions();
 
