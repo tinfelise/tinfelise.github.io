@@ -890,7 +890,7 @@ footer #pay {
 		transform: none;
 		width:75%;
 		/*overflow: auto;*/
-		overflow-y:scroll;
+		/*overflow-y:scroll;*/
 		white-space: nowrap;
 		padding: 0;
 		-webkit-mask-image: linear-gradient(
@@ -975,6 +975,7 @@ footer #pay {
 	#upcoming {
 		width:100%;
 		-webkit-mask-image:none;
+		background-color: black;
 	}
 	.event,
 	.event:after {
