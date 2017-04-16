@@ -889,7 +889,8 @@ footer #pay {
 		top:inherit;
 		transform: none;
 		width:75%;
-		overflow: auto;
+		/*overflow: auto;*/
+		overflow-y:scroll;
 		white-space: nowrap;
 		padding: 0;
 		-webkit-mask-image: linear-gradient(
