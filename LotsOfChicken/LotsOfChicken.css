@@ -228,6 +228,7 @@ h1 strong {
 	background-position: center;
 	padding: 1em;
 	position: relative;
+	overflow: hidden;
 }
 .event:after {
 	content: '';
@@ -890,12 +891,12 @@ footer #pay {
 		width:75%;
 		overflow: auto;
 		white-space: nowrap;
-		padding: 0 10%;
+		padding: 0;
 		-webkit-mask-image: linear-gradient(
 			to right, 
 			transparent 0%, 
-			black 10%, 
-			black 90%, 
+			black 2.5%, 
+			black 97.5%, 
 			transparent 100%
 		);
 	}
@@ -971,7 +972,6 @@ footer #pay {
 	}
 	#upcoming {
 		width:100%;
-		padding:0;
 		-webkit-mask-image:none;
 	}
 	.event,
