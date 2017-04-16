@@ -899,6 +899,7 @@ footer #pay {
 			black 97.5%, 
 			transparent 100%
 		);
+		-webkit-overflow-scrolling: touch;
 	}
 	.event {
 		display: inline-block;
