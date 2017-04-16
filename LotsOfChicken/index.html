@@ -489,7 +489,7 @@ function createContactSuggestions () {
 	for(i=0; i<contactSuggestionsData.length; i++) {
 		var x = contactSuggestionsData[i];
 		x = x.split('\n').join('</span> <span>');
-		console.log(x);
+		// console.log(x);
 		html += '<div><span>' + x + '</span></div>';
 	}
 	$('#contactSuggestions').append(html);
