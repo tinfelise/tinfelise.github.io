@@ -13,18 +13,18 @@ var locations = [
 var events = [
 	{
 		'location':'1',
-		'start': 'Apr 08 2017 12:00:00 PDT',
-		'end': 'Apr 08 2017 15:00:00 PDT'
-	},
-	{
-		'location':'1',
-		'start': 'Apr 15 2017 12:30:00 PDT',
+		'start': 'Apr 15 2017 12:00:00 PDT',
 		'end': 'Apr 15 2017 15:00:00 PDT'
 	},
 	{
 		'location':'1',
-		'start': 'Apr 22 2017 08:00:00 PDT',
-		'end': 'Apr 22 2017 15:00:00 PDT'
+		'start': 'May 15 2017 13:00:00 PDT',
+		'end': 'May 15 2017 16:00:00 PDT'
+	},
+	{
+		'location':'1',
+		'start': 'Jun 15 2017 14:00:00 PDT',
+		'end': 'Jun 15 2017 15:00:00 PDT'
 	}
 ];
 
