@@ -303,6 +303,17 @@ function calendar () {
 			};
 		};
 	};
+	
+	var width = (100/3);
+	if (0 < eventCount && eventCount < 3) {
+		width = (100/eventCount);
+		css += '@media only screen and (max-width: 600px) {' +
+			'.event {' +
+				'width:' + width +'%;' +
+			'}' +
+		'}';
+	};
+
 	if (eventCount > 0) {
 		$('#upcoming').append(html);
 		injectStyles(css);
