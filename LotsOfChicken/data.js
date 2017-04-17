@@ -23,7 +23,7 @@ var events = [
 	},
 	{
 		'location':'1',
-		'start': 'Jun 15 2017 14:00:00 PDT',
+		'start': 'Jun 15 2017 08:00:00 PDT',
 		'end': 'Jun 15 2017 15:00:00 PDT'
 	}
 ];
@@ -50,7 +50,7 @@ var menu = [
 var testimonialsData = [
 	{
 		'name':'Tyler',
-		'title':'Former Head of Product, Failed Startup',
+		'title':'Former Product Manager, Failed Startup',
 		'photo':'images/testimonials/tyler.jpg',
 		'quote':'Best buffalo wings I\'ve ever had.'
 	},
