@@ -1156,6 +1156,22 @@ footer #pay {
 		margin: 0 auto 1em;
 	}
 
+	.testimonial {
+		height:initial;
+	}
+	.testimonial .photo,
+	.testimonial .testimonialText {
+		float:none !important;
+		width:100% !important;
+	}
+	.testimonial .photo {
+		height:0 !important;
+		padding-bottom:33vh !important;
+	}
+	.testimonial:nth-of-type(2n+0) .testimonialText {
+		text-align: left !important;
+	}
+
 	footer .social,
 	footer #pay {
 		float:none;
