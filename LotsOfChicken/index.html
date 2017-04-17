@@ -39,7 +39,7 @@
 	
 	<!-- Twitter Card Tags -->
 	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:site" content="@loc-chicken">
+	<meta name="twitter:site" content="@LotsofChix">
 	<meta name="twitter:title" content="L.O.C. | Lots of Chicken | Dolores Park | Simply The Best">
 	<meta name="twitter:description" content="Serving Dolores Park the absolute best chicken wings and nugs you'll ever have.">
 	<meta name="twitter:image" content="https://tinfelise.github.io/LotsOfChicken/images/social.jpg">
@@ -188,8 +188,8 @@
 		<div class='clearfix'>
 			<div class='social clearfix'>
 				<a href='' target='blank_'><i class="fa fa-facebook" aria-hidden="true"></i></a>
-				<a href='' target='blank_'><i class="fa fa-twitter" aria-hidden="true"></i></a>
-				<a href='' target='blank_'><i class="fa fa-instagram" aria-hidden="true"></i></a>
+				<a href='https://twitter.com/LotsofChix' target='blank_'><i class="fa fa-twitter" aria-hidden="true"></i></a>
+				<a href='https://www.instagram.com/LotsofChix/' target='blank_'><i class="fa fa-instagram" aria-hidden="true"></i></a>
 				<a href='https://www.yelp.com/events/san-francisco-loc-lots-of-chicken-pop-up-in-dolores-park' target='blank_'><i class="fa fa-yelp" aria-hidden="true"></i></a>
 			</div>
 			<a id='pay' href='https://venmo.com/?txn=pay&audience=friends&recipients=LOC-Chicken&note=The%20best%20ever%20chicken%20wings%20and%20sawce%20in%20Dolores%20Park.%20%F0%9F%90%94%F0%9F%8D%97&share=f' target="blank_">
@@ -436,6 +436,11 @@ function menuSelector() {
 };
 menuSelector();
 $('input[name="menu-item"]').bind('change', menuSelector);
+
+$('.food').on('click', function() {
+	var id = '#' + $(this).attr('id');
+	$(id).toggleClass('expand');
+});
 
 function showChickenBack() {
 	$('#chickenBack').addClass('showChickenBack');

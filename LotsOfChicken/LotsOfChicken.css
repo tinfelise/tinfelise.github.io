@@ -511,8 +511,6 @@ h2:before {
 .food .expand {
 	height:initial;
 	overflow: scroll;
-}
-.food:hover .description {
 	max-height: 19em;
 	padding-bottom:1em;
 	/*-webkit-mask-image: linear-gradient(
@@ -592,6 +590,7 @@ h2:before {
 /*.showChickenBackClose {
 	display:block;
 }*/
+
 #team {
 	background-image: url('images/day1/loc-2.jpg');
 	background-size:cover;
