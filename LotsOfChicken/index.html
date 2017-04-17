@@ -465,6 +465,7 @@ function menuSelector() {
 menuSelector();
 $('input[name="menu-item"]').bind('change', menuSelector);
 
+// Expand menu item descriptions
 $('.food').on('click', function() {
 	var id = '#' + $(this).attr('id');
 	$(id).toggleClass('expand');
