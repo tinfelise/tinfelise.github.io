@@ -994,7 +994,7 @@ footer #pay {
 	#upcoming {
 		width:100%;
 		-webkit-mask-image:none;
-		background-color: black;
+		background-color: #ccc;
 	}
 	.event,
 	.event:after {
