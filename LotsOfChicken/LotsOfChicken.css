@@ -470,6 +470,7 @@ h2:before {
 	width:100%;
 	padding:.5em;
 	background-color: rgba(255,255,255,.5);
+	border-top:1px solid #ccc;
 }
 /*.info:before {
   content:'';
@@ -480,14 +481,6 @@ h2:before {
   top:0;
   background:linear-gradient(transparent 150px, white);
 }*/
-.food:hover .info {
-	background-color: #fff;
-}
-.food:hover .description {
-	height:initial;
-	max-height: 19em;
-	overflow: scroll;
-}
 .food .quantity,
 .food .sawce {
 	float:left;
@@ -505,11 +498,31 @@ h2:before {
 	font-size: .75em;
 	height: 3em;
 	overflow: hidden;
+	-webkit-mask-image: linear-gradient(
+		black 0%, 
+		transparent 100%
+	);
+	transition: all ease .5s;
 }
+.food:hover .info {
+	background-color: #fff;
+}
+.food:hover .description,
 .food .expand {
-	height: initial;
+	height:initial;
 	overflow: scroll;
 }
+.food:hover .description {
+	max-height: 19em;
+	padding-bottom:1em;
+	/*-webkit-mask-image: linear-gradient(
+		black 0%, 
+		black 90%, 
+		transparent 100%
+	);*/
+	-webkit-mask-image: none;
+}
+
 .guarantee {
 	float:right;
 	margin:1em;
@@ -586,7 +599,7 @@ h2:before {
 	min-height:75vh;
 	position: relative;
 }
-.member{
+.member {
 	background-color: rgba(255,90,95,1);
     float: left;
     width: 20%;
