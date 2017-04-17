@@ -592,6 +592,7 @@ h2:before {
 }*/
 
 #team {
+	background-image: url('images/day1/loc-2.jpg');
 	background-image: 
 		linear-gradient(
 			rgba(0,0,0,.75) 0%, 
