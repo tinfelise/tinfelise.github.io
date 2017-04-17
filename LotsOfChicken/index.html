@@ -131,7 +131,7 @@
 		</div>
 		<a onclick='showChickenBack()' alt='ChickenBack Guarantee' class='guarantee'>ChickenBack Guarantee</a>
 		<div id='chickenBack'>
-			<a id='chickenBackClose' onclick='hideChickenBack()'><i class="fa fa-times" aria-hidden="true"></i></a>
+			<a class='close' onclick='hideChickenBack()'><i class="fa fa-times" aria-hidden="true"></i></a>
 			<h2>Our Guarantee</h2>
 			<p>If your wings, nugs or sawce aren't the best you've ever had, we'll eat them ourselves.</p>
 		</div>
@@ -198,6 +198,17 @@
 		</div>
 		<div class='love'>Made with <i class="fa fa-heart" aria-hidden="true"></i> in Dolores Park</div>
 	</footer>
+
+	<div id='invite' class='clearfix'>
+		<div onclick='hideShareButtons()' class='close'><i class="fa fa-times" aria-hidden="true"></i></div>
+		<span><strong>Invite</strong> yo peeps</span>
+		<div>
+			<a href='' target='blank_'><i class="fa fa-facebook" aria-hidden="true"></i></a>
+			<a href='' target='blank_'><i class="fa fa-twitter" aria-hidden="true"></i></a>
+			<a href='' target='blank_'><i class="fa fa-envelope" aria-hidden="true"></i></a>
+			<a href='https://www.yelp.com/events/san-francisco-loc-lots-of-chicken-pop-up-in-dolores-park' target='blank_'><i class="fa fa-yelp" aria-hidden="true"></i></a>
+		</div>
+	</div>
 
 </body>
 
@@ -431,12 +442,18 @@ function injectStyles(rule) {
 };
 
 function showShareButtons() {
-	$('.sharing').show();
-	$('.sharing .mobile').hide();
+	$('#invite').addClass('popup');
+	$('body').addClass('blurBackground');
+	// $('.sharing .mobile').hide();
 };
 function hideShareButtons() {
-	$('.sharing').hide();	
+	$('#invite').removeClass('popup');
+	$('body').removeClass('blurBackground');
 };
+$('#invite.popup').on('click', function() {
+	console.log('click');
+	$('.sharing').removeClass('popup');
+});
 
 // Filter by menu type
 function menuSelector() {
