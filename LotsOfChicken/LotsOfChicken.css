@@ -510,8 +510,7 @@ h2:before {
 .food:hover .info {
 	background-color: #fff;
 }
-.food:hover .description,
-.food .expand {
+.food:hover .description {
 	height:initial;
 	overflow: scroll;
 	max-height: 19em;
@@ -1097,6 +1096,27 @@ footer #pay {
 		border-radius: 0;
 		border-right: 0;
 		border-left: 0;
+	}
+	/*.food:not(.expand):hover {}*/
+	.food:hover .description {
+		height:3em;
+		overflow: hidden;
+		-webkit-mask-image: linear-gradient(
+			black 0%, 
+			transparent 100%
+		);
+	}
+	.food.expand .description {
+		height:initial;
+		overflow: scroll;
+		max-height: 19em;
+		padding-bottom:1em;
+		/*-webkit-mask-image: linear-gradient(
+			black 0%, 
+			black 90%, 
+			transparent 100%
+		);*/
+		-webkit-mask-image: none;
 	}
 	.guarantee {
 		display:block;
