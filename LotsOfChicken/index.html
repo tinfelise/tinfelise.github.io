@@ -602,8 +602,8 @@ function createInviteLinks() {
 
 	// Email
 	var subject = 'Found the best wings EVER!!!';
-	var emailURL = url + '?utm_source=' + 'Email' + '&utm_medium=' + 'InviteButton';
-	var body = 'Check out Lots Of Chicken (L.O.C)' + '%0A%0A' + emailURL;
+	var emailURL = url + '?utm_source=' + 'Email' + '\%26utm_medium=' + 'InviteButton';
+	var body = 'Check out Lots Of Chicken (L.O.C) in Dolores Park:' + '%0A' + emailURL;
 	emailURL = 'mailto:?&subject=' + subject + '&body=' + body;
 	emailURL.split(" ").join("%20");
 
@@ -615,7 +615,7 @@ function createInviteLinks() {
 	// Facebook
 
 	var fbURL = 'https://www.facebook.com/sharer/sharer.php?u=';
-	fbURL += url + '?utm_source=' + 'Facebook' + '&utm_medium=' + 'InviteButton';
+	fbURL += url + '?utm_source=' + 'Facebook' + '\%26utm_medium=' + 'InviteButton';
 	fbURL.split(" ").join("%20");
 
 	var facebook = {};
@@ -627,7 +627,7 @@ function createInviteLinks() {
 	var handle = '@LotsofChix';
 	var tweetURL = 'https://twitter.com/home?status=';
 	tweetURL += 'The best chicken wings ever are in Dolores Park. Thanks ' + handle + ' ';
-	tweetURL += url + '?utm_source=' + 'Twitter' + '&utm_medium=' + 'InviteButton';
+	tweetURL += url + '?utm_source=' + 'Twitter' + '\%26utm_medium=' + 'InviteButton';
 	tweetURL.split(" ").join("%20");
 
 	var twitter = {};
