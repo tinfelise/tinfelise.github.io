@@ -91,10 +91,10 @@
 			<div id='upcoming'></div>
 			<div class='sharing clearfix'>
 				<span>Invite yo peeps</span>
-				<a href='' target='blank_'><i class="fa fa-facebook" aria-hidden="true"></i></a>
-				<a href='' target='blank_'><i class="fa fa-twitter" aria-hidden="true"></i></a>
-				<a href='' target='blank_'><i class="fa fa-envelope" aria-hidden="true"></i></a>
-				<a href='https://www.yelp.com/events/san-francisco-loc-lots-of-chicken-pop-up-in-dolores-park' target='blank_'><i class="fa fa-yelp" aria-hidden="true"></i></a>
+				<a class='fb_share' href='' target='blank_'><i class="fa fa-facebook" aria-hidden="true"></i></a>
+				<a class='twitter_share' href='' target='blank_'><i class="fa fa-twitter" aria-hidden="true"></i></a>
+				<a class='email_share' href='' target='blank_'><i class="fa fa-envelope" aria-hidden="true"></i></a>
+				<a class='yelp_share' href='' target='blank_'><i class="fa fa-yelp" aria-hidden="true"></i></a>
 				<div onclick='showShareButtons()' class='mobile fadeRight'>
 					<i class="fa fa-bullhorn" aria-hidden="true"></i>
 					<span>Invite</span>
@@ -203,10 +203,10 @@
 		<div onclick='hideShareButtons()' class='close'><i class="fa fa-times" aria-hidden="true"></i></div>
 		<span><strong>Invite</strong> yo peeps</span>
 		<div>
-			<a href='' target='blank_'><i class="fa fa-facebook" aria-hidden="true"></i></a>
-			<a href='' target='blank_'><i class="fa fa-twitter" aria-hidden="true"></i></a>
-			<a href='' target='blank_'><i class="fa fa-envelope" aria-hidden="true"></i></a>
-			<a href='https://www.yelp.com/events/san-francisco-loc-lots-of-chicken-pop-up-in-dolores-park' target='blank_'><i class="fa fa-yelp" aria-hidden="true"></i></a>
+			<a class='fb_share' href='' target='blank_'><i class="fa fa-facebook" aria-hidden="true"></i></a>
+			<a class='twitter_share' href='' target='blank_'><i class="fa fa-twitter" aria-hidden="true"></i></a>
+			<a class='email_share' href='' target='blank_'><i class="fa fa-envelope" aria-hidden="true"></i></a>
+			<a class='yelp_share' href='' target='blank_'><i class="fa fa-yelp" aria-hidden="true"></i></a>
 		</div>
 	</div>
 
@@ -451,6 +451,7 @@ function injectStyles(rule) {
   }).appendTo("body");    
 };
 
+// Mobile invite button functionality
 function showShareButtons() {
 	$('#invite').addClass('popup');
 	$('body').addClass('blurBackground');
@@ -481,6 +482,7 @@ $('.food').on('click', function() {
 	$(id).toggleClass('expand');
 });
 
+// Chickenback guarantee funtionality
 function showChickenBack() {
 	$('#chickenBack').addClass('showChickenBack');
 	$('#wings div:first-of-type, #wings .food, #wings .guarantee').addClass('blur');
@@ -579,14 +581,66 @@ function createCSSslideshow(selector) {
 function contactUsMailto (link) {
 	var domain = 'lotsofchicken.com';
 	var email = 'hello@' + domain;
-	var subject = 'Hello LOC!'
-	var body = 'Hi their Team LOC!%0A%0AI\'looking to...';
-	body += '%0A%0A%0A%0A%0ADetails on my upcoming event (if applicable)!%0ALocation:%0ADate%0ATime%0ANumber of chicken eaters:%0ASpecial requests:'
-	body.split(" ").join("%20")
+	var subject = 'Hello LOC!';
+	var body = 'Hi their Team LOC!%0A%0AI\'m looking to...';
+	body += '%0A%0A%0A%0A%0ADetails on my upcoming event (if applicable)!%0ALocation:%0ADate%0ATime%0ANumber of chicken eaters:%0ASpecial requests:';
 	var mailto = 'mailto:' + email + '?&subject=' + subject + '&body=' + body;
+	mailto.split(' ').join('%20');
 	$(link).attr('href', mailto);
 }
 contactUsMailto('#houseCalls a');
+
+// Invite links creation
+function createInviteLinks() {
+	var url = 'https://www.lotsofchicken.com/';
+	var shareTypes = [
+		{
+			'type':'yelp',
+			'url':'https://www.yelp.com/events/san-francisco-loc-lots-of-chicken-pop-up-in-dolores-park'
+		}
+	];
+
+	// Email
+	var subject = 'Found the best wings EVER!!!';
+	var emailURL = url + '?utm_source=' + 'Email' + '&utm_medium=' + 'InviteButton';
+	var body = 'Check out Lots Of Chicken (L.O.C)' + '%0A%0A' + emailURL;
+	emailURL = 'mailto:?&subject=' + subject + '&body=' + body;
+	emailURL.split(" ").join("%20");
+
+	var email = {};
+	email.type = 'email';
+	email.url = emailURL;
+	shareTypes.push(email);
+
+	// Facebook
+
+	var fbURL = 'https://www.facebook.com/sharer/sharer.php?u=';
+	fbURL += url + '?utm_source=' + 'Facebook' + '&utm_medium=' + 'InviteButton';
+	fbURL.split(" ").join("%20");
+
+	var facebook = {};
+	facebook.type = 'fb';
+	facebook.url = fbURL;
+	shareTypes.push(facebook);
+
+	//Twitter
+	var handle = '@LotsofChix';
+	var tweetURL = 'https://twitter.com/home?status=';
+	tweetURL += 'The best chicken wings ever are in Dolores Park. Thanks ' + handle + ' ';
+	tweetURL += url + '?utm_source=' + 'Twitter' + '&utm_medium=' + 'InviteButton';
+	tweetURL.split(" ").join("%20");
+
+	var twitter = {};
+	twitter.type = 'twitter';
+	twitter.url = tweetURL;
+	shareTypes.push(twitter);
+
+	$(shareTypes).each(function() {
+		console.log(this.url);
+		$('.' + this.type + '_share').attr('href',this.url);
+	});
+};
+createInviteLinks();
 
 // METADATA CREATION
 function createMetadata () {

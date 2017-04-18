@@ -1073,6 +1073,7 @@ footer #pay {
 	#invite.popup a {
 		float:left;
 		width: 25%;
+		color: #fff;
 	}
 	.blurBackground header,
 	.blurBackground section,
