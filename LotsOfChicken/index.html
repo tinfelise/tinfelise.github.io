@@ -220,6 +220,7 @@ $(window).on("scroll", function () {
 	var header = $('header').height();
 	offsetPosition = position + header;
 
+	// Nav bar positioning
     $('section').each(function() {
     	var id = $(this).attr('id');
         if (offsetPosition > $(this).offset().top && offsetPosition <= $(this).offset().top + $(this).height() ){ 
@@ -228,11 +229,20 @@ $(window).on("scroll", function () {
             $('nav a[href="#'+id+'"]').removeClass('current');   
         }   
     });
+
+    // Header fill state
     if (position > header) {
         $("header").addClass("filledHeader");
     }
     else {
         $("header").removeClass("filledHeader");
+    }
+
+    // Mobile upcoming bar placement
+    if (position > 0) {
+    	$('.sidebar').addClass('scroll');
+    } else {
+    	$('.sidebar').removeClass('scroll');
     }
 });
 // $(document).scroll(function(){
@@ -314,7 +324,7 @@ function calendar () {
 			};
 		};
 	};
-	
+
 	var width = (100/3);
 	if (0 < eventCount && eventCount < 3) {
 		width = (100/eventCount);

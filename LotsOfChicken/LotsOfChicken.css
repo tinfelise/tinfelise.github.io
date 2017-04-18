@@ -991,6 +991,12 @@ footer #pay {
 		display:block;
 	}
 
+	.sidebar {
+		position:fixed;
+	}
+	.sidebar.scroll {
+		position: relative;
+	}
 	#upcoming,
 	.sharing {
 		max-width: initial;
