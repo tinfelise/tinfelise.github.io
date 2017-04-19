@@ -349,7 +349,10 @@ calendar();
 function orderEvents () {
 	events = events.sort(function (a, b) {
     	// return a.start.localeCompare(b.start);
-    	return moment(a.start).format('x').localeCompare(moment(b.start).format('x'));
+    	return moment(a.start).format('x')
+    		.localeCompare(
+    			moment(b.start).format('x')
+			);
 	});
 };
 
