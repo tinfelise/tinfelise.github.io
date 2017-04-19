@@ -83,7 +83,7 @@ var contactSuggestionsData = [
 	'have LOC wings catered\nat my next event.',
 	'tell LOC how amazing\ntheir chicken is.',
 	'ask the LOC team a question.',
-	'sue LOC for sawce patent infringement.',
+	'sue LOC for\nsawce patent infringement.',
 	'complain profusely about\nthe weather in San Francisco.',
 	'help take LOC global.'
 ];
