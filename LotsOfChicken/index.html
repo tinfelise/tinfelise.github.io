@@ -547,12 +547,12 @@ function createCSSslideshow(selector) {
 	var interval = 4;
 	var slideCount = $(selector).length;
 	var runtime = slideCount * interval;
-	var stagger = runtime;
+	var stagger = 0;
 	var startFade = 100 / slideCount;
 
 	var selectors = '';
 	for (i=1; i<=slideCount; i++) {
-		stagger = stagger - interval;
+		stagger = interval * i;
 		selectors +=  selector + ':nth-child(' + i + ') {' +
 			'animation: xfade ' + runtime + 's ' + stagger + 's infinite;' + 
 			'}';
