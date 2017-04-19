@@ -968,11 +968,70 @@ footer #pay {
 	}
 }
 @media only screen and (max-width: 600px) {
+	nav {
+		margin-right:.5em;
+	}
 	nav a {
 		display:none;
+		opacity: 0;
+		transition: all 1s ease;
 	}
 	nav a.current {
 		display:block;
+		opacity: 1;
+	}
+	nav:after {
+		content: '...';
+		transform: rotate(90deg);
+		float:right;
+		width: 1em;
+		margin: -1em;
+		text-align: left; 
+		line-height: 1em;
+	}
+	header.open {
+		position: fixed;
+		top:0;
+		left:0;
+		right:0;
+		bottom:0;
+		background-color: rgba(0,0,0,.5);
+		color:#fff;
+	}
+	header.open #logo {
+		float:none;
+		color: #fff !important;
+	}
+	header.open #logo span:before { 
+    	background-image: url(images/icon_white.png);
+    }
+	header.open nav {
+		float:none;
+		margin-right:0;
+		margin-top: 50%;
+	}
+	header.open nav a {
+		display:block;
+		opacity:1;
+		color:#fff !important;
+		margin:2em;
+	}
+	header.open nav a.current {
+		border-bottom: none;
+	}
+	header.open nav:after {
+		content:'\00D7';
+		transform: initial;
+		float:none;
+		display:block;
+		margin:auto;
+		text-align: center;
+		font-size:3em;
+		line-height: normal;
+	}
+	.blurSubheader section,
+	.blurSubheader footer {
+		filter:blur(5px);	
 	}
 	#coop {
 		background-position: left bottom;

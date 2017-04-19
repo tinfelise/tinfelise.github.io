@@ -259,6 +259,13 @@ $(window).on("scroll", function () {
 //     });
 
 // });
+
+// Mobile nav menu
+$('nav').on("click", function () {
+	$('body').toggleClass('blurSubheader');
+	$('header').toggleClass('open');
+});
+
 var now = new Date();
 	now = now.getTime();
 
