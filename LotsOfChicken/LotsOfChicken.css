@@ -977,6 +977,7 @@ footer #pay {
 	#coop {
 		background-position: left bottom;
 		padding:0;
+		height:95vh;
 	}
 	.locator:before {
 		height:4em;
@@ -992,12 +993,12 @@ footer #pay {
 		display:block;
 	}
 
-	.sidebar {
+	/*.sidebar {
 		position:fixed;
 	}
 	.sidebar.scroll {
 		position: relative;
-	}
+	}*/
 	#upcoming,
 	.sharing {
 		max-width: initial;
