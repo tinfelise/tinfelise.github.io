@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+	
+		.signature {
+			font-family: 'Open Sans', 'Helvetica Neue' , Helvetica, 'Gill Sans', Arial, sans-serif;
+			font-size: 14px;
+			font-weight: 300;
+			color: rgba(0,0,0,87);
+			margin: 4.5em 2em 2em;
+    		display: inline-block;
+		}
+		.signature a {
+			color:#136CE6;
+			text-decoration: none;
+		}
+		.profile,
+		.contact,
+		.clara {
+			display:inline-block;
+			padding:0 1.75em;
+		}
+		.profile,
+		.clara {
+			text-align:left;
+		}
+		.profile {
+			padding:0;
+			
+			border-bottom:1px solid rgba(0,0,0,.5);
+			padding-bottom:2em;
+		}
+		.profile img {
+			height:8.5em;
+		}
+		.contact {
+			padding-right:0;
+		}
+		.logo {
+			display: inline-block;
+			line-height: 0;
+		}
+		.logo img {
+			height:2em;
+		}
+		.clara {
+			font-size:.85em;
+			color:rgba(0,0,0,.54);
+			display:block;
+			padding:0;
+			padding-top:2em;
+			width:100%;
+		}
+		.clara .section {
+			padding-top:.25em;
+			padding-bottom:.25em;
+		}
+		.clara .section span {
+			white-space: nowrap;
+		}
+		.clara .rating img {
+			height:1.25em;
+			display:inline-block;
+			padding-right:.25em;
+		}
+		.clara .social a {
+			line-height: 0;
+    		display: inline-block;
+    		padding-right:.5em;
+		}
+		.clara .social img {
+			height:2em;
+		}
+		
+	</style>
+</head>
+<body>
+<!-- <style>
+	@media only screen and (max-width: 630px) {
+		
+		.signature {
+			display:inline-block;
+		}
+		.profile,
+		.clara {
+			margin:auto;
+		}
+		.profile {
+			border-right:none;
+			border-bottom:1px solid rgba(0,0,0,.5);
+			padding-bottom:2em;
+		}
+		.contact {
+			padding-right:0;
+		}
+		.clara {
+			display:block;
+			padding:0;
+			padding-top:2em;
+			width:100%;
+		}
+	}
+</style> -->
+<!-- <div class='wrapper'> -->
+<div class='signature'>
+	<div class='profile'>
+		<img id='photo' width='124' src='http://i.imgur.com/2oo3w9f.png' alt='Steven Fung Profile Photo'>
+		<div class='contact'>
+			<strong id='name'>Steven Fung</strong>
+			<div id='title'>Sales Lead</div>
+			<div><a id='email' href='mailto:steven.fung@clara.com'>steven.fung@clara.com</a></div>
+			<div>Tel: <a id='phone' href='tel:1-415-678-9012' target='blank_'>415-678-9012</a></div>
+			<div>Fax: <a id='fax' href='tel:1-415-123-4567' target='blank_'>415-123-4567</a></div>
+			<div>NMLS# <span id='NMLS'>680634</span></div>
+		</div>
+	</div>
+	<div class='clara'>
+		<a class='logo section' src='https://www.clara.com'>
+			<img height='24' src='http://i.imgur.com/Cgm916c.png' alt='Clara Logo'>
+		</a>
+		<div class='section'>
+			<span>222 Sutter St. Floor 8,</span> 
+			<span>San Francisco, CA 94108</span>
+		</div>
+		<div class='section'>
+			<span class='rating'>
+				<img height='16' src='http://i.imgur.com/tDbmSlP.png' alt='Rating Star'>
+				<img height='16' src='http://i.imgur.com/tDbmSlP.png' alt='Rating Star'>
+				<img height='16' src='http://i.imgur.com/tDbmSlP.png' alt='Rating Star'>
+				<img height='16' src='http://i.imgur.com/tDbmSlP.png' alt='Rating Star'>
+				<img height='16' src='http://i.imgur.com/tDbmSlP.png' alt='Rating Star'>
+			</span> 
+			<span><a href='' target='blank_'>LendingTree</a> and <a href='' target='blank_'>Zillow</a></span>
+		</div>
+		<div class='social section'>
+			<a href="https://www.facebook.com/clara.lending/"><img height='24' src="http://i.imgur.com/OVkz2oK.png" alt="Facebook"></a>
+			<a href="https://twitter.com/claralending"><img height='24' src="http://i.imgur.com/z5nrVTV.png" alt="Twitter"></a>
+			<a href="https://www.linkedin.com/company-beta/4794333/"><img height='24' src="http://i.imgur.com/yEEoNni.png" alt="LinkedIn"></a>
+		</div>
+		
+	</div>
+</div>
+<!-- </div> -->
+</body>
+</html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+
+	var currentURL = window.location.href;
+		currentURL = currentURL.replace(/%20/g," ");
+	var loData = currentURL.split('?')[1];
+		loData = loData.split('&');
+
+	var lo = {};
+	
+	for (i=0; i<loData.length; i++) {
+		var attributes = loData[i].split('=');
+		var key = attributes[0];
+		var val = attributes[1];
+		lo[key] = val;
+	};
+
+	$('#photo').attr('src',lo.photo);
+	$('#name').html(lo.name);
+	$('#title').html(lo.title);
+	$('#email').attr('href','mailto:' + lo.email);
+	$('#email').html(lo.email);
+	$('#phone').attr('href','tel:' + lo.phone);
+	$('#phone').html(lo.phone);
+	$('#fax').attr('href','tel:' + lo.fax);
+	$('#fax').html(lo.fax);
+	$('#NMLS').html(lo.NMLS);
+
+</script>
+
