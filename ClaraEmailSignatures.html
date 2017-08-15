@@ -37,6 +37,10 @@
 		.contact {
 			padding-right:0;
 		}
+		.contact #phone img,
+		.contact #fax img {
+			display: none;
+		}
 		.logo {
 			display: inline-block;
 			line-height: 0;
@@ -110,8 +114,8 @@
 			<strong id='name'>Steven Fung</strong>
 			<div id='title'>Sales Lead</div>
 			<div><a id='email' href='mailto:steven.fung@clara.com'>steven.fung@clara.com</a></div>
-			<div>Tel: <a id='phone' href='tel:1-415-678-9012' target='blank_'>415-678-9012</a></div>
-			<div>Fax: <a id='fax' href='tel:1-415-123-4567' target='blank_'>415-123-4567</a></div>
+			<div id='phone'>Tel: <a href='tel:1-415-678-9012' target='blank_'>415-678-9012</a></div>
+			<div id='fax'>Fax: <a href='tel:1-415-123-4567' target='blank_'>415-123-4567</a></div>
 			<div>NMLS# <span id='NMLS'>680634</span></div>
 		</div>
 	</div>
@@ -123,6 +127,7 @@
 			<span>222 Sutter St. Floor 8,</span> 
 			<span>San Francisco, CA 94108</span>
 		</div>
+		<div class='section'>An Equal Opportunity Lender | NMLS #1349168</div>
 		<div class='section'>
 			<span class='rating'>
 				<img height='16' src='http://i.imgur.com/tDbmSlP.png' alt='Rating Star'>
@@ -162,14 +167,19 @@
 	};
 
 	$('#photo').attr('src',lo.photo);
+	$('#photo').attr('alt',lo.name + ' Profile Photo');
 	$('#name').html(lo.name);
 	$('#title').html(lo.title);
 	$('#email').attr('href','mailto:' + lo.email);
 	$('#email').html(lo.email);
-	$('#phone').attr('href','tel:' + lo.phone);
-	$('#phone').html(lo.phone);
-	$('#fax').attr('href','tel:' + lo.fax);
-	$('#fax').html(lo.fax);
+	$('#phone a').attr('href','tel:' + lo.phone);
+	$('#phone a').html(lo.phone);
+	if (lo.fax) {
+		$('#fax a').attr('href','tel:' + lo.fax);
+		$('#fax a').html(lo.fax);
+	} else {
+		$('#fax').hide();
+	};
 	$('#NMLS').html(lo.NMLS);
 
 </script>
