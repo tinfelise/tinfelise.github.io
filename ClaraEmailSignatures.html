@@ -13,7 +13,7 @@
 		}
 		.signature a {
 			color:#136CE6;
-			text-decoration: none;
+			text-decoration: none !important;
 		}
 		.signature a img {
 			border-style:none;
@@ -27,6 +27,7 @@
 		.profile,
 		.clara {
 			text-align:left;
+			/*width:100%;*/
 		}
 		.profile {
 			padding:0;
@@ -60,7 +61,6 @@
 			display:block;
 			padding:0;
 			padding-top:2em;
-			width:100%;
 		}
 		.clara .section {
 			padding-top:.25em;
@@ -90,37 +90,15 @@
 		.clara .social img {
 			height:2em;
 		}
+		span a {
+			text-decoration:none !important;
+			color:inherit !important;
+			border:none;
+		}
 		
 	</style>
 </head>
 <body>
-<!-- <style>
-	@media only screen and (max-width: 630px) {
-		
-		.signature {
-			display:inline-block;
-		}
-		.profile,
-		.clara {
-			margin:auto;
-		}
-		.profile {
-			border-right:none;
-			border-bottom:1px solid rgba(0,0,0,.5);
-			padding-bottom:2em;
-		}
-		.contact {
-			padding-right:0;
-		}
-		.clara {
-			display:block;
-			padding:0;
-			padding-top:2em;
-			width:100%;
-		}
-	}
-</style> -->
-
 <!--[if mso]><center><table border="0" cellpadding="0" cellspacing="0"><tr><td width="600"><![endif]-->
 <div class='signature'>
 	<div class='profile'>
@@ -131,7 +109,7 @@
 			<!-- <div><a id='email' href='mailto:steven.fung@clara.com'>steven.fung@clara.com</a></div> -->
 			<div id='phone'>Tel: <a href='tel:1-415-678-9012' target='blank_'>415-678-9012</a></div>
 			<div id='fax'>Fax: <a href='tel:1-415-123-4567' target='blank_'>415-123-4567</a></div>
-			<div>NMLS# <span id='NMLS'>680634</span></div>
+			<div>NMLS #<span id='NMLS'>680634</span></div>
 		</div>
 	</div>
 	<div class='clara'>
@@ -139,8 +117,7 @@
 			<img height='24' src='http://i.imgur.com/Cgm916c.png' alt='Clara Logo'>
 		</a>
 		<div class='section'>
-			<span>222 Sutter St. Floor 8,</span> 
-			<span>San Francisco, CA 94108</span>
+			<span>222 Sutter St. Floor 8,</span> <span>San Francisco, CA 94108</span>
 		</div>
 		<div class='section'>An Equal Opportunity Lender | <span>NMLS #1349168</span></div>
 		<div class='section'>
