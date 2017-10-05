@@ -18,36 +18,51 @@
 		.signature a img {
 			border-style:none;
 		}
-		.profile,
+		.signature table {
+			border-collapse:collapse;
+			border-spacing: 0;
+		}
+		/*.profile,
 		.contact,
 		.clara {
 			display:inline-block;
 			padding:0 1.75em;
-		}
+		}*/
 		.profile,
 		.clara {
 			text-align:left;
 			/*width:100%;*/
 		}
-		.profile {
-			padding:0;
-			border-bottom:1px solid rgba(0,0,0,.5);
+		.profile td {
+			/*padding:0;*/
+			/*border-bottom:1px solid rgba(0,0,0,.5);*/
+			border-bottom:1px solid rgb(224,224,224);
 			padding-bottom:2em;
 		}
 		.profile img,
 		.profile .contact {
 			vertical-align: middle;
 		}
+		.profile td:first-of-type {
+			width:8.5em;
+			padding-right: 0;
+    		padding-left: 0;
+		}
 		.profile img {
-			height:8.5em;
+			/*height:8.5em;*/
+			width:100%;
 		}
 		.contact {
-			padding-right:0;
+			padding:0;
+			padding-left:1.75em;
 		}
-		.contact #phone img,
+		.contact > * {
+			white-space: nowrap;
+		}
+		/*.contact #phone img,
 		.contact #fax img {
 			display: none;
-		}
+		}*/
 		.logo {
 			display: inline-block;
 			line-height: 0;
@@ -59,13 +74,16 @@
 		.clara {
 			font-size:.85em;
 			color:rgba(0,0,0,.54);
-			display:block;
+			/*display:block;*/
+		}
+		.clara td {
 			padding:0;
 			padding-top:2em;
 		}
 		.clara .section {
 			padding-top:.25em;
 			padding-bottom:.25em;
+			line-height:1.25em;
 		}
 		.clara .section span {
 			white-space: nowrap;
@@ -81,7 +99,7 @@
 			padding-right:.25em;
 		}
 		.clara .social {
-			line-height: 0;
+			/*padding-top:.5em;*/
 		}
 		.clara .social a {
 			line-height: 0;
@@ -102,44 +120,50 @@
 <body>
 <!--[if mso]><center><table border="0" cellpadding="0" cellspacing="0"><tr><td width="600"><![endif]-->
 <div class='signature'>
-	<div class='profile'>
-		<img id='photo' width='124' src='http://i.imgur.com/2oo3w9f.png' alt='Steven Fung Profile Photo'>
-		<div class='contact'>
-			<strong id='name'>Steven Fung</strong>
-			<div id='title'>Sales Lead</div>
-			<!-- <div><a id='email' href='mailto:steven.fung@clara.com'>steven.fung@clara.com</a></div> -->
-			<div id='phone'>Tel: <a href='tel:1-415-678-9012' target='blank_'>415-678-9012</a></div>
-			<div id='fax'>Fax: <a href='tel:1-415-123-4567' target='blank_'>415-123-4567</a></div>
-			<div>NMLS #<span id='NMLS'>680634</span></div>
-		</div>
-	</div>
-	<div class='clara'>
-		
-		<a class='logo section' href='https://www.clara.com'>
-			<img height='24' src='http://i.imgur.com/Cgm916c.png' alt='Clara Logo'>
-		</a>
-		
-		<div class='section'>
-			<span>222 Sutter St. Floor 8,</span> <span>San Francisco, CA 94108</span>
-		</div>
-		<div class='section'>An Equal Opportunity Lender | <span>NMLS #1349168</span></div>
-		<div class='section'>
-			<span class='rating'>
-				<img height='16' src='http://i.imgur.com/tDbmSlP.png' alt='Rating Star'>
-				<img height='16' src='http://i.imgur.com/tDbmSlP.png' alt='Rating Star'>
-				<img height='16' src='http://i.imgur.com/tDbmSlP.png' alt='Rating Star'>
-				<img height='16' src='http://i.imgur.com/tDbmSlP.png' alt='Rating Star'>
-				<img height='16' src='http://i.imgur.com/tDbmSlP.png' alt='Rating Star'>
-			</span> 
-			<span><a href='https://www.lendingtree.com/loan-companies/clara-lending-reviews-30965' target='blank_'>LendingTree</a> and <a href='https://www.zillow.com/lender-profile/claralending/' target='blank_'>Zillow</a></span>
-		</div>
-		<div class='social section'>
-			<a href="https://www.facebook.com/clara.lending/"><img height='24' src="http://i.imgur.com/OVkz2oK.png" alt="Facebook"></a>
-			<a href="https://twitter.com/claralending"><img height='24' src="http://i.imgur.com/z5nrVTV.png" alt="Twitter"></a>
-			<a href="https://www.linkedin.com/company-beta/4794333/"><img height='24' src="http://i.imgur.com/yEEoNni.png" alt="LinkedIn"></a>
-		</div>
-		
-	</div>
+	<br><br><br>
+	<table>
+		<tbody>
+			<tr class='profile'>
+				<td>
+					<img id='photo' width='124' src='http://i.imgur.com/2oo3w9f.png' alt='Steven Fung Profile Photo'>
+				</td>
+				<td class='contact'>
+					<strong id='name'>Steven Fung</strong>
+					<div id='title'>Sales Lead</div>
+					<div id='phone'>Tel: <a href='tel:1-415-678-9012' target='blank_'>415-678-9012</a></div>
+					<div id='fax'>Fax: <a href='tel:1-415-123-4567' target='blank_'>415-123-4567</a></div>
+					<div>NMLS #<span id='NMLS'>680634</span></div>
+				</td>
+			</tr>
+			<tr class='clara'>
+				<td colspan='2'>
+					<a class='logo section' href='https://www.clara.com'>
+						<img height='24' src='http://i.imgur.com/Cgm916c.png' alt='Clara Logo'>
+					</a>
+					<div class='section'>
+						<span>222 Sutter St. Floor 8,</span> <span>San Francisco, CA 94108</span>
+					</div>
+					<div class='section'>An Equal Opportunity Lender | <span>NMLS #1349168</span></div>
+					<div class='section'>
+						<span class='rating'>
+							<img height='16' src='http://i.imgur.com/tDbmSlP.png' alt='Rating Star'>
+							<img height='16' src='http://i.imgur.com/tDbmSlP.png' alt='Rating Star'>
+							<img height='16' src='http://i.imgur.com/tDbmSlP.png' alt='Rating Star'>
+							<img height='16' src='http://i.imgur.com/tDbmSlP.png' alt='Rating Star'>
+							<img height='16' src='http://i.imgur.com/tDbmSlP.png' alt='Rating Star'>
+						</span> 
+						<span><a href='https://www.lendingtree.com/loan-companies/clara-lending-reviews-30965' target='blank_'>LendingTree</a> and <a href='https://www.zillow.com/lender-profile/claralending/' target='blank_'>Zillow</a></span>
+					</div>
+					<div class='social section'>
+						<a href="https://www.facebook.com/clara.lending/"><img height='24' src="http://i.imgur.com/OVkz2oK.png" alt="Facebook"></a>
+						<a href="https://twitter.com/claralending"><img height='24' src="http://i.imgur.com/z5nrVTV.png" alt="Twitter"></a>
+						<a href="https://www.linkedin.com/company-beta/4794333/"><img height='24' src="http://i.imgur.com/yEEoNni.png" alt="LinkedIn"></a>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<br><br><br>
 </div>
 <!--[if mso]></td></tr></table></center><![endif]-->
 </body>
