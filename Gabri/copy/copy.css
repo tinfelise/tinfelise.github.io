@@ -22,7 +22,7 @@ h2 {
 }
 h2 span:last-of-type {
 	font-size:.5em;
-	display:block;
+	/*display:block;*/
 }
 textarea {
 	width:100%;
@@ -30,6 +30,9 @@ textarea {
 	border:none;
 	padding:0;
 	font-size:1rem;
+	outline: none;
+	resize: none;
+	overflow: auto;
 }
 
 @media only screen and (max-width: 600px) {
