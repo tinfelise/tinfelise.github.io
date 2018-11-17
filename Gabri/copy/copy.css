@@ -1,0 +1,39 @@
+html {
+	width:100%;
+	min-height:100%;
+	display: flex;
+	/*align-items: center;*/
+}
+header,
+main {
+	padding-left: 1rem;
+	padding-right:1rem;
+}
+main {
+	display:flex;
+	flex-wrap:wrap;
+}
+h1 {
+	width:100%;
+}
+h2 {
+	width:50%;
+	margin-top: 0;
+}
+h2 span:last-of-type {
+	font-size:.5em;
+	display:block;
+}
+textarea {
+	width:100%;
+	background-color:transparent;
+	border:none;
+	padding:0;
+	font-size:1rem;
+}
+
+@media only screen and (max-width: 600px) {
+	header span {
+	    padding-left: 0;
+	}
+}

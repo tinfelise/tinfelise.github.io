@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Character count | Gabri</title>
+	<meta name='viewport' content='width=device-width, initial-scale=1, viewport-fit=cover'>
+	<link rel="stylesheet" href="../main.css">
+	<link rel="stylesheet" href="copy.css">
+	<link href="http://fonts.googleapis.com/css?family=Raleway:700,400,200" rel="stylesheet" type="text/css">
+	<link href="http://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <header>
+		<span class='instagramGradient gradientFont'>Gabri.</span>
+	</header>
+	<main>
+		<h1>Let's count this, Gabri!</h1>
+		<h2 class='instagramGradient gradientFont'>
+			<span id='characters'>0</span> <span>Characters</span>
+		</h2>
+		<h2 class='instagramGradient gradientFont'>
+			<span id='words'>0</span> <span>Words</span>
+		</h2>
+		<!-- <div class='toggle'>
+			<input type="radio" name="count-type" id="count-char" value="characters" checked></input>
+			<label for='count-char'>
+				<div>Charachters</div>
+			</label>
+			<input type="radio" name="count-type" id="count-words" value="words"></input>
+			<label for='count-words'>
+				<div>Words</div>
+			</label>
+		</div> -->
+		<textarea placeholder="Start typing..." rows="5" autofocus onkeyup="count(this)"></textarea>
+	</main>
+	<!-- Libraries -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script>
+		function count(element) {
+			var string = element.value
+			var characters = string.length;
+			var words = string.split(' ').filter(word => word.length > 0).length;
+			$('#characters').html(characters);
+			$('#words').html(words);
+		};
+	</script>
+</body>
+</html>
