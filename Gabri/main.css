@@ -1,5 +1,17 @@
+html,
+body {
+	width:100%;
+	min-height:100%;
+	display: flex;
+	align-items: center;
+}
 html {
 	box-sizing: border-box;
+	font-family: 'Raleway', 'Helvetica Neue', sans-serif;
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%; 
+	margin:0;
+	padding:0;
 }
 *, 
 *:before, 
@@ -10,20 +22,19 @@ html {
 * label,
 #container,
 #answer {
-	-webkit-transition: all 0.1s ease-in-out;
-	-moz-transition:    all 0.1s ease-in-out;
-	-ms-transition:     all 0.1s ease-in-out;
-	-o-transition:      all 0.1s ease-in-out;
-	transition:         all 0.1s ease-in-out;
+	-webkit-transition:	all 0.1s ease-in-out;
+	-moz-transition:	all 0.1s ease-in-out;
+	-ms-transition:		all 0.1s ease-in-out;
+	-o-transition:		all 0.1s ease-in-out;
+	transition:			all 0.1s ease-in-out;
 }
 body {
+	font-size:24px;
 	color:#555;
 	background-color:#EAEBE9;
-	font-size:24px;
-	font-family: 'Raleway', 'Helvetica Neue', sans-serif;
-	margin:0;
 	padding-left: env(safe-area-inset-left);
 	padding-right: env(safe-area-inset-right);
+	flex-flow: column;
 }
 a {
 	text-decoration:none;
@@ -63,15 +74,15 @@ input[type='checkbox']:checked + label:before {
 	margin:auto;
 	border:1px solid #9CA299;
 	border-radius: 1em;
+	box-shadow: 0px 0px 5em 0px rgba(0,0,0,0.1);
+	overflow: hidden;
+	background-color: #fff;
 }
 #container {
-	background-color: #fff;
-	background-color: #EAEBE9;
+	/*background-color: #EAEBE9;*/
 	/*border-radius: 1em;*/
 	/*border:1px solid #9CA299;*/
 	/*border-bottom:none;*/
-	margin:25vh auto 0;
-	overflow: hidden;
 }
 header, 
 form {
@@ -106,9 +117,6 @@ header a {
 #explaination {}
 form {
 	margin: 0 auto;
-}
-.makeRoom {
-	margin-top: 5vh !important;
 }
 main {
 	background-color: #EAEBE9;
@@ -341,18 +349,13 @@ main {
 	display:block;
 	color:#fff;
 	background-color:#009bff;
-	/*border: 1px solid #9CA299;*/
 	border: none;
-	border-radius:0 0 1em 1em;
 	padding:.25em;
 	font-size:1em;
-	/*margin: 0 auto .25em;*/
 	font-weight:600;
 	width:100%;
 }
-.cta:hover {
-	/*background-color: blue;*/
-}
+.cta:hover {}
 .cta:active {
 	/*color:#009bff;*/
 	/*background-color: #fff;*/
@@ -367,7 +370,7 @@ main {
 	margin:1em auto 2em;
 }
 .display {
-	display:block!important;
+	display: block!important;
 }
 #answer h2 {
 	font-size: 1em;
@@ -471,6 +474,7 @@ main {
 footer {
 	position:fixed;
 	bottom:0;
+	left:0;
 	width: 100%;
     padding: .5em 0;
     background-color:#fff;
@@ -527,18 +531,19 @@ input.instagramGradient:active {
     zoom: 1.0;
 }*/
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 700px) {
+	html {
+		align-items: flex-start;
+	}
 	body {
-		/*background-color: #fff;*/
+		margin: 0;
+		border-radius: 0;
+		width:100%;
+		max-width: initial;
+		/*box-shadow: none;*/
 	}
 	header {
 		border-radius: 0;
-	}
-	header span {
-		padding-left: .25em;
-	}
-	header a {
-		padding-right:.5em;
 	}
 	form {
 		margin-top:0;
