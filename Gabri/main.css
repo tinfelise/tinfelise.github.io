@@ -76,18 +76,11 @@ input[type='checkbox']:checked + label:before {
 	border-radius: 1em;
 	box-shadow: 0px 0px 5em 0px rgba(0,0,0,0.1);
 	overflow: hidden;
-	background-color: #fff;
+	/*background-color: #fff;*/
 }
-#container {
-	/*background-color: #EAEBE9;*/
-	/*border-radius: 1em;*/
-	/*border:1px solid #9CA299;*/
-	/*border-bottom:none;*/
-}
+#container {}
 header, 
-form {
-	/*padding: 0 1em;*/
-}
+form {}
 header {
 	/*border-bottom: 2px solid #555;*/
 	padding: .5em .5em .25em;
@@ -99,18 +92,13 @@ header {
 	align-items: baseline;
 }
 header * {
-	/*flex: 0 1 50%;*/
 	flex: 1;
 }
 header span {
 	font-weight:600;
-	margin:auto;
 }
 header a {
-	/*float:right;*/
-	/*display: block;*/
 	font-size:.5em;
-    /*padding-top: 1em;*/
 	cursor:help;
 	text-align:right;
 }
