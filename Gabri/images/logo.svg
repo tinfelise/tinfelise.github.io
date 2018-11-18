@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="98px" height="28px" viewBox="0 0 98 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.4 (67378) - http://www.bohemiancoding.com/sketch -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="160.495642%" y1="-46.238869%" x2="-629.161379%" y2="-46.238869%" id="linearGradient-1">
+            <stop stop-color="#1E80DC" offset="0%"></stop>
+            <stop stop-color="#6155BE" offset="0%"></stop>
+            <stop stop-color="#C61590" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="2.69002885%" y1="2.66365604%" x2="101.999998%" y2="100.999999%" id="linearGradient-2">
+            <stop stop-color="#1E80DC" offset="0%"></stop>
+            <stop stop-color="#C61590" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-49.000000, -26.000000)">
+            <g id="Group" transform="translate(48.000000, 19.000000)">
+                <path d="M46,33 L50,9" id="Line" stroke="url(#linearGradient-1)" stroke-width="2" stroke-linecap="round"></path>
+                <text id="Logo" fill="url(#linearGradient-2)" font-family="Raleway-Bold, Raleway" font-size="36" font-weight="bold">
+                    <tspan x="0" y="34">Gabri.</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>
