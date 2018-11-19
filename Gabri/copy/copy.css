@@ -7,12 +7,21 @@ main {
 	display:flex;
 	flex-wrap:wrap;
 }
-h2 {
-	width:50%;
-	margin-top: 0;
+.counts {
+	display: flex;
+	width:100%;
 	position: -webkit-sticky;
 	position: sticky;
 	top: 0;
+	background-color: #EAEBE9;
+	z-index: 1;
+	padding-bottom:.5rem;
+	-webkit-mask-image: linear-gradient( black 0%,  black 80%, transparent 100%);
+	margin-bottom:1rem;
+}
+h2 {
+	width:50%;
+	margin: 0;
 }
 h2 span:last-of-type {
 	font-size:.5em;
@@ -32,5 +41,6 @@ textarea {
 @media only screen and (max-width: 700px) {
 	#container {
 		box-shadow: none;
+		overflow: unset;
 	}
 }
