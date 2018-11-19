@@ -30,7 +30,7 @@ html {
 }
 body {
 	font-size:24px;
-	color:#555;
+	color:rgba(85,85,85,.9);
 	background-color:#EAEBE9;
 	padding-left: env(safe-area-inset-left);
 	padding-right: env(safe-area-inset-right);
