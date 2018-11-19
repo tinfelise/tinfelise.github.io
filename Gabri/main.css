@@ -68,9 +68,13 @@ input[type='checkbox']:checked + label:before {
 	content: '\f14a';
 }
 #container,
-#answer {
+#answer,
+#explaination {
 	width:50%;
 	max-width: 600px;
+}
+#container,
+#answer {
 	margin:auto;
 	border:1px solid #9CA299;
 	border-radius: 1em;
@@ -91,18 +95,15 @@ header {
 	justify-content: space-between;
 	align-items: baseline;
 }
-header * {
-	flex: 1;
-}
 header span {
 	font-weight:600;
 }
-header a {
-	font-size:.5em;
-	cursor:help;
-	text-align:right;
+header nav {}
+header nav a {
+	font-size: .5em;
+	margin-left: .5em;
 }
-#explaination {}
+
 form {
 	margin: 0 auto;
 }
@@ -418,6 +419,12 @@ main {
 .disclaimer {
 	font-size:.5em;
 }
+#explaination {
+	font-size:.5em;
+	cursor:help;
+	text-align:right;
+	padding-top:1em;
+}
 .explaination {
 	/*display:none;*/
 	position: fixed;
@@ -538,7 +545,8 @@ input.instagramGradient:active {
 	}
 	#container, 
 	.cta, 
-	#answer {
+	#answer,
+	#explaination {
 		width:100%;
 		max-width: none;
 		border-radius: 0;
@@ -570,7 +578,8 @@ input.instagramGradient:active {
 	@media only screen and (max-width: 700px) {
 		header,
 		main section,
-		footer {
+		footer,
+		#explaination {
 			padding-left: max(1em, env(safe-area-inset-left));
 			padding-right: max(1em, env(safe-area-inset-right));
 		}
