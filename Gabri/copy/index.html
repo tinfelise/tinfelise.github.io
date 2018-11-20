@@ -49,12 +49,15 @@
 				</h2>
 			</div>
 			<textarea placeholder="Start typing..." rows="10" autofocus onkeyup="count(this)"></textarea>
+				<a onclick='copy_input("textarea")' class='action instagramGradient gradientFont'>Copy</a>
+				<a onclick='save("textarea")' class='action instagramGradient gradientFont'>Save</a>
 		</main>
 	</div>
+	<div id="saved"></div>
 	<footer>
 		<span class='instagramGradient gradientFont'>Made by Tyler Infelise</span>
 	</footer>
-	<!-- Libraries -->
+	<!-- Libraries & scripts -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script>
 		function count (element) {
@@ -63,6 +66,45 @@
 			var words = string.split(' ').filter(word => word.length > 0).length;
 			$('#characters').html(characters);
 			$('#words').html(words);
+		};
+
+		function copy_input (element) {
+			$(element).select();
+			document.execCommand('copy');
+		};
+		function copy_div (element) {
+			var text = $(element).text();
+			var targetID = "hiddenCopyText";
+			var targetSelector = '#' + targetID;
+			var target = $('#' + targetID);
+			if ( target.length == 0) {
+				target = document.createElement("textarea");
+				target.style.position = "absolute";
+				target.style.left = "-9999px";
+				target.style.top = "0";
+				target.id = targetID;
+				document.body.appendChild(target);
+				target.textContent = text;
+			} else {
+				target.text(text);
+			};
+			copy_input(targetSelector);
+		};
+
+		var saved = 0;
+		function save (element) {
+			saved++;
+			var text = $(element).val();
+			var output = '<p>' + text + '</p>';
+				output += '<a class="action instagramGradient gradientFont" onclick="bye(\'#saved' + saved + '\')">Remove</a>';
+				output += '<a class="action instagramGradient gradientFont" onclick="copy_div(\'#saved' + saved + ' p\')">Copy</a>';
+				output = '<div id="saved' + saved + '">' + output + '</div>';
+			$('#saved').append(output);
+			$(element).select();
+		};
+
+		function bye (element) {
+			$(element).remove();
 		};
 	</script>
 </body>
