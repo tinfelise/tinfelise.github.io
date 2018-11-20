@@ -583,8 +583,8 @@ input.instagramGradient:active {
 		main section,
 		footer,
 		#explaination {
-			padding-left: max(1em, env(safe-area-inset-left));
-			padding-right: max(1em, env(safe-area-inset-right));
+			padding-left: max(1rem, env(safe-area-inset-left));
+			padding-right: max(1rem, env(safe-area-inset-right));
 		}
 	}
 }
