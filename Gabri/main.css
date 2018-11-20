@@ -50,11 +50,17 @@ input[type='checkbox'],
 input[type='checkbox'] + label {
 	cursor: pointer;
 }
+input {
+	margin: 0;
+}
 input:focus, select:focus, textarea:focus, button:focus {
     outline: none;
 }
+input:active {
+	-webkit-appearance: none;
+}
 input[type='checkbox'] {
-	display:none;
+	display: none;
 }
 input[type='checkbox'] + label:before {
 	content: '\f096';
