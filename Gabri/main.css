@@ -89,7 +89,7 @@ header,
 form {}
 header {
 	/*border-bottom: 2px solid #555;*/
-	padding: .5em .5em .25em;
+	padding: .5rem 1rem .25rem;
 	border-radius:1em 1em 0 0;
 	background-color:#fff;
 	display:flex;
