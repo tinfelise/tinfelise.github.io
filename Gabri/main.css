@@ -592,6 +592,9 @@ input.instagramGradient:active {
 			padding-left: max(1rem, env(safe-area-inset-left));
 			padding-right: max(1rem, env(safe-area-inset-right));
 		}
+		footer {
+			padding-bottom: max(.5em, env(safe-area-inset-right));
+		}
 	}
 }
 @keyframes GradientAnimation { 
