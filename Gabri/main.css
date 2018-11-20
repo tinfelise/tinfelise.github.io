@@ -105,6 +105,11 @@ header nav a {
 	font-size: .5em;
 	margin-left: .5em;
 }
+header nav a.current {
+	font-weight: bold;
+	border-bottom:1px solid;
+	pointer-events: none;
+}
 
 form {
 	margin: 0 auto;
