@@ -21,7 +21,8 @@ html {
 * input, 
 * label,
 #container,
-#answer {
+#answer,
+.explaination {
 	-webkit-transition:	all 0.1s ease-in-out;
 	-moz-transition:	all 0.1s ease-in-out;
 	-ms-transition:		all 0.1s ease-in-out;
@@ -68,8 +69,7 @@ input[type='checkbox']:checked + label:before {
 	content: '\f14a';
 }
 #container,
-#answer,
-#explaination {
+.contained {
 	width:50%;
 	max-width: 600px;
 }
@@ -82,7 +82,9 @@ input[type='checkbox']:checked + label:before {
 	overflow: hidden;
 	/*background-color: #fff;*/
 }
-#container {}
+#container {
+	position: relative;
+}
 header, 
 form {}
 header {
@@ -425,36 +427,32 @@ main {
 	text-align:right;
 	padding-top:1em;
 }
+#explaination span:last-of-type {
+	display:none;
+}
+#explaination.closeExplaination span:first-of-type {
+	display: none;
+}
+#explaination.closeExplaination span:last-of-type {
+	display: initial;
+}
 .explaination {
 	/*display:none;*/
-	position: fixed;
+	position: absolute;
     top: -100vh;
-    font-size: .5em;
-    right: 0px;
-    background: darkblue;
+    font-size: .4em;
+    /*right: 0px;*/
+    /*background: darkblue;*/
     color: #fff;
     padding: 1em;
     border: 1px solid #9CA299;
     width: 100%;
     max-height: 100vh;
 	overflow: scroll;
+	height:100%;
 }
 .visible {
 	top:0vh;
-}
-#closeExplaination {
-	border:1px solid #fff;
-	border-radius: 1em;
-	padding:.5em 3em;
-	/*width:50%;
-	display:block;*/
-	display:table;
-	margin:auto;
-	text-align:center;
-}
-#closeExplaination:hover {
-	background-color:#fff;
-	color:#c61590;
 }
 .shareResults {
 	display: block;
