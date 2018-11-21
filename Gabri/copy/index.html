@@ -96,21 +96,44 @@
 			copy_input(targetSelector);
 		};
 
-		var saved = 0;
 		function save (element) {
-			saved++;
 			var text = $(element).val();
+			var saved = addEntry('saved', text);
 			var output = '<p>' + text + '</p>';
 				output += '<a class="action instagramGradient gradientFont" onclick="bye(\'#saved' + saved + '\')">Remove</a>';
 				output += '<a class="action instagramGradient gradientFont" onclick="copy_div(\'#saved' + saved + ' p\')">Copy</a>';
-				output = '<div id="saved' + saved + '">' + output + '</div>';
+				output = '<div data-save-id=\'' + saved + '\' id="saved' + saved + '">' + output + '</div>';
 			$('#saved').append(output);
 			$(element).select();
 		};
 
-		function bye (element) {
-			$(element).remove();
+		function addEntry (obj, val) {
+			// Parse any JSON previously stored in allEntries
+			var allEntries = JSON.parse(localStorage.getItem(obj)) || [];
+			allEntries.push(val);
+			var id = allEntries.length;
+			// Save allEntries back to local storage
+			localStorage.setItem(obj, JSON.stringify(allEntries));
+			return id;
 		};
+
+		function removeEntry (obj, id) {
+			var allEntries = JSON.parse(localStorage.getItem(obj)) || [];
+			delete allEntries[id];
+			localStorage.setItem(obj, JSON.stringify(allEntries));
+		};
+
+		
+		function bye (id) {
+			removeEntry ('saved', id - 1);
+			var selector = '*[data-save-id="' + id + '"]';
+			$(selector).remove();
+		};
+		// function bye (element) {
+		// 	var id = element.split('#saved')[1] - 1;
+		// 	removeEntry ('saved', id);
+		// 	$(element).remove();
+		// };
 	</script>
 </body>
 </html>
