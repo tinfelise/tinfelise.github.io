@@ -73,14 +73,15 @@
 		};
 
 		function copy_input (element) {
-			$(element).select();
+			$(element).select(); //works on Chrome
+			$(element).get(0).setSelectionRange(0,9999); //works on iOS Safari
 			document.execCommand('copy');
 		};
 		function copy_div (element) {
 			var text = $(element).text();
 			var targetID = "hiddenCopyText";
 			var targetSelector = '#' + targetID;
-			var target = $('#' + targetID);
+			var target = $(targetSelector);
 			if ( target.length == 0) {
 				target = document.createElement("textarea");
 				target.style.position = "absolute";
