@@ -146,6 +146,7 @@
 		function clear_saved () {
 			$('#saved div').remove();
 			localStorage.clear('saved');
+			$('#saved .clear').removeClass('show_clear');
 		};
 
 		function clear_all_state () {
