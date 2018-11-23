@@ -57,7 +57,9 @@
 				<a onclick='save("textarea")' class='action instagramGradient gradientFont'>Save</a>
 		</main>
 	</div>
-	<div id="saved"></div>
+	<div id="saved">
+		<a onclick='clear()' class='clear'>Clear All</a>
+	</div>
 	<footer>
 		<span class='instagramGradient gradientFont'>Made by Tyler Infelise</span>
 	</footer>
@@ -96,15 +98,21 @@
 			copy_input(targetSelector);
 		};
 
-		function save (element) {
-			var text = $(element).val();
+		function save_html (text, id) {
+			var html = '<p>' + text + '</p>';
+				html += '<a class="action instagramGradient gradientFont" onclick="bye(\'#saved' + id + '\')">Remove</a>';
+				html += '<a class="action instagramGradient gradientFont" onclick="copy_div(\'#saved' + id + ' p\')">Copy</a>';
+				html = '<div data-save-id=\'' + id + '\' id="saved' + id + '">' + html + '</div>';
+			return html;
+		};
+
+		function save (textarea) {
+			var text = $(textarea).val();
 			var saved = addEntry('saved', text);
-			var output = '<p>' + text + '</p>';
-				output += '<a class="action instagramGradient gradientFont" onclick="bye(\'#saved' + saved + '\')">Remove</a>';
-				output += '<a class="action instagramGradient gradientFont" onclick="copy_div(\'#saved' + saved + ' p\')">Copy</a>';
-				output = '<div data-save-id=\'' + saved + '\' id="saved' + saved + '">' + output + '</div>';
+			var output = save_html (text, saved);
 			$('#saved').append(output);
-			$(element).select();
+			clear_all_state();
+			$(textarea).select();
 		};
 
 		function addEntry (obj, val) {
@@ -122,18 +130,36 @@
 			delete allEntries[id];
 			localStorage.setItem(obj, JSON.stringify(allEntries));
 		};
-
 		
-		function bye (id) {
-			removeEntry ('saved', id - 1);
-			var selector = '*[data-save-id="' + id + '"]';
-			$(selector).remove();
-		};
-		// function bye (element) {
-		// 	var id = element.split('#saved')[1] - 1;
-		// 	removeEntry ('saved', id);
-		// 	$(element).remove();
+		// function bye (id) {
+		// 	removeEntry ('saved', id - 1);
+		// 	var selector = '*[data-save-id="' + id + '"]';
+		// 	$(selector).remove();
 		// };
+		function bye (element) {
+			var id = element.split('#saved')[1] - 1;
+			removeEntry ('saved', id);
+			$(element).remove();
+			clear_all_state();
+		};
+
+		function clear_saved () {
+			$('#saved div').remove();
+			localStorage.clear('saved');
+		};
+
+		function clear_all_state () {
+			var saved = $('#saved div').length;
+			if (saved == 1) {
+				$('#saved .clear').addClass('show_clear');
+				$('#saved .clear').addClass('disabled');
+			} else if (saved > 1) {
+				$('#saved .clear').addClass('show_clear');
+				$('#saved .clear').removeClass('disabled');
+			} else {
+				$('#saved .clear').removeClass('show_clear');
+			};
+		}
 	</script>
 </body>
 </html>
