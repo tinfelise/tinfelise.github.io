@@ -160,7 +160,22 @@
 			} else {
 				$('#saved .clear').removeClass('show_clear');
 			};
-		}
+		};
+
+		function add_from_local () {
+			var allEntries = JSON.parse(localStorage.getItem('saved')) || [];
+			for (i in allEntries) {
+				var id = i;
+				var text = allEntries[i];
+				if (text) {
+					var output = save_html (text, id);
+					$('#saved').append(output);
+				};
+			};
+			clear_all_state();
+			$('textarea').select();
+		};
+		add_from_local();
 	</script>
 </body>
 </html>
