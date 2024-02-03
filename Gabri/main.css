@@ -357,7 +357,9 @@ main {
 	font-weight:600;
 	width:100%;
 }
-.cta:hover {}
+.cta:hover {
+	color: #fff;
+}
 .cta:active {
 	/*color:#009bff;*/
 	/*background-color: #fff;*/
