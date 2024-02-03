@@ -69,7 +69,8 @@
 		function count (element) {
 			var string = element.value
 			var characters = string.length;
-			var words = string.split(' ').filter(word => word.length > 0).length;
+			var whitespaces = /\s+/i;
+			var words = string.split(whitespaces).filter(word => word.length > 0).length;
 			$('#characters').html(characters);
 			$('#words').html(words);
 		};
