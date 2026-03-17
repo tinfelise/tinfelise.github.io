@@ -70,11 +70,6 @@ function removeEntry (obj, id) {
 	localStorage.setItem(obj, JSON.stringify(allEntries));
 };
 
-// function bye (id) {
-// 	removeEntry ('saved', id - 1);
-// 	var selector = '*[data-save-id="' + id + '"]';
-// 	$(selector).remove();
-// };
 function bye (element) {
 	var id = element.split('#saved')[1] - 1;
 	removeEntry ('saved', id);
